@@ -11,12 +11,16 @@ const App = () => {
     fetchData().then((res) => setInventory(res.data));
   }, []);
 
-  handleInput = (event, query) => {
-    const results = inventory.filter((shoe) =>
-      shoe.query.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-     setInventory(results);
-    console.log(results);
+  const handleInput = (i) => {
+    let res = [];
+    inventory.forEach((s) => s.title.toLowerCase().includes(i) && res.push(s));
+    inventory.forEach((s) => s.code.toLowerCase().includes(i) && res.push(s));
+    inventory.forEach((s) => s.brand.toLowerCase().includes(i) && res.push(s));
+    inventory.forEach((s) => s.colors.forEach((c) => c.toLowerCase().includes(i) && res.push(s)));
+    inventory.forEach((s) => s.size.includes(input) && res.push(s));
+    let final = [...new Set(res)];
+    setInventory(final)
+    
   };
 
   return (
