@@ -4,6 +4,7 @@ import "./RecentlyAdded.css";
 
 const RecentlyAdded = ({ inventory }) => {
   const [slide, setSlide] = useState(0);
+  
   const toBeDisplayed = inventory.map((shoe, index) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>
