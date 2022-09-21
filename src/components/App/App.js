@@ -7,6 +7,7 @@ import Login from "../Login/Login";
 import SearchBar from "../SearchBar/SearchBar";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import Closet from "../Closet/Closet";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
@@ -46,6 +47,14 @@ const App = () => {
         ? (closet = inventory.filter((shoe) => shoe.user === username))
         : console.log(false);
     });
+    setCloset(closet);
+  };
+
+  const updatePost = (post) => {
+    const filtered = inventory.filter((s) => s.id != post.id);
+    const closet2 = closet.filter((s) => s.id != post.id);
+    // setCloset([...closet2, post]);
+    setInventory([...filtered, post]);
   };
 
   return (
@@ -53,7 +62,11 @@ const App = () => {
       <NavBar />
       <SearchBar handleInput={handleInput} />
       <Switch>
-        <Route exact path="/:username/closet" render={() => <h1>closet</h1>} />
+        <Route
+          exact
+          path="/:username/closet"
+          render={() => <Closet closet={closet} update={updatePost} />}
+        />
         <Route
           exact
           path="/login"

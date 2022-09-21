@@ -4,7 +4,7 @@ import "./SearchContainer.css"
 
 const SearchContainer = ({ query }) => {
   const miniPosts = query.map((shoe) => (
-    <MiniPost title={shoe.title} image={shoe.url} size={shoe.size} key={shoe.id} className='test'/>
+    <MiniPost title={shoe.title} image={shoe.url} size={shoe.size} key={shoe.id} />
   ));
 
 
