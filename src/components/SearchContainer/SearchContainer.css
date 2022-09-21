@@ -1,0 +1,8 @@
+.SearchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-top: 30px; */
+  justify-content: center;
+  margin-bottom: 3em;
+}
+

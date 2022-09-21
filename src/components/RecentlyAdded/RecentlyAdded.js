@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MiniPost from "../MiniPost/MiniPost";
 import "./RecentlyAdded.css";
+import { Link } from "react-router-dom";
+
 
 const RecentlyAdded = ({ inventory }) => {
   const [slide, setSlide] = useState(0);
@@ -9,7 +11,12 @@ const RecentlyAdded = ({ inventory }) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
-          <MiniPost title={shoe.title} size={shoe.size} image={shoe.url} />
+          <MiniPost
+            title={shoe.title}
+            size={shoe.size}
+            image={shoe.url}
+       
+          />
         )}
       </div>
     );
@@ -24,15 +31,17 @@ const RecentlyAdded = ({ inventory }) => {
   };
 
   return (
-    <section className="slider">
-      <button className="left" onClick={prevSlide}>
-        LEFT
-      </button>
-      <button className="right" onClick={nextSlide}>
-        RIGHT
-      </button>
-      {toBeDisplayed}
-    </section>
+    
+      <section className="slider">
+        <button className="left" onClick={prevSlide}>
+          LEFT
+        </button>
+        <button className="right" onClick={nextSlide}>
+          RIGHT
+        </button>
+        {toBeDisplayed}
+      </section>
+    // </Link>
   );
 };
 

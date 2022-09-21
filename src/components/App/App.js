@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { fetchData } from "../apiCalls";
+import { fetchData } from "../../apiCalls";
 import RecentlyAdded from "../RecentlyAdded/RecentlyAdded";
-import SearchBar from "../SearchBar/SearchBar";
 import SearchContainer from "../SearchContainer/SearchContainer";
+import NavBar from "../NavBar/NavBar";
+import Login from "../Login/Login";
+import SearchBar from "../SearchBar/SearchBar";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
+  const [users, setUsers] = useState([]);
   const [search, setSearch] = useState();
+  const [closet, setCloset] = useState([]);
 
   useEffect(() => {
-    fetchData().then((res) => setInventory(res.data));
+    fetchData("/").then((res) => setInventory(res.data));
+    fetchData("/api/users").then((res) => setUsers(res.data));
   }, []);
 
   const handleInput = (i) => {
@@ -30,16 +36,31 @@ const App = () => {
   const toBeDisplayed = search ? (
     <SearchContainer query={search} />
   ) : (
-    <div>
-      <RecentlyAdded inventory={inventory} />
-    </div>
+    <RecentlyAdded inventory={inventory} />
   );
+
+  const checkLogin = (username, password) => {
+    let closet = [];
+    users.find((user) => {
+      username === user.username && user.password === password
+        ? (closet = inventory.filter((shoe) => shoe.user === username))
+        : console.log(false);
+    });
+  };
 
   return (
     <main>
-      {/* <h1>DEADSTOCK</h1> */}
+      <NavBar />
       <SearchBar handleInput={handleInput} />
-      {toBeDisplayed}
+      <Switch>
+        <Route exact path="/:username/closet" render={() => <h1>closet</h1>} />
+        <Route
+          exact
+          path="/login"
+          render={() => <Login checkLogin={checkLogin} />}
+        />
+        <Route exact path="/" render={() => toBeDisplayed} />
+      </Switch>
     </main>
   );
 };
