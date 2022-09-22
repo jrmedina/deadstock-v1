@@ -1,6 +1,9 @@
 .LargePost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: black solid 3px;
-  height: 19em;
+  height: 21em;
   width: 18em;
   margin: 3%;
 }
@@ -12,4 +15,10 @@
 
 p {
   margin: 0%;
+}
+
+.edit {
+  width: 2em;
+  border: black solid 1px;
+  background-color: white;
 }

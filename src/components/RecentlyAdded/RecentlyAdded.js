@@ -32,16 +32,18 @@ const RecentlyAdded = ({ inventory }) => {
   };
 
   return (
-    <section className="slider">
-      <button className="left" onClick={prevSlide}>
-        <IoMdArrowRoundBack />
-      </button>
-      <button className="right" onClick={nextSlide}>
-        <IoMdArrowRoundForward />
-      </button>
-      {toBeDisplayed}
-    </section>
-    // </Link>
+    <div className="recent">
+      <h3 className="added">recently added</h3>
+      <div className="slider">
+        <button className="left" onClick={prevSlide}>
+          <IoMdArrowRoundBack />
+        </button>
+        <button className="right" onClick={nextSlide}>
+          <IoMdArrowRoundForward />
+        </button>
+        {toBeDisplayed}
+      </div>
+    </div>
   );
 };
 

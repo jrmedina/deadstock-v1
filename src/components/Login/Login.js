@@ -5,7 +5,7 @@ import "./Login.css";
 const Login = ({ checkLogin }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
+  
   const check = () => {
     checkLogin(username, password);
   };
@@ -20,7 +20,7 @@ const Login = ({ checkLogin }) => {
         required
         onChange={(e) => setUsername(e.target.value)}
       />
-     
+
       <input
         className="password"
         type="text"

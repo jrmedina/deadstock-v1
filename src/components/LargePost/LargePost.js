@@ -11,21 +11,19 @@ const LargePost = ({
   id,
   brand,
   update,
-  user
+  user,
 }) => {
-
-
   const [form, setForm] = useState(true);
   const [post, setPost] = useState({
-    title: title ,
-    url:  url ,
-    size:  size ,
-    code:  code ,
-    release:  release ,
-    quantity:  quantity ,
-    id:  id ,
-    brand: brand ,
-    user: user
+    title: title,
+    url: url,
+    size: size,
+    code: code,
+    release: release,
+    quantity: quantity,
+    id: id,
+    brand: brand,
+    user: user,
   });
 
   const handleClick = (e) => {
@@ -43,18 +41,29 @@ const LargePost = ({
   const save = (e) => {
     e.preventDefault();
     update(post);
-
   };
+
+  const button = form ? (
+    <button id={id} onClick={handleClick}>
+      Edit
+    </button>
+  ) : (
+    <button id={id} onClick={save}>
+      Save
+    </button>
+  );
+
   return (
     <form className="LargePost">
       <img src={url} className="lgimage" alt={title} />
-      <h3 className="title">{title}</h3>
-      <p>Release:{release}</p>
+      <h4 className="title">{title}</h4>
+      <p>Release: {release}</p>
       <p> SKU: {code} </p>
-      <label>Size:</label>
+
+      <label>Size: </label>
       <input
         name="size"
-        className="size"
+        className="edit"
         placeholder={size}
         disabled={form}
         onChange={(e) => handleChange(e)}
@@ -64,20 +73,13 @@ const LargePost = ({
       <input
         type="text"
         name="quantity"
+        className="edit"
         placeholder={quantity}
         disabled={form}
         onChange={(e) => handleChange(e)}
       />
-       {form &&
-      <button id={id} onClick={handleClick}>
-        Edit
-      </button>
-}
-      {!form && (
-        <button id={id} onClick={save}>
-          Save
-        </button>
-      )}
+
+      {button}
     </form>
   );
 };

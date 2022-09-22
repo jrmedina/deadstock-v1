@@ -1,10 +1,8 @@
 import React from "react";
 import LargePost from "../LargePost/LargePost";
-import "./Closet.css"
+import "./Closet.css";
 
-const Closet = ({closet, update}) => {
-
-
+const Closet = ({ closet, update }) => {
   const largePosts = closet.map((shoe) => (
     <LargePost
       title={shoe.title}

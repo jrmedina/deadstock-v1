@@ -7,6 +7,20 @@ import { ImHome3 } from "react-icons/im";
 import "./NavBar.css";
 
 const NavBar = ({ user, handleInput }) => {
+const toBeDisplayed = user ? (
+  <Link to={`/${user}/closet`}>
+    <button className="nav">
+      <GiRunningShoe />
+    </button>
+  </Link>
+) : (
+  <Link to={`/login`}>
+    <button className="nav">
+      <MdLogin />
+    </button>
+  </Link>
+);
+  
   return (
     <div className="NavBar">
       <h1 className="header">DEADSTOCK</h1>
@@ -15,16 +29,12 @@ const NavBar = ({ user, handleInput }) => {
           <ImHome3 />
         </button>
       </Link>
-      <Link to={`/login`}>
+      <Link to={`/all`}>
         <button className="nav">
-          <MdLogin />
+          all
         </button>
       </Link>
-      <Link to={`/${user}/closet`}>
-        <button className="nav">
-          <GiRunningShoe />
-        </button>
-      </Link>
+      {toBeDisplayed}
 
       <Link to={"/"}>
         <nav className="search-box">

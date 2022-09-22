@@ -4,10 +4,11 @@ import RecentlyAdded from "../RecentlyAdded/RecentlyAdded";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import NavBar from "../NavBar/NavBar";
 import Login from "../Login/Login";
-
+import error from "../../assets/error.jpg"
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Closet from "../Closet/Closet";
+import ListView from "../ListView/ListView";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
@@ -52,15 +53,15 @@ const App = () => {
 
   const updatePost = (post) => {
     const filtered = inventory.filter((s) => s.id != post.id);
-    const closet2 = closet.filter((s) => s.id != post.id);
-    // setCloset([...closet2, post]);
+    // const closet2 = closet.filter((s) => s.id != post.id);
     setInventory([...filtered, post]);
+    console.log(inventory);
+    
   };
 
   return (
     <main>
       <NavBar user={closet.username} handleInput={handleInput} />
-      {/* <SearchBar handleInput={handleInput} /> */}
       <Switch>
         <Route
           exact
@@ -72,7 +73,14 @@ const App = () => {
           path="/login"
           render={() => <Login checkLogin={checkLogin} />}
         />
+        <Route exact path="/all" render={() => <ListView all={inventory} />} />
         <Route exact path="/" render={() => toBeDisplayed} />
+        <Route
+          path="*"
+          render={() => (
+            <img src= {error} alt="error"/>
+          )}
+        />
       </Switch>
     </main>
   );

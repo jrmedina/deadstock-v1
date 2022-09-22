@@ -1,6 +1,9 @@
+.recent {
+  width: 70%;
+}
+
 .slider {
   position: relative;
-  
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,17 +12,17 @@
 }
 
 .right {
-  right: 15%;
+  right: 5%;
 }
 
 .left {
-  left: 15%;
+  left: 5%;
 }
 
 .left,
 .right {
   position: absolute;
-  top:40%;
+  top: 40%;
   font-size: 3rem;
   z-index: 10;
   color: black;
@@ -27,7 +30,6 @@
   user-select: none;
   background: none;
   border: none;
-
 }
 
 .slide {
@@ -39,4 +41,10 @@
   opacity: 1;
   transition: duration 1s ease;
   transform: (1.08);
+}
+
+.added {
+  text-align: start;
+  margin-left: 10%;
+  margin-bottom: 0%;
 }
