@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import magnify from "../../assets/search.png";
-import { MdLogin } from "react-icons/md";
+import { MdLogin} from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
+import { BiRun } from "react-icons/bi";
 import "./NavBar.css";
 
-const NavBar = ({ user, handleInput }) => {
+const NavBar = ({ user, handleInput, logout }) => {
+  console.log(user);
+  
   const toBeDisplayed = user ? (
-    <Link to={`/${user}/closet`}>
-      <button className="nav">
-        <GiRunningShoe />
-      </button>
-    </Link>
+    <>
+      <Link to={`/${user}/closet`}>
+        <button className="nav">
+          <GiRunningShoe />
+        </button>
+      </Link>
+      <Link to={`/`}>
+        <button className="nav">
+          <BiRun onClick={logout} />
+        </button>
+      </Link>
+    </>
   ) : (
     <Link to={`/login`}>
       <button className="nav">
@@ -32,6 +42,7 @@ const NavBar = ({ user, handleInput }) => {
       <Link to={`/all`}>
         <button className="nav">all</button>
       </Link>
+
       {toBeDisplayed}
 
       <Link to={"/"}>

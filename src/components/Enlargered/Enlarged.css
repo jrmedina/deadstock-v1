@@ -1,9 +1,38 @@
 .Enlarged {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+}
+
+.elimage {
+  height: 26em;
+  width: 36em;
+  margin-right: 2em;
+}
+
+.elcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65%;
+  width: 100%;
+  margin: 5%;
 }
 
 
-.elimage{
-     height: 21em;
-  width: 30em;
+.eltitle {
+  text-align: center;
+}
+
+
+.details {
+  height: 100%;
+  width: 30%;
+  border: dotted 3px black;
+
+}
+
+.details p {
+  margin: 1em
 }

@@ -2,7 +2,7 @@ import React from "react";
 import MiniPost from "../MiniPost/MiniPost";
 import "./ListView.css";
 
-const ListView = ({ all,  }) => {
+const ListView = ({ all }) => {
   const miniPosts = all.map((shoe) => (
     <MiniPost
       title={shoe.title}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./UserPost.css";
-
+import { Link } from "react-router-dom";
 const UserPost = ({
   title,
   url,
@@ -12,8 +12,12 @@ const UserPost = ({
   brand,
   update,
   user,
+  deletePost,
 }) => {
+  console.log(deletePost);
+  
   const [form, setForm] = useState(true);
+  const [msg, setMsg] = useState("EDITING");
   const [post, setPost] = useState({
     title: title,
     url: url,
@@ -28,7 +32,7 @@ const UserPost = ({
 
   const handleClick = (e) => {
     e.preventDefault();
-    setForm(!form);
+    setForm(false);
   };
 
   const handleChange = (e) => {
@@ -41,6 +45,8 @@ const UserPost = ({
   const save = (e) => {
     e.preventDefault();
     update(post);
+    setForm(true);
+    setMsg("SAVED!");
   };
 
   const button = form ? (
@@ -80,6 +86,12 @@ const UserPost = ({
       />
 
       {button}
+      <Link to={`/`}>
+        <button id={id} onClick={(e) => deletePost(e.target.id)}>
+          Delete
+        </button>
+      </Link>
+      <p>{msg}</p>
     </form>
   );
 };

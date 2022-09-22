@@ -10,12 +10,13 @@ import "./App.css";
 import Closet from "../Closet/Closet";
 import ListView from "../ListView/ListView";
 import Enlarged from "../Enlargered/Enlarged";
+import CreatePost from "../CreatePost/CreatePost";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState();
-  const [closet, setCloset] = useState([]);
+  const [closet, setCloset] = useState({ username: "", closet: [] });
 
   useEffect(() => {
     fetchData("/").then((res) => setInventory(res.data));
@@ -36,10 +37,10 @@ const App = () => {
     setSearch(final);
   };
 
-  const toBeDisplayed = search ? (
-    <SearchContainer query={search}  />
+  const home = search ? (
+    <SearchContainer query={search} />
   ) : (
-    <RecentlyAdded inventory={inventory}  />
+    <RecentlyAdded inventory={inventory} />
   );
 
   const checkLogin = (username, password) => {
@@ -47,29 +48,60 @@ const App = () => {
     users.find((user) => {
       username === user.username && user.password === password
         ? (closet = inventory.filter((shoe) => shoe.user === username))
-        : console.log(false);
+        : console.log(false); //this will  need to be refactored to proper error handling
     });
     setCloset({ username: username, closet: closet });
   };
 
   const updatePost = (post) => {
-    const filtered = inventory.filter((s) => s.id != post.id);
+    const filtered = inventory.filter((s) => s.id !== post.id);
     setInventory([...filtered, post]);
+  };
+
+  const logout = () => {
+    setCloset([]);
+  };
+
+  const deletePost = (id) => {
+    const filtered = inventory.filter((s) => s.id !== id);
+    setInventory(filtered);
+    const filtered2 = closet.closet.filter((s) => s.id != id);
+    setCloset({ ...closet, closet: filtered2 });
+  };
+
+  const addPost = (newPost) => {
+    setInventory([...inventory, newPost]);
+    setCloset({ ...closet, closet: [...closet.closet, newPost] });
   };
 
   return (
     <main>
-      <NavBar user={closet.username} handleInput={handleInput} />
+      <NavBar
+        user={closet.username}
+        handleInput={handleInput}
+        logout={logout}
+      />
       <Switch>
         <Route
           exact
           path="/:username/closet"
-          render={() => <Closet closet={closet.closet} update={updatePost} />}
+          render={() => (
+            <Closet
+              deletePost={deletePost}
+              closet={closet.closet}
+              update={updatePost}
+            />
+          )}
         />
         <Route
           exact
           path="/login"
           render={() => <Login checkLogin={checkLogin} />}
+        />
+        <Route
+          exact
+          path="/createpost"
+          render={() => <CreatePost addPost={addPost} />}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
         <Route
@@ -82,7 +114,7 @@ const App = () => {
             return <Enlarged pair={pair} />;
           }}
         />
-        <Route exact path="/" render={() => toBeDisplayed} />
+        <Route exact path="/" render={() => home} />
         <Route path="*" render={() => <img src={error} alt="error" />} />
       </Switch>
     </main>

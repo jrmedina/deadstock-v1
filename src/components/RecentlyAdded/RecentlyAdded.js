@@ -4,9 +4,9 @@ import "./RecentlyAdded.css";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 const RecentlyAdded = ({ inventory }) => {
+  const recent = inventory.slice(-5).reverse()
   const [slide, setSlide] = useState(0);
-
-  const toBeDisplayed = inventory.map((shoe, index) => {
+  const toBeDisplayed = recent.map((shoe, index) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
@@ -23,8 +23,8 @@ const RecentlyAdded = ({ inventory }) => {
 
   const handleSlide = (e) => {
     e.target.id === "left"
-      ? setSlide(slide === inventory.length - 1 ? 0 : slide + 1)
-      : setSlide(slide === 0 ? inventory.length - 1 : slide - 1);
+      ? setSlide(slide === recent.length - 1 ? 0 : slide + 1)
+      : setSlide(slide === 0 ? recent.length - 1 : slide - 1);
   };
 
   return (
