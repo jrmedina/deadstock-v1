@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import "./Login.css";
 
 const Login = ({ checkLogin }) => {
   const [username, setUsername] = useState();
@@ -11,8 +11,8 @@ const Login = ({ checkLogin }) => {
   };
 
   return (
-    <div>
-      <h3>Username:</h3>
+    <div className="Login">
+      <h1>Log in</h1>
       <input
         className="username"
         type="text"
@@ -20,7 +20,7 @@ const Login = ({ checkLogin }) => {
         required
         onChange={(e) => setUsername(e.target.value)}
       />
-      <h3>Password:</h3>
+     
       <input
         className="password"
         type="text"
@@ -28,10 +28,10 @@ const Login = ({ checkLogin }) => {
         required
         onChange={(e) => setPassword(e.target.value)}
       />
-       <Link to={`/${username}/closet`}>
-      <button type="button" onClick={check}>
-        Login
-      </button>
+      <Link to={`/${username}/closet`}>
+        <button type="button" onClick={check}>
+          Log in
+        </button>
       </Link>
     </div>
   );

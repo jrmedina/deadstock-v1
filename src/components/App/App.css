@@ -1,18 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
 main {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   
+      font-family: 'Montserrat', sans-serif;
     height: 95vh;
     text-align: center;
-    /* align-items: center; */
+    align-items: center;
     overflow: none;
 }
-h1 {
-    font-size: 4em;
-    margin: 2%;
-}
+

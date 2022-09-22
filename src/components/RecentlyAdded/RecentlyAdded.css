@@ -1,7 +1,6 @@
-
 .slider {
   position: relative;
-  height: 80%;
+  
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,36 +9,34 @@
 }
 
 .right {
-  position: absolute;
-  top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: black;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
+  right: 15%;
 }
 
 .left {
+  left: 15%;
+}
+
+.left,
+.right {
   position: absolute;
-  top: 50%;
-  left: 32px;
+  top:40%;
   font-size: 3rem;
   z-index: 10;
   color: black;
   cursor: pointer;
   user-select: none;
+  background: none;
+  border: none;
+
 }
 
 .slide {
-    opacity: 0;
-    transition: duration 1s ease;
-    
+  opacity: 0;
+  transition: duration 1s ease;
 }
 
 .slide.active {
-    opacity: 1;
-    transition: duration 1s ease;
-    transform: (1.08);
-    
+  opacity: 1;
+  transition: duration 1s ease;
+  transform: (1.08);
 }
