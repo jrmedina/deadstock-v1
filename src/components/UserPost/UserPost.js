@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./LargePost.css";
+import "./UserPost.css";
 
-const LargePost = ({
+const UserPost = ({
   title,
   url,
   size,
@@ -54,7 +54,7 @@ const LargePost = ({
   );
 
   return (
-    <form className="LargePost">
+    <form className="UserPost">
       <img src={url} className="lgimage" alt={title} />
       <h4 className="title">{title}</h4>
       <p>Release: {release}</p>
@@ -84,4 +84,4 @@ const LargePost = ({
   );
 };
 
-export default LargePost;
+export default UserPost;

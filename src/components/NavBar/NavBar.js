@@ -7,20 +7,20 @@ import { ImHome3 } from "react-icons/im";
 import "./NavBar.css";
 
 const NavBar = ({ user, handleInput }) => {
-const toBeDisplayed = user ? (
-  <Link to={`/${user}/closet`}>
-    <button className="nav">
-      <GiRunningShoe />
-    </button>
-  </Link>
-) : (
-  <Link to={`/login`}>
-    <button className="nav">
-      <MdLogin />
-    </button>
-  </Link>
-);
-  
+  const toBeDisplayed = user ? (
+    <Link to={`/${user}/closet`}>
+      <button className="nav">
+        <GiRunningShoe />
+      </button>
+    </Link>
+  ) : (
+    <Link to={`/login`}>
+      <button className="nav">
+        <MdLogin />
+      </button>
+    </Link>
+  );
+
   return (
     <div className="NavBar">
       <h1 className="header">DEADSTOCK</h1>
@@ -30,9 +30,7 @@ const toBeDisplayed = user ? (
         </button>
       </Link>
       <Link to={`/all`}>
-        <button className="nav">
-          all
-        </button>
+        <button className="nav">all</button>
       </Link>
       {toBeDisplayed}
 

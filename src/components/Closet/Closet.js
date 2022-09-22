@@ -1,5 +1,5 @@
 import React from "react";
-import LargePost from "../LargePost/LargePost";
+import LargePost from "../UserPost/UserPost";
 import "./Closet.css";
 
 const Closet = ({ closet, update }) => {

@@ -1,12 +1,12 @@
 import React from "react";
 import "./MiniPost.css";
-
-const MiniPost = ({ title, image, size }) => {
-
-
+import { Link } from "react-router-dom";
+const MiniPost = ({ title, image, size, id, enlarge }) => {
   return (
     <div className="MiniPost">
-      <img src={image} className="image" alt={title} />
+      <Link to={`/${id}`}>
+        <img src={image} className="image" alt={title} onClick={enlarge} />
+      </Link>
       <h3 className="title">{title}</h3>
       <h4 className="miniSize">Size: {size}</h4>
     </div>

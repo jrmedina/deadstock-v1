@@ -5,7 +5,7 @@ import "./Login.css";
 const Login = ({ checkLogin }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  
+
   const check = () => {
     checkLogin(username, password);
   };
