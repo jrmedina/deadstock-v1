@@ -1,0 +1,42 @@
+.slider {
+  position: relative;
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  align-items: center;
+}
+
+.right {
+  right: 15%;
+}
+
+.left {
+  left: 15%;
+}
+
+.left,
+.right {
+  position: absolute;
+  top:40%;
+  font-size: 3rem;
+  z-index: 10;
+  color: black;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+
+}
+
+.slide {
+  opacity: 0;
+  transition: duration 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition: duration 1s ease;
+  transform: (1.08);
+}

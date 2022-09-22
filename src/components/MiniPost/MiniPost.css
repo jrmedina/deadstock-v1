@@ -1,7 +1,7 @@
 .MiniPost {
-  /* border: solid 2px red; */
-  height: 25em;
-  width: 36em;
+  height: 21em;
+  width: 30em;
+  margin: 3%;
 }
 
 .image {
