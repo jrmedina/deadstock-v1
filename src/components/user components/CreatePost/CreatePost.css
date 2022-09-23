@@ -1,0 +1,19 @@
+.CreatePost {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+}
+.postForm {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-self: flex-start;
+  border: 3px dashed;
+  height: 100%;
+}
+.newPost {
+  border: 3px dashed green;
+  width: 17em;
+}

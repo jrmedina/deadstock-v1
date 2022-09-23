@@ -1,16 +1,16 @@
 .MiniPost {
-  height: 21em;
-  width: 30em;
+  height: 25em;
+  width: 34em;
   margin: 3%;
 }
 
 .image {
-  width: 100%;
-  height: 80%;
+  width: 90%;
+  height: 70%;
 }
 
 .title,
-.size {
+.miniSize {
   margin: 0%;
   text-align: center;
 }

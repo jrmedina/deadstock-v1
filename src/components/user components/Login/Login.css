@@ -1,0 +1,20 @@
+.Login {
+  margin-top: 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black dashed 4px;
+  width: 25%;
+  height: 30%;
+}
+
+h1 {
+  margin: 3%;
+}
+.username,
+.password {
+  width: 75%;
+  height: 12%;
+  margin: 3%;
+  background-color: white;
+}
