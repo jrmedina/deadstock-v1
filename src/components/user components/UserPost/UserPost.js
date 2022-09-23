@@ -15,7 +15,7 @@ const UserPost = ({
   deletePost,
 }) => {
   console.log(deletePost);
-  
+
   const [form, setForm] = useState(true);
   const [msg, setMsg] = useState("EDITING");
   const [post, setPost] = useState({

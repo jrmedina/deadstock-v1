@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MiniPost = ({ title, image, size, id, enlarge }) => {
   return (
     <div className="MiniPost">
-      <Link to={`/${id}`}>
+      <Link to={`/inventory/${id}`}>
         <img src={image} className="image" alt={title} onClick={enlarge} />
       </Link>
       <h3 className="title">{title}</h3>

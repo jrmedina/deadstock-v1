@@ -20,19 +20,16 @@
   margin: 5%;
 }
 
-
 .eltitle {
   text-align: center;
 }
-
 
 .details {
   height: 100%;
   width: 30%;
   border: dotted 3px black;
-
 }
 
 .details p {
-  margin: 1em
+  margin: 1em;
 }

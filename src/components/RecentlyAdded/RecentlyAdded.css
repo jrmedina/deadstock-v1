@@ -34,13 +34,13 @@
 
 .slide {
   opacity: 0;
-  transition: duration 1s ease;
+  transition: duration 2s ease;
 }
 
 .slide.active {
-  opacity: 1;
-  transition: duration 1s ease;
-  transform: (1.08);
+  opacity: 7;
+  transition: duration 2s ease;
+  transform: (2.08);
 }
 
 .added {

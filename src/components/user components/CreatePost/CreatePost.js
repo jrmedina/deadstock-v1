@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import "./CreatePost.css";
-import Enlarged from "../Enlargered/Enlarged";
+import Enlarged from "../../Enlarged/Enlarged";
 
 const CreatePost = ({ addPost }) => {
-  //   const [selectedImage, setSelectedImage] = useState();
   const [newPost, setPost] = useState({});
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...newPost, [name]: value });
   };
-
   const onImageChange = (event) => {
     const { name, files } = event.target;
     if (files && files[0]) {
@@ -25,7 +22,7 @@ const CreatePost = ({ addPost }) => {
 
   return (
     <div className="CreatePost">
-      <div className="postForm">
+      <form className="postForm">
         <h2>CREATE A POST</h2>
         <input type="file" name="url" onChange={onImageChange} />
         <label>TITLE:</label>
@@ -108,7 +105,10 @@ const CreatePost = ({ addPost }) => {
           }}
           required
         />
-      </div>
+        <button type="submit" onClick={save}>
+          SAVE
+        </button>
+      </form>
 
       <div className="newPost">
         <img src={newPost.url} width={"250px"} />
@@ -120,9 +120,6 @@ const CreatePost = ({ addPost }) => {
         <p>PRICE: {newPost.price}</p>
         <p>QUANTITY: {newPost.quantity}</p>
         <p>COLOR: {newPost.colors}</p>
-        <button type="submit" onClick={save}>
-          SAVE
-        </button>
       </div>
     </div>
   );

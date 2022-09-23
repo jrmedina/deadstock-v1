@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { fetchData } from "../../apiCalls";
-import RecentlyAdded from "../RecentlyAdded/RecentlyAdded";
+import CreatePost from "../user components/CreatePost/CreatePost";
 import SearchContainer from "../SearchContainer/SearchContainer";
-import NavBar from "../NavBar/NavBar";
-import Login from "../Login/Login";
-import error from "../../assets/error.jpg";
+import RecentlyAdded from "../RecentlyAdded/RecentlyAdded";
+import Closet from "../user components/Closet/Closet";
+import React, { useState, useEffect } from "react";
+import Login from "../user components/Login/Login";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
-import Closet from "../Closet/Closet";
+import Enlarged from "../Enlarged/Enlarged";
 import ListView from "../ListView/ListView";
-import Enlarged from "../Enlargered/Enlarged";
-import CreatePost from "../CreatePost/CreatePost";
+import { fetchData } from "../../apiCalls";
+import NavBar from "../NavBar/NavBar";
+import Error from "../Error/Error";
+import "./App.css";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState();
-  const [closet, setCloset] = useState({ username: "", closet: [] });
+  const [closet, setCloset] = useState({});
 
   useEffect(() => {
     fetchData("/").then((res) => setInventory(res.data));
@@ -71,7 +71,13 @@ const App = () => {
 
   const addPost = (newPost) => {
     setInventory([...inventory, newPost]);
-    setCloset({ ...closet, closet: [...closet.closet, newPost] });
+    setCloset({
+      ...closet,
+      closet: [
+        ...closet.closet,
+        { ...newPost, id: Date.now(), user: closet.username },
+      ],
+    });
   };
 
   return (
@@ -104,18 +110,18 @@ const App = () => {
           render={() => <CreatePost addPost={addPost} />}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
-        <Route
+        {/* <Route
           exact
-          path="/:id"
+          path="/inventory/:id"
           render={({ match }) => {
             const pair = inventory.find(
               (s) => s.id === parseInt(match.params.id)
             );
             return <Enlarged pair={pair} />;
           }}
-        />
+        /> */}
         <Route exact path="/" render={() => home} />
-        <Route path="*" render={() => <img src={error} alt="error" />} />
+        <Route path="*" render={() => <Error />} />
       </Switch>
     </main>
   );

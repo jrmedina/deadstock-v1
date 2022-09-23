@@ -4,7 +4,6 @@ import "./Enlarged.css";
 const Enlarged = ({ pair }) => {
   const { title, release, size, colors, quantity, user, url, brand, code } =
     pair;
-  const text = "it worked!";
 
   return (
     <div className="Enlarged">
@@ -21,9 +20,9 @@ const Enlarged = ({ pair }) => {
           <p>SKU: {code}</p>
           <p>Seller: {user}</p>
           <p>Price: $123 USD</p>
-          <button onClick={navigator.clipboard.writeText(text)}>
+          {/* <button onClick={navigator.clipboard.writeText(text)}>
           Click to copy offer
-      </button> 
+      </button>  */}
         </div>
       </div>
     </div>

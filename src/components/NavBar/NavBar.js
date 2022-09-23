@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import magnify from "../../assets/search.png";
-import { MdLogin} from "react-icons/md";
+import { MdLogin } from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
@@ -9,7 +9,7 @@ import "./NavBar.css";
 
 const NavBar = ({ user, handleInput, logout }) => {
   console.log(user);
-  
+
   const toBeDisplayed = user ? (
     <>
       <Link to={`/${user}/closet`}>
@@ -34,17 +34,18 @@ const NavBar = ({ user, handleInput, logout }) => {
   return (
     <div className="NavBar">
       <h1 className="header">DEADSTOCK</h1>
-      <Link to={`/`}>
-        <button className="nav">
-          <ImHome3 />
-        </button>
-      </Link>
-      <Link to={`/all`}>
-        <button className="nav">all</button>
-      </Link>
+      <div className="constant">
+        <Link to={`/`}>
+          <button className="nav">
+            <ImHome3 />
+          </button>
+        </Link>
+        <Link to={`/all`}>
+          <button className="nav">all</button>
+        </Link>
 
-      {toBeDisplayed}
-
+        {toBeDisplayed}
+      </div>
       <Link to={"/"}>
         <nav className="search-box">
           <input
