@@ -4,6 +4,8 @@ import "./Closet.css";
 import { Link } from "react-router-dom";
 
 const Closet = ({ closet, update, deletePost }) => {
+  console.log(closet);
+  
   const toBeDisplayed = closet.length ? (
     closet.map((shoe) => (
       <UserPost
@@ -19,6 +21,8 @@ const Closet = ({ closet, update, deletePost }) => {
         update={update}
         user={shoe.user}
         deletePost={deletePost}
+        price={shoe.price}
+        colors={shoe.colors}
       />
     ))
   ) : (
@@ -27,10 +31,9 @@ const Closet = ({ closet, update, deletePost }) => {
   return (
     <div className="Closet">
       <Link to={`/createpost`}>
-        <button>add shoes</button>
+        <button className="add-btn">Add To Closet</button>
       </Link>
-
-      {toBeDisplayed}
+      <div className="closet-container">{toBeDisplayed}</div>
     </div>
   );
 };

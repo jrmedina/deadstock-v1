@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CreatePost.css";
-import Enlarged from "../../Enlarged/Enlarged";
+
 
 const CreatePost = ({ addPost }) => {
   const [newPost, setPost] = useState({});
@@ -38,7 +38,8 @@ const CreatePost = ({ addPost }) => {
         <label>SIZE:</label>
         <input
           name="size"
-          type="text"
+          type="number"
+          step=".5"
           placeholder="Size"
           onChange={(e) => {
             handleChange(e);
@@ -48,7 +49,7 @@ const CreatePost = ({ addPost }) => {
         <label>RELEASE:</label>
         <input
           name="release"
-          type="text"
+          type="date"
           placeholder="Release"
           onChange={(e) => {
             handleChange(e);
@@ -88,7 +89,7 @@ const CreatePost = ({ addPost }) => {
         <label>QUANTITY:</label>
         <input
           name="quantity"
-          type="text"
+          type="number"
           placeholder="Quantity"
           onChange={(e) => {
             handleChange(e);
@@ -105,13 +106,13 @@ const CreatePost = ({ addPost }) => {
           }}
           required
         />
-        <button type="submit" onClick={save}>
+        <button className="save-btn" type="button" onClick={save}>
           SAVE
         </button>
       </form>
 
       <div className="newPost">
-        <img src={newPost.url} width={"250px"} />
+        <img src={newPost.url} width={"250px"} alt={newPost.title} />
         <p>TITLE: {newPost.title}</p>
         <p>SIZE: {newPost.size}</p>
         <p>RELEASE: {newPost.release}</p>
@@ -127,24 +128,3 @@ const CreatePost = ({ addPost }) => {
 
 export default CreatePost;
 
-//  {
-//    selectedImage && (
-//      <div>
-//        <img
-//          alt="your image"
-//          width={"250px"}
-//          src={URL.createObjectURL(selectedImage)}
-//        />
-//        <br />
-//        <button onClick={() => setSelectedImage()}>Remove</button>
-//      </div>
-//    );
-//  }
-//  <input
-//    type="file"
-//    name="myImage"
-//    onChange={(event) => {
-//      console.log(event.target.files[0]);
-//      setSelectedImage(event.target.files[0]);
-//    }}
-//  />;

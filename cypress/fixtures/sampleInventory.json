@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "title": "Union x Air Jordan 1 Black Toe",
+      "release": "11/17/2018",
+      "colors": ["WHITE", "BLACK-VARSITY", "RED", "WOLF GREY"],
+      "brand": "Jordan",
+      "size": ["9.5"],
+      "quantity": 1,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/016/246/685/original/466842_01.jpg.jpeg?action=crop&width=950",
+      "code": "BV1300-106",
+      "user": "deadstockuser1",
+      "id": 1
+    },
+
+    {
+      "title": "NikeCraft General Purpose Shoe",
+      "release": "09/02/2022",
+      "colors": ["DARK SULFUR", "WHITE-LIGHT", "CREAM"],
+      "brand": "Nike",
+      "size": ["7"],
+      "quantity": 2,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/077/642/737/original/981386_01.jpg.jpeg?action=crop&width=950",
+      "code": "DA6672-700",
+      "user": "deadstockuser",
+      "id": 2
+    },
+
+    {
+      "title": "Nike Air Force 1 Low x Off-White Brooklyn",
+      "release": "09/02/2022",
+      "colors": ["LIGHT GREEN SPARK", "METALLIC SILVER"],
+      "brand": "Nike",
+      "size": ["11"],
+      "quantity": 1,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/073/720/052/original/935629_01.jpg.jpeg?action=crop&width=2000",
+      "code": "DX1419-300",
+      "user": "deadstockuser",
+      "id": 3
+    },
+
+    {
+      "title": "Nike Dunk Low x Union Passport Pack Argon",
+      "release": "04/02/2022",
+      "colors": ["LIGHT BLUE", "ARGON", "WHITE"],
+      "brand": "Nike",
+      "size": ["10"],
+      "quantity": 1,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/066/733/594/original/860439_01.jpg.jpeg?action=crop&width=3000",
+      "code": "DJ9649-400",
+      "user": "deadstockuser",
+      "id": 4
+    },
+
+    {
+      "title": "Nike Dunk Low World Champ",
+      "release": "09/02/2022",
+      "colors": ["White", "Metallic Gold", "Black"],
+      "brand": "Nike",
+      "size": ["6.5"],
+      "quantity": 1,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/075/378/077/original/981526_01.jpg.jpeg?action=crop&width=2000",
+      "code": "DR9511 100",
+      "user": "deadstockuser",
+      "id": 5
+    }
+    
+  ]
+}

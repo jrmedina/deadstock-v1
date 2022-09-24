@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   border: black solid 3px;
-  height: 21em;
+  height: 23em;
   width: 18em;
   margin: 3%;
 }
 
 .lgimage {
   width: 100%;
-  height: 60%;
+  height: 50%;
 }
 
 p {
@@ -18,7 +18,48 @@ p {
 }
 
 .edit {
-  width: 2em;
+  width: 4em;
   border: black solid 1px;
   background-color: white;
+}
+.edit-btn, .delete-btn {
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+}
+.edit-btn:hover {
+  background-color:green;
+  color: #fff;
+}
+.delete-btn {
+  border-color:crimson;
+
+}
+.btn-container {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.delete-btn:hover {
+  background-color:crimson;
+  color: #fff;
+}
+
+
+.edit-container {
+  display: flex;
+    width: 100%;
+  justify-content: space-between;
 }

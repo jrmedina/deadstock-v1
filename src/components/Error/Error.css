@@ -1,20 +1,5 @@
-@keyframes spinning {
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.spin {
-  animation-name: spinning;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  width: 90%;
-}
 
 .home-button {
   background-color: black;
