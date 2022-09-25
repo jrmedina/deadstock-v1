@@ -19,8 +19,8 @@ const App = () => {
   const [closet, setCloset] = useState({});
 
   useEffect(() => {
-    fetchData("inventory").then((res) => setInventory(res.data));
-    fetchData("users").then((res) => setUsers(res.data));
+    fetchData("/inventory").then((res) => setInventory(res.data));
+    fetchData("/users").then((res) => setUsers(res.data));
   }, []);
 
   const handleSearch = (input) => {
