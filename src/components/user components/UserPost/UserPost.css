@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   border: black solid 3px;
-  height: 23em;
+  height: 24em;
   width: 18em;
   margin: 3%;
 }
@@ -11,6 +11,8 @@
 .lgimage {
   width: 100%;
   height: 50%;
+  margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 p {

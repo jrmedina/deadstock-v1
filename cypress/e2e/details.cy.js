@@ -25,7 +25,7 @@ describe("App", () => {
   });
 
   it("should have a way to send offer", () => {
-    cy.get("h4").should("contain", "Interested? Let's send dsJosh a email");
+    cy.get("h4").should("contain", "Interested? Let's send dsJosh an email");
     cy.get(".copy-btn").click();
     cy.window()
     .then((win) => {
