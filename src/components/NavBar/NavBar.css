@@ -2,15 +2,30 @@
   font-family: Imported;
   src: url(../../assets/HKechibi.otf);
 }
-.NavBar {
-  width: 100%;
-}
+
 .header {
   font-size: 4em;
   margin: 0.5%;
   font-family: Imported;
   letter-spacing: 0.09em;
   font-size: 7em;
+  color: black;
+}
+.input {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.input::placeholder {
+  color: black;
 }
 
 .nav {
@@ -27,6 +42,9 @@
 }
 .nav:hover {
   color: green;
+}
+.NavBar {
+  width: 100%;
 }
 
 .search-box {
@@ -46,35 +64,4 @@
 
 .search-box:hover > .magnify {
   display: none;
-}
-
-.magnify {
-  float: right;
-  width: 20px;
-  height: 20px;
-  border-radius: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.input {
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: black;
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 40px;
-  width: 0px;
-}
-
-.input::placeholder {
-  color: black;
-}
-
-.logo {
-  width: 120px;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./UserPost.css";
+import PropTypes from "prop-types";
 
 const UserPost = ({
   title,
@@ -14,7 +15,7 @@ const UserPost = ({
   update,
   user,
   deletePost,
-  price
+  price,
 }) => {
   const [lock, setLock] = useState(true);
   const [msg, setMsg] = useState("");
@@ -106,3 +107,18 @@ const UserPost = ({
 };
 
 export default UserPost;
+
+UserPost.propTypes = {
+  brand: PropTypes.string,
+  code: PropTypes.string,
+  colors: PropTypes.array,
+  contact: PropTypes.string,
+  id: PropTypes.number,
+  release: PropTypes.string,
+  size: PropTypes.number,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  user: PropTypes.string,
+  deletePost: PropTypes.func,
+  update: PropTypes.func,
+}.isRequired;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./CreatePost.css";
 
 const CreatePost = ({ addPost }) => {
-
   const [newPost, setPost] = useState({});
-    const [msg, setMsg] = useState(false);
+  const [msg, setMsg] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...newPost, [name]: value });
@@ -18,7 +18,7 @@ const CreatePost = ({ addPost }) => {
   };
 
   const save = () => {
-    setMsg(true)
+    setMsg(true);
     addPost(newPost);
   };
 
@@ -27,11 +27,11 @@ const CreatePost = ({ addPost }) => {
       <form className="postForm">
         <h2>CREATE A POST</h2>
         <input type="file" name="url" onChange={onImageChange} />
-        <label>TITLE:</label>
+        <label>NAME:</label>
         <input
           name="title"
           type="text"
-          placeholder="Name of shoe"
+          placeholder="Name"
           onChange={(e) => {
             handleChange(e);
           }}
@@ -72,7 +72,7 @@ const CreatePost = ({ addPost }) => {
         <input
           name="code"
           type="text"
-          placeholder="sku"
+          placeholder="SKU"
           onChange={(e) => {
             handleChange(e);
           }}
@@ -82,7 +82,7 @@ const CreatePost = ({ addPost }) => {
         <input
           name="price"
           type="text"
-          placeholder="PRICE"
+          placeholder="Price"
           onChange={(e) => {
             handleChange(e);
           }}
@@ -130,3 +130,7 @@ const CreatePost = ({ addPost }) => {
 };
 
 export default CreatePost;
+
+CreatePost.propTypes = {
+  addPost: PropTypes.func.isRequired,
+};

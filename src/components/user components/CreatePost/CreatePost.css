@@ -5,21 +5,8 @@
   width: 100%;
   justify-content: space-around;
 }
-.postForm {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  justify-self: flex-start;
-  border: 3px dashed;
-  height: 100%;
-}
-.newPost {
-  border: 3px dashed green;
-  width: 17em;
-}
 
 .save-btn {
-
   display: inline-block;
   outline: 0;
   text-align: center;
@@ -41,8 +28,28 @@
   color: #fff;
 }
 
-.save-msg{
+.save-msg {
   color: green;
-   margin: 0%;
+  margin: 0%;
 }
 
+.newPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 3px dashed green;
+  width: 17em;
+}
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 3px dashed;
+  height: 100%;
+}
+
+.postForm input {
+  width: 70%;
+}

@@ -1,5 +1,14 @@
+.error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-
+.errorMessage {
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 5%;
+}
 
 .home-button {
   background-color: black;
@@ -13,15 +22,4 @@
   color: rgba(245, 245, 245, 0.9);
   font-size: 20px;
   letter-spacing: 0.15rem;
-}
-.error {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.errorMessage {
-  font-size: 2em;
-  color: rgba(0, 0, 0, 0.7);
-  margin: 5%;
 }

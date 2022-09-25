@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
 import "./SearchContainer.css";
 
@@ -25,3 +26,7 @@ const SearchContainer = ({ query }) => {
 };
 
 export default SearchContainer;
+
+SearchContainer.propTypes = {
+  query: PropTypes.array.isRequired,
+};

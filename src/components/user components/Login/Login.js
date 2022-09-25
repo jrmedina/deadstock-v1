@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import "./Login.css";
 
 const Login = ({ checkLogin }) => {
@@ -29,7 +31,7 @@ const Login = ({ checkLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-        <button className="login-btn"type="button" onClick={check}>
+        <button className="login-btn" type="button" onClick={check}>
           Log in
         </button>
       </Link>
@@ -38,3 +40,7 @@ const Login = ({ checkLogin }) => {
 };
 
 export default Login;
+
+Login.propTypes = {
+  checkLogin: PropTypes.func.isRequired,
+};

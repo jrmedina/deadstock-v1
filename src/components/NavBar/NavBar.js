@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { MdLogin } from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
@@ -55,7 +56,6 @@ const NavBar = ({ user, handleInput, logout }) => {
           />
 
           <FaSearchengin />
-     
         </nav>
       </Link>
     </div>
@@ -63,3 +63,9 @@ const NavBar = ({ user, handleInput, logout }) => {
 };
 
 export default NavBar;
+
+NavBar.propTypes = {
+  user: PropTypes.string,
+  handleInput: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+};

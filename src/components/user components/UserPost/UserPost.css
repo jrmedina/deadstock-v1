@@ -1,22 +1,14 @@
-.UserPost {
+.btn-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: black solid 3px;
-  height: 24em;
-  width: 18em;
-  margin: 3%;
+  width: 50%;
+  justify-content: space-between;
+  margin-top: 1em;
 }
 
-.lgimage {
+.edit-container {
+  display: flex;
   width: 100%;
-  height: 50%;
-  margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-p {
-  margin: 0%;
+  justify-content: space-between;
 }
 
 .edit {
@@ -24,7 +16,8 @@ p {
   border: black solid 1px;
   background-color: white;
 }
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   display: inline-block;
   outline: 0;
   text-align: center;
@@ -40,28 +33,34 @@ p {
   transition: background, color 0.2s ease-in-out;
 }
 .edit-btn:hover {
-  background-color:green;
+  background-color: green;
   color: #fff;
 }
 .delete-btn {
-  border-color:crimson;
-
-}
-.btn-container {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  margin-top: 1em;
+  border-color: crimson;
 }
 
 .delete-btn:hover {
-  background-color:crimson;
+  background-color: crimson;
   color: #fff;
 }
+.lgimage {
+  width: 100%;
+  height: 50%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 
-
-.edit-container {
+.UserPost {
   display: flex;
-    width: 100%;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  border: black solid 3px;
+  height: 24em;
+  width: 18em;
+  margin: 3%;
+}
+
+p {
+  margin: 0%;
 }

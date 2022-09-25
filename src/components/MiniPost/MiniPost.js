@@ -1,6 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./MiniPost.css";
 import { Link } from "react-router-dom";
+
+
 const MiniPost = ({ title, image, size, id, enlarge }) => {
   return (
     <div className="MiniPost">
@@ -14,3 +17,11 @@ const MiniPost = ({ title, image, size, id, enlarge }) => {
 };
 
 export default MiniPost;
+
+MiniPost.propTypes = {
+  id: PropTypes.number,
+  size: PropTypes.number,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  enlarge: PropTypes.func.isRequired,
+}.isRequired;
