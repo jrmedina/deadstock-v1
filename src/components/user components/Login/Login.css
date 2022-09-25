@@ -1,3 +1,7 @@
+h1 {
+  margin: 3%;
+}
+
 .Login {
   margin-top: 6em;
   display: flex;
@@ -6,17 +10,6 @@
   border: black dashed 4px;
   width: 25%;
   height: 30%;
-}
-
-h1 {
-  margin: 3%;
-}
-.username,
-.password {
-  width: 75%;
-  height: 12%;
-  margin: 3%;
-  background-color: white;
 }
 
 .login-btn {
@@ -39,4 +32,12 @@ h1 {
 .login-btn:hover {
   background-color: green;
   color: #fff;
+}
+
+.username,
+.password {
+  width: 75%;
+  height: 12%;
+  margin: 3%;
+  background-color: white;
 }

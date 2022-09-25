@@ -5,12 +5,6 @@
   width: 80%;
 }
 
-.el-image {
-  height: 26em;
-  width: 45em;
-  margin-right: 2em;
-}
-
 .el-container {
   display: flex;
   align-items: center;
@@ -20,8 +14,15 @@
   margin: 5%;
 }
 
+.el-image {
+  height: 26em;
+  width: 45em;
+  margin-right: 2em;
+}
+
 .el-title {
   text-align: center;
+  color: #000;
 }
 
 .details {
@@ -30,17 +31,7 @@
   border: dotted 3px black;
 }
 
-.details p {
-  margin: 1em;
-}
-
-.copy-msg{
-  color: green;
-   margin: 0%;
-}
-
-
-.copy-btn{
+.copy-btn {
   display: inline-block;
   outline: 0;
   text-align: center;
@@ -58,10 +49,18 @@
 }
 
 .copy-btn:hover {
-  background-color:green;
+  background-color: green;
   color: #fff;
 }
-.copy-msg.copied{
- 
-    margin-bottom: 3em;
+.copy-msg {
+  color: green;
+  margin: 0%;
+}
+
+.copy-msg.copied {
+  margin-bottom: 3em;
+}
+
+.details p {
+  margin: 1em;
 }

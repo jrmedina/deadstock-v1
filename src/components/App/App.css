@@ -9,4 +9,5 @@ main {
   align-items: center;
   overflow: none;
   background-color: white;
+  color: rgba(0, 0, 0, 0.7);
 }

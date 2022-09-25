@@ -1,5 +1,15 @@
+.added {
+  text-align: start;
+  margin-left: 10%;
+  margin-bottom: 0%;
+}
+
 .recent {
   width: 70%;
+}
+
+.right {
+  right: 5%;
 }
 
 .slider {
@@ -11,12 +21,14 @@
   align-items: center;
 }
 
-.right {
-  right: 5%;
+.slide.active {
+  opacity: 1;
+  transition: transform 0.2s ease-in-out;
+  transform: (2);
 }
 
-.left {
-  left: 5%;
+.slide.active:hover {
+  transform: scale(1.1);
 }
 
 .slide-btn {
@@ -35,19 +47,6 @@
   color: green;
 }
 
-
-.slide.active {
-  opacity: 1;
-transition: transform 0.2s ease-in-out;
-  transform: (2);
-}
-
-.slide.active:hover{
-    transform: scale(1.1);
-}
-
-.added {
-  text-align: start;
-  margin-left: 10%;
-  margin-bottom: 0%;
+.left {
+  left: 5%;
 }

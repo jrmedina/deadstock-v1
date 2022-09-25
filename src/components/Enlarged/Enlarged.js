@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./Enlarged.css";
 
 const Enlarged = ({ pair }) => {
@@ -13,12 +14,12 @@ const Enlarged = ({ pair }) => {
     brand,
     code,
     contact,
-    price
+    price,
   } = pair;
 
   const [msg, setMsg] = useState(false);
 
-  const copyMessage = (toCopy) => {
+  const copyMessage = () => {
     const offer = `
     ${contact}
     
@@ -26,7 +27,7 @@ const Enlarged = ({ pair }) => {
     Yo ${user},
   I saw your ${title} post listed on Deadstock for $${price}, I would like to discuss an offer.`;
     navigator.clipboard.writeText(offer);
-    setMsg(!msg)
+    setMsg(!msg);
   };
 
   return (
@@ -60,3 +61,18 @@ const Enlarged = ({ pair }) => {
 };
 
 export default Enlarged;
+
+Enlarged.propTypes = {
+  pair: PropTypes.shape({
+    brand: PropTypes.string,
+    code: PropTypes.string,
+    colors: PropTypes.array,
+    contact: PropTypes.string,
+    id: PropTypes.number,
+    release: PropTypes.string,
+    size: PropTypes.number,
+    title: PropTypes.string,
+    url: PropTypes.string,
+    user: PropTypes.string,
+  }).isRequired,
+};

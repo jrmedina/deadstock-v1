@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
 import "./RecentlyAdded.css";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
@@ -44,3 +45,20 @@ const RecentlyAdded = ({ inventory }) => {
 };
 
 export default RecentlyAdded;
+
+RecentlyAdded.propTypes = {
+  inventory: PropTypes.arrayOf(
+    PropTypes.shape({
+      brand: PropTypes.string,
+      code: PropTypes.string,
+      colors: PropTypes.array,
+      contact: PropTypes.string,
+      id: PropTypes.number,
+      release: PropTypes.string,
+      size: PropTypes.number,
+      title: PropTypes.string,
+      url: PropTypes.string,
+      user: PropTypes.string,
+    })
+  ).isRequired,
+};

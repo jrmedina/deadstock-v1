@@ -24,7 +24,7 @@ const App = () => {
   }, []);
 
   const handleSearch = (input) => {
-    let lc = input.toLowerCase()
+    let lc = input.toLowerCase();
     let res = [];
     let final;
     inventory.forEach((s) => s.title.toLowerCase().includes(lc) && res.push(s));
@@ -33,7 +33,7 @@ const App = () => {
     inventory.forEach((s) =>
       s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
     );
-    inventory.forEach((s) => s.size.includes(lc) && res.push(s));
+    inventory.forEach((s) => s.size === parseInt(input) && res.push(s));
 
     input ? (final = [...new Set(res)]) : (final = "");
     setSearch(final);
