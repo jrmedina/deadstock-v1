@@ -19,8 +19,8 @@ const App = () => {
   const [closet, setCloset] = useState({});
 
   useEffect(() => {
-    fetchData("/api/inventory").then((res) => setInventory(res.data));
-    fetchData("/api/users").then((res) => setUsers(res.data));
+    fetchData("inventory").then((res) => setInventory(res.data));
+    fetchData("users").then((res) => setUsers(res.data));
   }, []);
 
   const handleSearch = (input) => {
@@ -40,17 +40,12 @@ const App = () => {
   };
 
   // ------------USER--------------------------
-  const checkLogin = (username, password) => {
-    const user = users.find(
-      (user) => username === user.username && user.password === password
-    );
+  const login = (user) => {
     const closet = inventory.filter((shoe) => shoe.user === user.username);
-    setCloset({ username: username, closet: closet });
+    setCloset({ username: user.username, closet: closet });
   };
 
   const addPost = (newPost) => {
-    console.log(newPost);
-
     setInventory([...inventory, newPost]);
     setCloset({
       ...closet,
@@ -72,6 +67,7 @@ const App = () => {
     );
     setInventory(filteredInventory);
     const filteredCloset = closet.closet.filter(
+      // eslint-disable-next-line
       (s) => s.id != parseInt(e.target.id)
     );
     setCloset({ ...closet, closet: filteredCloset });
@@ -109,7 +105,7 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={() => <Login checkLogin={checkLogin} />}
+          render={() => <Login users={users} login={login} />}
         />
         <Route
           exact
