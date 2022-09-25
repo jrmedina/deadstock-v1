@@ -1,5 +1,5 @@
 <h2 align="center">
-  <img alt="funky" src="https://user-images.githubusercontent.com/102757890/191075033-917899b6-bfcb-4667-bcc3-f14b5201b3f7.png" width="738px"/><br/>
+  <img alt="funky" src="https://user-images.githubusercontent.com/102757890/192151324-e88a3e09-5697-4088-937e-408e22de06c6.png" width="738px"/><br/>
  DEADSTOCK is an application that brings sneaker heads together to buy, sell, and show off their collection without a middleman getting in the way!
 </h2>
 <p align="center"> 
@@ -77,11 +77,9 @@ username: dsJosh <br> password: dogs
 
 
 
-## 🪞 <b>Group Reflections:</b>
-
 
 <details>
-<summary><b>Joshua:</b></summary>
+<summary> <b>Reflections</b></summary>
 <p> During Module 3 we were tasked with learning a new language and best practices for implementing it. The group and I chose TypeScript due to it’s popular use in real world applications and it’s purpose of ensuring longevity as well as error handling. Along the way we added a few more tricks to our arsenal (Express and Hooks). We found the nuances of TypeScript a little challenging at first but the satisfaction of implementation and confidence in ensuring future extensions would be successful outweighed all other conflicts. In the end, I am proud to deploy MoodTunes for public use and happy to say I built a closer bond with some of my cohort mates.</p>
 </details>
 
