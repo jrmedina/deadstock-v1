@@ -10,6 +10,7 @@
       "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/016/246/685/original/466842_01.jpg.jpeg?action=crop&width=950",
       "code": "BV1300-106",
       "user": "deadstockuser",
+      "price": "123",
       "id": 1
     },
 
@@ -23,6 +24,7 @@
       "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/077/642/737/original/981386_01.jpg.jpeg?action=crop&width=950",
       "code": "DA6672-700",
       "user": "deadstockuser",
+      "price": "123",
       "id": 2
     },
 
@@ -36,7 +38,9 @@
       "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/073/720/052/original/935629_01.jpg.jpeg?action=crop&width=2000",
       "code": "DX1419-300",
       "user": "deadstockuser",
+      "price": "123",
       "id": 3
+  
     },
 
     {
@@ -49,6 +53,7 @@
       "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/066/733/594/original/860439_01.jpg.jpeg?action=crop&width=3000",
       "code": "DJ9649-400",
       "user": "deadstockuser",
+      "price": "123",
       "id": 4
     },
 
@@ -62,7 +67,9 @@
       "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/075/378/077/original/981526_01.jpg.jpeg?action=crop&width=2000",
       "code": "DR9511 100",
       "user": "dsJosh",
-      "id": 5
+      "price": "123",
+      "id": 5,
+      "contact" :"dsJosh@gmail.com"
     }
     
   ]

@@ -35,12 +35,13 @@ describe("user", () => {
     cy.get('input[name="size"]').type(9.5);
     cy.get('input[name="brand"]').type("Jordan");
     cy.get('input[name="code"]').type("123-abc");
-    cy.get('input[name="price"]').type(250.0);
+    cy.get('input[name="price"]').type(250);
     cy.get('input[name="quantity"]').type(1);
     cy.get('input[name="colors"]').type("Pink, Blue");
     cy.get(".save-btn").click();
     cy.get(".save-msg").should("contain", "SAVED!");
     cy.get(".nav.closet").click();
-     cy.get(".UserPost").first().should("contain", "Crimson Tint Air Jordan 1");
+    cy.get(".UserPost").first().should("contain", "Crimson Tint Air Jordan 1");
+    cy.get(".UserPost").first().should("contain", "9.5");
   });
 });

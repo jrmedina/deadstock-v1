@@ -46,7 +46,7 @@ const Enlarged = ({ pair }) => {
           <p>Price: ${price}.00 USD</p>
 
           <h4 className="copy-msg">
-            Interested? <br></br> Let's send {user} a email!
+            Interested?<br></br> Let's send {user} a email!
           </h4>
 
           <button onClick={copyMessage} className="copy-btn">
