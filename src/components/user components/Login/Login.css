@@ -26,18 +26,28 @@ h1 {
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-top: 3em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
 .login-btn:hover {
   background-color: green;
   color: #fff;
+  
 }
 
 .username,
 .password {
-  width: 75%;
+  width: 70%;
   height: 12%;
   margin: 3%;
   background-color: white;
+
+}
+
+
+
+.username,
+.password::placeholder {
+  color: black;
 }

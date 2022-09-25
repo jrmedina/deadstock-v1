@@ -26,7 +26,7 @@
 }
 
 .details {
-  height: 100%;
+  height:max-content;
   width: 30%;
   border: dotted 3px black;
 }
@@ -45,7 +45,9 @@
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-bottom: 1em;
+    margin-bottom: 0.5em;
+
+  margin-top: 0.5em;
 }
 
 .copy-btn:hover {
@@ -58,7 +60,7 @@
 }
 
 .copy-msg.copied {
-  margin-bottom: 3em;
+  margin-bottom: 0.5em;
 }
 
 .details p {
