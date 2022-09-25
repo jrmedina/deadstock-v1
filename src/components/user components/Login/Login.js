@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import PropTypes from "prop-types";
+
+
 
 import "./Login.css";
 
-const Login = ({ checkLogin }) => {
+const Login = ({ users, login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [msg, setMsg] = useState(false);
+  // const generatePath = generatePath();
 
-  const check = () => {
-    checkLogin(username, password);
+  const checkLogin = () => {
+    const user = users.find(
+      (user) => username === user.username && user.password === password
+    );
+    user ? login(user) : setMsg(true);
   };
 
   return (
@@ -31,9 +38,10 @@ const Login = ({ checkLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-        <button className="login-btn" type="button" onClick={check}>
-          Log in
-        </button>
+      <button className="login-btn" type="button" onClick={checkLogin}>
+        Log in
+      </button>
+      {msg && <p>Invalid credentials. Please try again.</p>}
       </Link>
     </div>
   );
@@ -42,5 +50,12 @@ const Login = ({ checkLogin }) => {
 export default Login;
 
 Login.propTypes = {
-  checkLogin: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      contact: PropTypes.string,
+      password: PropTypes.string,
+      username: PropTypes.string,
+    })
+  ),
+  login: PropTypes.func.isRequired,
 };

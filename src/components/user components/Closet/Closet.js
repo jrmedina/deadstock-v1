@@ -46,11 +46,9 @@ Closet.propTypes = {
     PropTypes.shape({
       brand: PropTypes.string,
       code: PropTypes.string,
-      colors: PropTypes.array,
       contact: PropTypes.string,
       id: PropTypes.number,
       release: PropTypes.string,
-      size: PropTypes.number,
       title: PropTypes.string,
       url: PropTypes.string,
       user: PropTypes.string,

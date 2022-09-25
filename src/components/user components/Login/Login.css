@@ -39,15 +39,8 @@ h1 {
 .username,
 .password {
   width: 70%;
-  height: 12%;
+  height: 15%;
   margin: 3%;
   background-color: white;
 
-}
-
-
-
-.username,
-.password::placeholder {
-  color: black;
 }
