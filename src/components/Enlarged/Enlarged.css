@@ -5,13 +5,13 @@
   width: 80%;
 }
 
-.elimage {
+.el-image {
   height: 26em;
-  width: 40em;
+  width: 45em;
   margin-right: 2em;
 }
 
-.elcontainer {
+.el-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@
   margin: 5%;
 }
 
-.eltitle {
+.el-title {
   text-align: center;
 }
 

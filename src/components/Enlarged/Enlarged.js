@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./Enlarged.css";
 
 const Enlarged = ({ pair }) => {
-  console.log(pair);
-  
   const {
     title,
     release,
@@ -26,16 +24,16 @@ const Enlarged = ({ pair }) => {
     
     
     Yo ${user},
-  I saw your ${title}'s listed on Deadstock for $${price}, I would like to discuss an offer.`;
+  I saw your ${title} post listed on Deadstock for $${price}, I would like to discuss an offer.`;
     navigator.clipboard.writeText(offer);
     setMsg(!msg)
   };
 
   return (
     <div className="Enlarged">
-      <h1 className="eltitle">{title}</h1>
-      <div className="elcontainer">
-        <img src={url} alt={title} className="elimage" />
+      <h1 className="el-title">{title}</h1>
+      <div className="el-container">
+        <img src={url} alt={title} className="el-image" />
 
         <div className="details">
           <p>Colors: {colors.join(" / ")}</p>

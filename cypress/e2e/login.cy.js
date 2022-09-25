@@ -17,18 +17,18 @@ describe("login", () => {
   });
 
   it("Should be able to login", () => {
-    cy.get('input[type="username"]').type("deadstockuser1");
-    cy.get('input[type="password"]').type("cheese");
+    cy.get('input[type="username"]').type("dsJosh");
+    cy.get('input[type="password"]').type("dogs");
     cy.get('button[type="button"]').click();
-    cy.url().should("be.equal", "http://localhost:3000/deadstockuser1/closet");
-    cy.get(".UserPost").contains("Union x Air Jordan 1 Black Toe");
+    cy.url().should("be.equal", "http://localhost:3000/dsJosh/closet");
+    cy.get(".UserPost").contains("Nike Dunk Low World Champ");
   });
 
   it("Should be able to log out", () => {
-    cy.get('input[type="username"]').type("deadstockuser1");
-    cy.get('input[type="password"]').type("cheese");
+    cy.get('input[type="username"]').type("dsJosh");
+    cy.get('input[type="password"]').type("dogs");
     cy.get('button[type="button"]').click();
-    cy.url().should("be.equal", "http://localhost:3000/deadstockuser1/closet");
+    cy.url().should("be.equal", "http://localhost:3000/dsJosh/closet");
     cy.get(".nav.logout").click();
     cy.url().should("be.equal", "http://localhost:3000/");
   });

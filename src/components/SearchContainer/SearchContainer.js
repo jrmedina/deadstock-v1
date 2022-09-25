@@ -16,7 +16,7 @@ const SearchContainer = ({ query }) => {
   ) : (
     <div>
       <h2>no matching results!</h2>
-      <p>you can try searching by title, color, sku, brand, or name</p>
+      <p>you can try searching by color, sku, brand, or name</p>
       <br></br>
     </div>
   );

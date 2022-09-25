@@ -4,8 +4,8 @@ import "./Closet.css";
 import { Link } from "react-router-dom";
 
 const Closet = ({ closet, update, deletePost }) => {
-  console.log(closet);
-  
+
+
   const toBeDisplayed = closet.length ? (
     closet.map((shoe) => (
       <UserPost
@@ -24,9 +24,9 @@ const Closet = ({ closet, update, deletePost }) => {
         price={shoe.price}
         colors={shoe.colors}
       />
-    ))
+    )).reverse()
   ) : (
-    <h2>Looks like we need to add some shoes..</h2>
+    <h2>Looks like we need to add some shoes...</h2>
   );
   return (
     <div className="Closet">

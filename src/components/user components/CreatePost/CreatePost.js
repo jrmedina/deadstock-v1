@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./CreatePost.css";
 
-
 const CreatePost = ({ addPost }) => {
+
   const [newPost, setPost] = useState({});
+    const [msg, setMsg] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...newPost, [name]: value });
@@ -17,6 +18,7 @@ const CreatePost = ({ addPost }) => {
   };
 
   const save = () => {
+    setMsg(true)
     addPost(newPost);
   };
 
@@ -109,6 +111,7 @@ const CreatePost = ({ addPost }) => {
         <button className="save-btn" type="button" onClick={save}>
           SAVE
         </button>
+        {msg && <h3 className="save-msg copied">SAVED!</h3>}
       </form>
 
       <div className="newPost">
@@ -127,4 +130,3 @@ const CreatePost = ({ addPost }) => {
 };
 
 export default CreatePost;
-

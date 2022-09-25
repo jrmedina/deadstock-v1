@@ -23,24 +23,27 @@ const App = () => {
     fetchData("/api/users").then((res) => setUsers(res.data));
   }, []);
 
-  const handleSearch = (i) => {
+  const handleSearch = (input) => {
+    let lc = input.toLowerCase()
     let res = [];
     let final;
-    inventory.forEach((s) => s.title.toLowerCase().includes(i) && res.push(s));
-    inventory.forEach((s) => s.code.toLowerCase().includes(i) && res.push(s));
-    inventory.forEach((s) => s.brand.toLowerCase().includes(i) && res.push(s));
+    inventory.forEach((s) => s.title.toLowerCase().includes(lc) && res.push(s));
+    inventory.forEach((s) => s.code.toLowerCase().includes(lc) && res.push(s));
+    inventory.forEach((s) => s.brand.toLowerCase().includes(lc) && res.push(s));
     inventory.forEach((s) =>
-      s.colors.forEach((c) => c.toLowerCase().includes(i) && res.push(s))
+      s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
     );
-    inventory.forEach((s) => s.size.includes(i) && res.push(s));
+    inventory.forEach((s) => s.size.includes(lc) && res.push(s));
 
-    i ? (final = [...new Set(res)]) : (final = "");
+    input ? (final = [...new Set(res)]) : (final = "");
     setSearch(final);
   };
 
   // ------------USER--------------------------
   const checkLogin = (username, password) => {
-    const user = users.find(user => username === user.username && user.password === password);
+    const user = users.find(
+      (user) => username === user.username && user.password === password
+    );
     const closet = inventory.filter((shoe) => shoe.user === user.username);
     setCloset({ username: username, closet: closet });
   };
@@ -56,23 +59,22 @@ const App = () => {
         { ...newPost, id: Date.now(), user: closet.username },
       ],
     });
-    console.log(closet);
   };
 
   const updatePost = (post) => {
-    console.log(post);
-    
     const filtered = inventory.filter((s) => s.id !== post.id);
     setInventory([...filtered, post]);
-    // const filtered2 = closet.filter((s) => s.id !== post.id);
-    // setCloset([...filtered2, post]);
   };
 
-  const deletePost = (id) => {
-    const filtered = inventory.filter((s) => s.id !== id);
-    setInventory(filtered);
-    const filtered2 = closet.closet.filter((s) => s.id != id);
-    setCloset({ ...closet, closet: filtered2 });
+  const deletePost = (e) => {
+    const filteredInventory = inventory.filter(
+      (s) => s.id !== parseInt(e.target.id)
+    );
+    setInventory(filteredInventory);
+    const filteredCloset = closet.closet.filter(
+      (s) => s.id != parseInt(e.target.id)
+    );
+    setCloset({ ...closet, closet: filteredCloset });
   };
 
   const logout = () => {

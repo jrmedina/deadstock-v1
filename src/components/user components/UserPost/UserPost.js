@@ -62,7 +62,7 @@ const UserPost = ({
   );
 
   return (
-    <form className="UserPost">
+    <div className="UserPost">
       <img src={url} className="lgimage" alt={title} />
       <h4 className="title">{title}</h4>
       <p>Release: {release}</p>
@@ -82,7 +82,7 @@ const UserPost = ({
         <input
           type="text"
           name="price"
-          className="edit"
+          className="edit price"
           placeholder={price}
           disabled={lock}
           onChange={(e) => handleChange(e)}
@@ -95,13 +95,13 @@ const UserPost = ({
           testid="delete"
           className="delete-btn"
           id={id}
-          onClick={(e) => deletePost(e.target.id)}
+          onClick={(e) => deletePost(e)}
         >
           Delete
         </button>
       </div>
       <p>{msg}</p>
-    </form>
+    </div>
   );
 };
 
