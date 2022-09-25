@@ -31,10 +31,10 @@ const RecentlyAdded = ({ inventory }) => {
     <div className="recent">
       <h3 className="added">recently added:</h3>
       <div className="slider">
-        <button className="left" id="left" onClick={handleSlide}>
+        <button className="left slide-btn" id="left" onClick={handleSlide}>
           <IoMdArrowRoundBack />
         </button>
-        <button className="right" id="right" onClick={handleSlide}>
+        <button className="right slide-btn" id="right" onClick={handleSlide}>
           <IoMdArrowRoundForward />
         </button>
         {toBeDisplayed}

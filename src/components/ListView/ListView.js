@@ -12,7 +12,7 @@ const ListView = ({ all }) => {
       id={shoe.id}
     />
   ));
-  return <div className="ListView">{miniPosts}</div>;
+  return <div className="ListView">{miniPosts.reverse()}</div>;
 };
 
 export default ListView;

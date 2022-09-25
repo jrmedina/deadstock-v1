@@ -25,6 +25,9 @@
   position: relative;
   font-size: x-large;
 }
+.nav:hover {
+  color: green;
+}
 
 .search-box {
   display: flex;

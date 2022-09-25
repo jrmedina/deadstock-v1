@@ -19,8 +19,7 @@
   left: 5%;
 }
 
-.left,
-.right {
+.slide-btn {
   position: absolute;
   top: 40%;
   font-size: 3rem;
@@ -32,15 +31,19 @@
   border: none;
 }
 
-.slide {
-  opacity: 0;
-  transition: duration 2s ease;
+.slide-btn:hover {
+  color: green;
 }
 
+
 .slide.active {
-  opacity: 7;
-  transition: duration 2s ease;
-  transform: (2.08);
+  opacity: 1;
+transition: transform 0.2s ease-in-out;
+  transform: (2);
+}
+
+.slide.active:hover{
+    transform: scale(1.1);
 }
 
 .added {

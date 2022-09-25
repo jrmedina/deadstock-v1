@@ -19,57 +19,38 @@ const App = () => {
   const [closet, setCloset] = useState({});
 
   useEffect(() => {
-    fetchData("/").then((res) => setInventory(res.data));
+    fetchData("/api/inventory").then((res) => setInventory(res.data));
     fetchData("/api/users").then((res) => setUsers(res.data));
   }, []);
 
-  const handleInput = (i) => {
+  const handleSearch = (input) => {
+    let lc = input.toLowerCase()
     let res = [];
     let final;
-    inventory.forEach((s) => s.title.toLowerCase().includes(i) && res.push(s));
-    inventory.forEach((s) => s.code.toLowerCase().includes(i) && res.push(s));
-    inventory.forEach((s) => s.brand.toLowerCase().includes(i) && res.push(s));
+    inventory.forEach((s) => s.title.toLowerCase().includes(lc) && res.push(s));
+    inventory.forEach((s) => s.code.toLowerCase().includes(lc) && res.push(s));
+    inventory.forEach((s) => s.brand.toLowerCase().includes(lc) && res.push(s));
     inventory.forEach((s) =>
-      s.colors.forEach((c) => c.toLowerCase().includes(i) && res.push(s))
+      s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
     );
-    inventory.forEach((s) => s.size.includes(i) && res.push(s));
-    i ? (final = [...new Set(res)]) : (final = "");
+    inventory.forEach((s) => s.size.includes(lc) && res.push(s));
+
+    input ? (final = [...new Set(res)]) : (final = "");
     setSearch(final);
   };
 
-  const home = search ? (
-    <SearchContainer query={search} />
-  ) : (
-    <RecentlyAdded inventory={inventory} />
-  );
-
+  // ------------USER--------------------------
   const checkLogin = (username, password) => {
-    let closet = [];
-    users.find((user) => {
-      username === user.username && user.password === password
-        ? (closet = inventory.filter((shoe) => shoe.user === username))
-        : console.log(false); //this will  need to be refactored to proper error handling
-    });
+    const user = users.find(
+      (user) => username === user.username && user.password === password
+    );
+    const closet = inventory.filter((shoe) => shoe.user === user.username);
     setCloset({ username: username, closet: closet });
   };
 
-  const updatePost = (post) => {
-    const filtered = inventory.filter((s) => s.id !== post.id);
-    setInventory([...filtered, post]);
-  };
-
-  const logout = () => {
-    setCloset([]);
-  };
-
-  const deletePost = (id) => {
-    const filtered = inventory.filter((s) => s.id !== id);
-    setInventory(filtered);
-    const filtered2 = closet.closet.filter((s) => s.id != id);
-    setCloset({ ...closet, closet: filtered2 });
-  };
-
   const addPost = (newPost) => {
+    console.log(newPost);
+
     setInventory([...inventory, newPost]);
     setCloset({
       ...closet,
@@ -80,11 +61,37 @@ const App = () => {
     });
   };
 
+  const updatePost = (post) => {
+    const filtered = inventory.filter((s) => s.id !== post.id);
+    setInventory([...filtered, post]);
+  };
+
+  const deletePost = (e) => {
+    const filteredInventory = inventory.filter(
+      (s) => s.id !== parseInt(e.target.id)
+    );
+    setInventory(filteredInventory);
+    const filteredCloset = closet.closet.filter(
+      (s) => s.id != parseInt(e.target.id)
+    );
+    setCloset({ ...closet, closet: filteredCloset });
+  };
+
+  const logout = () => {
+    setCloset([]);
+  };
+
+  const home = search ? (
+    <SearchContainer query={search} />
+  ) : (
+    <RecentlyAdded inventory={inventory} />
+  );
+
   return (
     <main>
       <NavBar
         user={closet.username}
-        handleInput={handleInput}
+        handleInput={handleSearch}
         logout={logout}
       />
       <Switch>
@@ -110,7 +117,7 @@ const App = () => {
           render={() => <CreatePost addPost={addPost} />}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
-        {/* <Route
+        <Route
           exact
           path="/inventory/:id"
           render={({ match }) => {
@@ -119,7 +126,7 @@ const App = () => {
             );
             return <Enlarged pair={pair} />;
           }}
-        /> */}
+        />
         <Route exact path="/" render={() => home} />
         <Route path="*" render={() => <Error />} />
       </Switch>

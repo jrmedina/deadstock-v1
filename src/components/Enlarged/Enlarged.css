@@ -5,13 +5,13 @@
   width: 80%;
 }
 
-.elimage {
+.el-image {
   height: 26em;
-  width: 36em;
+  width: 45em;
   margin-right: 2em;
 }
 
-.elcontainer {
+.el-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@
   margin: 5%;
 }
 
-.eltitle {
+.el-title {
   text-align: center;
 }
 
@@ -32,4 +32,36 @@
 
 .details p {
   margin: 1em;
+}
+
+.copy-msg{
+  color: green;
+   margin: 0%;
+}
+
+
+.copy-btn{
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+  margin-bottom: 1em;
+}
+
+.copy-btn:hover {
+  background-color:green;
+  color: #fff;
+}
+.copy-msg.copied{
+ 
+    margin-bottom: 3em;
 }

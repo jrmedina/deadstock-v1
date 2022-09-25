@@ -15,7 +15,7 @@ const Login = ({ checkLogin }) => {
       <h1>Log in</h1>
       <input
         className="username"
-        type="text"
+        type="username"
         placeholder="Username"
         required
         onChange={(e) => setUsername(e.target.value)}
@@ -29,7 +29,7 @@ const Login = ({ checkLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-        <button type="button" onClick={check}>
+        <button className="login-btn"type="button" onClick={check}>
           Log in
         </button>
       </Link>

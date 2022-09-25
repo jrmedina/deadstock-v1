@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./UserPost.css";
-import { Link } from "react-router-dom";
+
 const UserPost = ({
   title,
   url,
@@ -9,15 +9,15 @@ const UserPost = ({
   release,
   quantity,
   id,
+  colors,
   brand,
   update,
   user,
   deletePost,
+  price
 }) => {
-  console.log(deletePost);
-
-  const [form, setForm] = useState(true);
-  const [msg, setMsg] = useState("EDITING");
+  const [lock, setLock] = useState(true);
+  const [msg, setMsg] = useState("");
   const [post, setPost] = useState({
     title: title,
     url: url,
@@ -28,11 +28,13 @@ const UserPost = ({
     id: id,
     brand: brand,
     user: user,
+    colors: colors,
   });
 
   const handleClick = (e) => {
     e.preventDefault();
-    setForm(false);
+    setMsg("EDITING...");
+    setLock(false);
   };
 
   const handleChange = (e) => {
@@ -45,54 +47,61 @@ const UserPost = ({
   const save = (e) => {
     e.preventDefault();
     update(post);
-    setForm(true);
+    setLock(true);
     setMsg("SAVED!");
   };
 
-  const button = form ? (
-    <button id={id} onClick={handleClick}>
+  const button = lock ? (
+    <button className="edit-btn" testid="edit" id={id} onClick={handleClick}>
       Edit
     </button>
   ) : (
-    <button id={id} onClick={save}>
+    <button className="edit-btn" testid="save" id={id} onClick={save}>
       Save
     </button>
   );
 
   return (
-    <form className="UserPost">
+    <div className="UserPost">
       <img src={url} className="lgimage" alt={title} />
       <h4 className="title">{title}</h4>
       <p>Release: {release}</p>
       <p> SKU: {code} </p>
+      <p> Size: {size} </p>
+      <div className="edit-container">
+        <label>Quantity: </label>
+        <input
+          type="number"
+          name="quantity"
+          className="edit"
+          placeholder={quantity}
+          disabled={lock}
+          onChange={(e) => handleChange(e)}
+        />
+        <label>Price: </label>
+        <input
+          type="text"
+          name="price"
+          className="edit price"
+          placeholder={price}
+          disabled={lock}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="btn-container">
+        {button}
 
-      <label>Size: </label>
-      <input
-        name="size"
-        className="edit"
-        placeholder={size}
-        disabled={form}
-        onChange={(e) => handleChange(e)}
-      />
-
-      <label>Quantity:</label>
-      <input
-        type="text"
-        name="quantity"
-        className="edit"
-        placeholder={quantity}
-        disabled={form}
-        onChange={(e) => handleChange(e)}
-      />
-
-      {button}
-      <Link to={`/`}>
-        <button id={id} onClick={(e) => deletePost(e.target.id)}>
+        <button
+          testid="delete"
+          className="delete-btn"
+          id={id}
+          onClick={(e) => deletePost(e)}
+        >
           Delete
         </button>
-      </Link>
+      </div>
       <p>{msg}</p>
-    </form>
+    </div>
   );
 };
 

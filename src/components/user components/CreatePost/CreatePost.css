@@ -17,3 +17,32 @@
   border: 3px dashed green;
   width: 17em;
 }
+
+.save-btn {
+
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+  margin-top: 10%;
+}
+
+.save-btn:hover {
+  background-color: green;
+  color: #fff;
+}
+
+.save-msg{
+  color: green;
+   margin: 0%;
+}
+
