@@ -50,7 +50,10 @@ ENDPOINTS:<br>`/inventory` for all shoes<br>
 
 https://user-images.githubusercontent.com/102757890/192189901-8a6bf8da-df4a-422c-9e2d-4919670eac4d.mp4
 
+<br>
+
 https://user-images.githubusercontent.com/102757890/192189963-fb638ac9-88c3-4284-8851-37c7a25dfab7.mp4
+
 <br>
 
 ## ✍🏼 <b>Planning:</b>
