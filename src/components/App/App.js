@@ -46,12 +46,14 @@ const App = () => {
   };
 
   const addPost = (newPost) => {
+    console.log(newPost);
+
     setInventory([...inventory, newPost]);
     setCloset({
       ...closet,
       closet: [
         ...closet.closet,
-        { ...newPost, id: Date.now(), user: closet.username },
+        { ...newPost, user: closet.username },
       ],
     });
   };

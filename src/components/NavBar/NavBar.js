@@ -12,19 +12,19 @@ const NavBar = ({ user, handleInput, logout }) => {
   const toBeDisplayed = user ? (
     <>
       <Link to={`/${user}/closet`}>
-        <button className="nav closet">
+        <button aria-label="closet" className="nav closet">
           <GiRunningShoe />
         </button>
       </Link>
       <Link to={`/`}>
-        <button className="nav logout">
+        <button aria-label="logout" className="nav logout">
           <BiRun onClick={logout} />
         </button>
       </Link>
     </>
   ) : (
     <Link to={`/login`}>
-      <button className="nav login">
+      <button aria-label="login" className="nav login">
         <MdLogin />
       </button>
     </Link>
@@ -35,12 +35,16 @@ const NavBar = ({ user, handleInput, logout }) => {
       <h1 className="header">DEADSTOCK</h1>
       <div className="constant">
         <Link to={`/`}>
-          <button className="nav home">
+          <button aria-label="home" className="nav home">
             <ImHome3 />
           </button>
         </Link>
+
+        
         <Link to={`/all`}>
-          <button className="nav all">all</button>
+          <button aria-label="all" className="nav all">
+            all
+          </button>
         </Link>
 
         {toBeDisplayed}

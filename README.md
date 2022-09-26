@@ -1,5 +1,5 @@
 <h2 align="center">
-  <img alt="funky" src="https://user-images.githubusercontent.com/102757890/191075033-917899b6-bfcb-4667-bcc3-f14b5201b3f7.png" width="738px"/><br/>
+  <img alt="deadstock" src="https://user-images.githubusercontent.com/102757890/192151324-e88a3e09-5697-4088-937e-408e22de06c6.png" width="738px"/><br/>
  DEADSTOCK is an application that brings sneaker heads together to buy, sell, and show off their collection without a middleman getting in the way!
 </h2>
 <p align="center"> 
@@ -19,6 +19,9 @@
 username: dsJosh <br> password: dogs
 
 [Deadstock API](https://deadstock-api.herokuapp.com/api/inventory)
+<br>
+ENDPOINTS:<br>`/inventory` for all shoes<br>
+`/users` for all users
 </div>
 
 ## ⚡️ <b>Getting Started:</b>
@@ -44,7 +47,9 @@ username: dsJosh <br> password: dogs
 
 
 ## 🚶🏻‍♂️ <b>Walkthrough:</b>
-/// video
+https://vimeo.com/753689509/3f20454169
+
+https://vimeo.com/753693782/1e9252e4ee
 <br>
 
 ## ✍🏼 <b>Planning:</b>
@@ -53,11 +58,27 @@ username: dsJosh <br> password: dogs
 <br>
 
 ## 🎬 <b>Features:</b>
+User:
+- Ability to see recently added shoes
+- Filter by brand, color, size, and SKU
+- Login and see personal inventory
+- Add, edit, and create listings
+- See all details related to a posting
+- Have a method to contact the seller by copying draft message
 
+Developer: 
+- Lighthouse score of 100%
+- End to End testing with mulitple UX in mind
+- Provide different React Router routes
+- Proper error handling for all "Sad Paths" of a UX
+- A consistent, modular file structure
 <br>
 
 ## 🔮 <b>Future Extensions:</b>
-
+- Develop functionality for new users to sign up and create a profile
+- Email directly from the application
+- Continue building out the API to store long term data
+- Expand on the `CreatePost` form to  have details about trade options
 
 <br>
 
@@ -74,17 +95,6 @@ username: dsJosh <br> password: dogs
 - <img alt="Github" src="https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png" width="20px"/> Github
 
 <br>
-
-
-
-## 🪞 <b>Group Reflections:</b>
-
-
-<details>
-<summary><b>Joshua:</b></summary>
-<p> During Module 3 we were tasked with learning a new language and best practices for implementing it. The group and I chose TypeScript due to it’s popular use in real world applications and it’s purpose of ensuring longevity as well as error handling. Along the way we added a few more tricks to our arsenal (Express and Hooks). We found the nuances of TypeScript a little challenging at first but the satisfaction of implementation and confidence in ensuring future extensions would be successful outweighed all other conflicts. In the end, I am proud to deploy MoodTunes for public use and happy to say I built a closer bond with some of my cohort mates.</p>
-</details>
-
 
 
 <br>
