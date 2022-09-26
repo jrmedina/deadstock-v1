@@ -46,7 +46,6 @@ const App = () => {
   };
 
   const addPost = (newPost) => {
-    console.log(newPost);
 
     setInventory([...inventory, newPost]);
     setCloset({
