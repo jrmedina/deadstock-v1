@@ -20,7 +20,7 @@ describe("search", () => {
   it("Should be able to filter/search inventory by color no matter text case", () => {
     cy.get('input[type="text"]').click({ force: true }).type("arGoN");
     cy.get(".MiniPost").click();
-    cy.get(".details").should("contain", "Colors: LIGHT BLUE / ARGON / WHITE");
+    cy.get(".details").should("contain", "Colors: LIGHT BLUEARGONWHITE");
   });
 
   it("Should be able to filter/search inventory by name no matter text case", () => {

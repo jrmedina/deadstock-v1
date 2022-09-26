@@ -13,7 +13,7 @@ describe("App", () => {
   it("should contain details fo the shoe and seller", () => {
     cy.get(".details").should(
       "contain",
-      `Colors: White / Metallic Gold / Black`
+      `Colors: WhiteMetallic GoldBlack`
     );
     cy.get(".details").should("contain", `Size: 6.5`);
     cy.get(".details").should("contain", `Brand: Nike`);
