@@ -38,7 +38,7 @@ const Enlarged = ({ pair }) => {
         <img src={url} alt={title} className="el-image" />
 
         <div className="details">
-          <p>Colors: {colors}</p>
+          <p>Colors: {colors.join(' / ')}</p>
           <p>Size: {size}</p>
           <p>Release Date: {release}</p>
           <p>Quantity: {quantity}</p>
