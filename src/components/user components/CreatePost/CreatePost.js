@@ -5,10 +5,13 @@ import "./CreatePost.css";
 const CreatePost = ({ addPost }) => {
   const [newPost, setPost] = useState({});
   const [msg, setMsg] = useState(false);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...newPost, [name]: value });
   };
+
+
   const onImageChange = (event) => {
     const { name, files } = event.target;
     if (files && files[0]) {
@@ -19,7 +22,7 @@ const CreatePost = ({ addPost }) => {
 
   const save = () => {
     setMsg(true);
-    addPost(newPost);
+    addPost({...newPost, id: Date.now()});
   };
 
   return (

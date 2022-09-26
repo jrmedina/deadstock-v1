@@ -30,12 +30,22 @@ const RecentlyAdded = ({ inventory }) => {
 
   return (
     <div className="recent">
-      <h3 className="added">recently added:</h3>
+      <h2 className="added">recently added:</h2>
       <div className="slider">
-        <button className="left slide-btn" id="left" onClick={handleSlide}>
+        <button
+          aria-label="left"
+          className="left slide-btn"
+          id="left"
+          onClick={handleSlide}
+        >
           <IoMdArrowRoundBack />
         </button>
-        <button className="right slide-btn" id="right" onClick={handleSlide}>
+        <button
+          aria-label="right"
+          className="right slide-btn"
+          id="right"
+          onClick={handleSlide}
+        >
           <IoMdArrowRoundForward />
         </button>
         {toBeDisplayed}
@@ -54,7 +64,7 @@ RecentlyAdded.propTypes = {
       contact: PropTypes.string,
       id: PropTypes.number,
       release: PropTypes.string,
-      // size: PropTypes.number,
+      size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       title: PropTypes.string,
       url: PropTypes.string,
       user: PropTypes.string,

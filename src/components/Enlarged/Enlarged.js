@@ -30,6 +30,9 @@ const Enlarged = ({ pair }) => {
     setMsg(!msg);
   };
 
+
+  // const joinedColors = colors.length ? colors.join(" / ") : colors
+
   return (
     <div className="Enlarged">
       <h1 className="el-title">{title}</h1>
@@ -37,7 +40,7 @@ const Enlarged = ({ pair }) => {
         <img src={url} alt={title} className="el-image" />
 
         <div className="details">
-          <p>Colors: {colors.join(" / ")}</p>
+          <p>Colors: {colors}</p>
           <p>Size: {size}</p>
           <p>Release Date: {release}</p>
           <p>Quantity: {quantity}</p>
@@ -66,11 +69,11 @@ Enlarged.propTypes = {
   pair: PropTypes.shape({
     brand: PropTypes.string,
     code: PropTypes.string,
-    colors: PropTypes.array,
+    colors: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     contact: PropTypes.string,
     id: PropTypes.number,
     release: PropTypes.string,
-    size: PropTypes.number,
+    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,
     url: PropTypes.string,
     user: PropTypes.string,
