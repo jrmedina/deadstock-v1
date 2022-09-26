@@ -40,7 +40,6 @@ const NavBar = ({ user, handleInput, logout }) => {
           </button>
         </Link>
 
-        
         <Link to={`/all`}>
           <button aria-label="all" className="nav all">
             all

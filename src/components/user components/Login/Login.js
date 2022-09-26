@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
-
 
 import "./Login.css";
 
@@ -10,7 +8,6 @@ const Login = ({ users, login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [msg, setMsg] = useState(false);
-  // const generatePath = generatePath();
 
   const checkLogin = () => {
     const user = users.find(
@@ -38,10 +35,10 @@ const Login = ({ users, login }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-      <button className="login-btn" type="button" onClick={checkLogin}>
-        Log in
-      </button>
-      {msg && <p>Invalid credentials. Please try again.</p>}
+        <button className="login-btn" type="button" onClick={checkLogin}>
+          Log in
+        </button>
+        {msg && <p>Invalid credentials. Please try again.</p>}
       </Link>
     </div>
   );

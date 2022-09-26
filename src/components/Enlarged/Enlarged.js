@@ -31,8 +31,6 @@ const Enlarged = ({ pair }) => {
   };
 
 
-  // const joinedColors = colors.length ? colors.join(" / ") : colors
-
   return (
     <div className="Enlarged">
       <h1 className="el-title">{title}</h1>

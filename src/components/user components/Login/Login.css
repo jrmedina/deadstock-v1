@@ -33,7 +33,6 @@ h1 {
 .login-btn:hover {
   background-color: green;
   color: #fff;
-  
 }
 
 .username,
@@ -42,5 +41,4 @@ h1 {
   height: 15%;
   margin: 3%;
   background-color: white;
-
 }

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./MiniPost.css";
 import { Link } from "react-router-dom";
 
-
 const MiniPost = ({ title, image, size, id, enlarge }) => {
   return (
     <div className="MiniPost">

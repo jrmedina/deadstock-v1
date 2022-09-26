@@ -11,7 +11,6 @@ const CreatePost = ({ addPost }) => {
     setPost({ ...newPost, [name]: value });
   };
 
-
   const onImageChange = (event) => {
     const { name, files } = event.target;
     if (files && files[0]) {
@@ -22,7 +21,7 @@ const CreatePost = ({ addPost }) => {
 
   const save = () => {
     setMsg(true);
-    addPost({...newPost, id: Date.now()});
+    addPost({ ...newPost, id: Date.now() });
   };
 
   return (
