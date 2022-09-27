@@ -28,7 +28,7 @@ ENDPOINTS:<br>`/inventory` for all shoes<br>
 *To simply experience the application visit the links listed above*
 
 *For the curious developer:*
-1. Fork [this](https://github.com/jrmedina/MoodTunes) repository and [this](https://github.com/jfarelli/MoodTunes-api) repository for the API (not needed)
+1. Fork [this](https://github.com/jrmedina/MoodTunes) repository and [this](https://deadstock-api.herokuapp.com/api/inventory) repository for the API (not needed)
 2. Clone both of the repositories to your local machine
 3. `cd` into the repository
 5.  Once in the repository, run `npm install` and `npm i -g nodemon` for the API (may need to run `sudo npm i -g nodemon`)
