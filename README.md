@@ -1,6 +1,6 @@
 <h2 align="center">
   <img alt="deadstock" src="https://user-images.githubusercontent.com/102757890/192151324-e88a3e09-5697-4088-937e-408e22de06c6.png" width="738px"/><br/>
- DEADSTOCK is an application that brings sneaker heads together to buy, sell, and show off their collection without a middleman getting in the way!
+ DEADSTOCK is an application that brings sneaker heads together to buy, sell, and show off their collection without the middleman!
 </h2>
 <p align="center"> 
 <br>
@@ -28,7 +28,7 @@ ENDPOINTS:<br>`/inventory` for all shoes<br>
 *To simply experience the application visit the links listed above*
 
 *For the curious developer:*
-1. Fork [this](https://github.com/jrmedina/MoodTunes) repository and [this](https://deadstock-api.herokuapp.com/api/inventory) repository for the API (not needed)
+1. Fork [this](https://github.com/jrmedina/deadstock) repository and [this](https://github.com/jrmedina/deadstock-api) repository for the API 
 2. Clone both of the repositories to your local machine
 3. `cd` into the repository
 5.  Once in the repository, run `npm install` and `npm i -g nodemon` for the API (may need to run `sudo npm i -g nodemon`)
