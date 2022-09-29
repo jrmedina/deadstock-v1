@@ -9,10 +9,12 @@ describe("App", () => {
     cy.visit("http://localhost:3000");
   });
 
+
+  
   it("Should render a navbar on load", () => {
     cy.get(".NavBar")
       .contains("DEADSTOCK")
-      .get(".nav")
+      .get(".nav")()
       .first()
       .should("have.class", "home")
       .get(".nav")

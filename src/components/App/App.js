@@ -34,7 +34,6 @@ const App = () => {
       s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
     );
     inventory.forEach((s) => s.size === parseInt(input) && res.push(s));
-
     input ? (final = [...new Set(res)]) : (final = "");
     setSearch(final);
   };
@@ -46,7 +45,6 @@ const App = () => {
   };
 
   const addPost = (newPost) => {
-
     setInventory([...inventory, newPost]);
     setCloset({
       ...closet,
