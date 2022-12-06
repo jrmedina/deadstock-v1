@@ -10,4 +10,4 @@ const fetchData = async (type) => {
   }
 };
 
-export { fetchData };
+export { fetchData }
