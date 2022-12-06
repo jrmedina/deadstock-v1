@@ -1,7 +1,7 @@
 const fetchData = async (type) => {
   try {
     const response = await fetch(
-      `https://deadstock-api.onrender.com/api/${type}`
+      `https://deadstock-api.vercel.app/api/${type}`
     );
     const json = await response.json();
     return json;
