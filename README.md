@@ -18,7 +18,7 @@
 <br>
 username: dsJosh <br> password: dogs
 
-[Deadstock API](https://deadstock-api.herokuapp.com/api/inventory)
+[Deadstock API](https://deadstock-api.vercel.app/api/inventory)
 <br>
 ENDPOINTS:<br>`/inventory` for all shoes<br>
 `/users` for all users
