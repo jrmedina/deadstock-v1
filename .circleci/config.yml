@@ -1,39 +1,7 @@
-version: 2.1
-
+version: '2.1'
 orbs:
-  node: circleci/node@4.7
-  cypress: cypress-io/cypress@2.1.0
-  vercel-orb: i-am-jeetu/vercel-orb@1.0.0
-
-workflows:
-  Test_my_app:
-    jobs:
-      - cypress/run:
-          start: npm start
-      - build
-      - deploy:
-          requires:
-            - cypress/run
-            - build # only deploy if the build job has completed
-          filters:
-            branches:
-              only: main # only deploy when on main
-
+  vercel: i-am-jeetu/vercel@x.y
 jobs:
-  build:
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          name: Run build
-          command: npm run build
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
-
   deploy:
     executor: vercel/default
     steps:
@@ -45,3 +13,7 @@ jobs:
             echo "The command above installs Vercel, the command below deploys.
             What you do inbetween is up to you!"
       - vercel/deploy
+workflows:
+  vercel_deploy:
+    jobs:
+      - deploy
