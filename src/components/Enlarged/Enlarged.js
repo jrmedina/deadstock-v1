@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Enlarged.css";
 import { useForm } from "react-hook-form";
@@ -25,7 +25,6 @@ const Enlarged = ({ pair }) => {
     price,
   } = pair;
 
-  const [msg, setMsg] = useState(false);
 
 
   return (
