@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Enlarged.css";
+import { useForm } from "react-hook-form";
+
+
 
 const Enlarged = ({ pair }) => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (formData) => {
+    window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. I was interested in buying your ${title} for $${formData.message}. If that works, let's chat. (${formData.email})`;
+  };
+
   const {
     title,
     release,
@@ -17,18 +25,6 @@ const Enlarged = ({ pair }) => {
     price,
   } = pair;
 
-  const [msg, setMsg] = useState(false);
-
-  const copyMessage = () => {
-    const offer = `
-    ${contact}
-    
-    
-    Yo ${user},
-  I saw your ${title} post listed on Deadstock for $${price}, I would like to discuss an offer.`;
-    navigator.clipboard.writeText(offer);
-    setMsg(!msg);
-  };
 
 
   return (
@@ -36,7 +32,6 @@ const Enlarged = ({ pair }) => {
       <h1 className="el-title">{title}</h1>
       <div className="el-container">
         <img src={url} alt={title} className="el-image" />
-
         <div className="details">
           <p>Colors: {colors}</p>
           <p>Size: {size}</p>
@@ -46,15 +41,38 @@ const Enlarged = ({ pair }) => {
           <p>SKU: {code}</p>
           <p>Seller: {user}</p>
           <p>Price: ${price}.00 USD</p>
-
           <h4 className="copy-msg">
-            Interested?<br></br> Let's send {user} an email!
+            Interested?<br></br> Let's send {user} an offer!
           </h4>
-
-          <button onClick={copyMessage} className="copy-btn">
-            Click to copy offer message
-          </button>
-          {msg && <h3 className="copy-msg copied">COPIED!</h3>}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <input
+                {...register("subject")}
+                className="offerInput subject"
+                type="text"
+                placeholder="Subject"
+              />
+              <input
+                {...register("name")}
+                className="offerInput name"
+                type="text"
+                placeholder="Name"
+              />
+              <input
+                {...register("email")}
+                className="offerInput email"
+                type="email"
+                placeholder="Email"
+              />
+            </div>
+            <input
+              {...register("message")}
+              className="offerInput offer"
+              placeholder="Offer"
+              type="number"
+            />
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>
