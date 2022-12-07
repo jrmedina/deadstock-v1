@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "./Enlarged.css";
 import { useForm } from "react-hook-form";
 
+
+
 const Enlarged = ({ pair }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
@@ -47,26 +49,26 @@ const Enlarged = ({ pair }) => {
             <div>
               <input
                 {...register("subject")}
-                className="contactInput"
+                className="offerInput subject"
                 type="text"
                 placeholder="Subject"
               />
               <input
                 {...register("name")}
-                className="contactInput"
+                className="offerInput name"
                 type="text"
                 placeholder="Name"
               />
               <input
                 {...register("email")}
-                className="contactInput"
+                className="offerInput email"
                 type="email"
                 placeholder="Email"
               />
             </div>
             <input
               {...register("message")}
-              className="contactInput"
+              className="offerInput offer"
               placeholder="Offer"
               type="number"
             />
