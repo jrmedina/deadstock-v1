@@ -27,6 +27,6 @@ describe("App", () => {
     cy.get(".name").type("Bob");
     cy.get(".email").type("codedbyjosh@gmail.com");
     cy.get(".offer").type("123");
-    cy.get("button").last().click();
+    // cy.get("button").last().click();
   });
 });
