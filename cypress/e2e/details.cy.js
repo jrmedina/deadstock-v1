@@ -24,14 +24,14 @@ describe("App", () => {
     cy.get(".details").should("contain", `Price: $123.00 USD`);
   });
 
-  it("should have a way to send offer", () => {
-    cy.get("h4").should("contain", "Interested? Let's send dsJosh an email");
-    cy.get(".copy-btn").click();
-    cy.window()
-    .then((win) => {
-      win.navigator.clipboard.readText().then((text) => {
-        expect(text).to.contain("dsJosh@gmail.com");
-      });
-    });
-  });
+  // it("should have a way to send offer", () => {
+  //   cy.get("h4").should("contain", "Interested? Let's send dsJosh an email");
+  //   cy.get(".copy-btn").click();
+  //   cy.window()
+  //   .then((win) => {
+  //     win.navigator.clipboard.readText().then((text) => {
+  //       expect(text).to.contain("dsJosh@gmail.com");
+  //     });
+  //   });
+  // });
 });

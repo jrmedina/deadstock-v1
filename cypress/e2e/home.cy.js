@@ -14,7 +14,7 @@ describe("App", () => {
   it("Should render a navbar on load", () => {
     cy.get(".NavBar")
       .contains("DEADSTOCK")
-      .get(".nav")()
+      .get(".nav")
       .first()
       .should("have.class", "home")
       .get(".nav")
