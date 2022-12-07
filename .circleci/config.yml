@@ -1,26 +1,47 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  node: circleci/node@4.7
+  cypress: cypress-io/cypress@2.1.0
+  vercel-orb: i-am-jeetu/vercel-orb@1.0.0
+
+workflows:
+  Test_my_app:
+    jobs:
+      - cypress/run:
+          start: npm start
+      - build
+      - deploy:
+          requires:
+            - cypress/run
+            - build # only deploy if the build job has completed
+          filters:
+            branches:
+              only: main # only deploy when on main
+
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+  build:
+    executor: node/default
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: Run build
+          command: npm run build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+  deploy:
+    executor: vercel/default
+    steps:
+      - checkout
+      - vercel/install
+      - vercel/check-authentication
+      - run:
+          command: >
+            echo "The command above installs Vercel, the command below deploys.
+            What you do inbetween is up to you!"
+      - vercel/deploy
