@@ -29,11 +29,7 @@ describe("search", () => {
     cy.get("h1.el-title").should("contain", "Nike Dunk Low World Champ");
   });
 
-  it("Should be able to filter/search inventory by sku no matter text case", () => {
-    cy.get('input[type="text"]').click({ force: true }).type("DX1419");
-    cy.get(".MiniPost").click();
-    cy.get(".details").should("contain", "DX1419-300");
-  });
+
 
   it("Should inform the user if there are no matching results", () => {
     cy.get('input[type="text"]').click({ force: true }).type("qwerty");

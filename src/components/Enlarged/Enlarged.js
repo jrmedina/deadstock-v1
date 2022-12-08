@@ -68,7 +68,7 @@ const Enlarged = ({ pair }) => {
           />
           <input
             {...register("message")}
-            className="offerInput ammount"
+            className="offerInput amount"
             placeholder="Offer"
             type="number"
           />
