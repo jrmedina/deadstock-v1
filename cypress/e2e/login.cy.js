@@ -1,4 +1,4 @@
-describe("login", () => {
+describe("Login User Flow", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",

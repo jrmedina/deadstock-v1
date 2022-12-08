@@ -74,8 +74,9 @@ const UserPost = ({
         <label>Quantity: </label>
         <input
           type="number"
+          testid="quantity"
           name="quantity"
-          className="edit"
+          className="edit quantity"
           placeholder={quantity}
           disabled={lock}
           onChange={(e) => handleChange(e)}
@@ -84,6 +85,7 @@ const UserPost = ({
         <input
           type="text"
           name="price"
+          testid="price"
           className="edit price"
           placeholder={price}
           disabled={lock}

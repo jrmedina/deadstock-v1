@@ -1,4 +1,4 @@
-describe("user", () => {
+describe("User Dashboard", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",
@@ -12,10 +12,10 @@ describe("user", () => {
     cy.get('button[type="button"]').click();
   });
 
-  it("Should be able to EDIT an existing post", () => {
-    cy.get('[testid="edit"]').first().click();
-    cy.get(".edit").first().type(12);
-    cy.get(".edit.price").type(300);
+  it.only("Should be able to EDIT an existing post", () => {
+    cy.get('[testid="edit"]').click();
+    cy.get('[testid="quantity"]').click({ force: true }).type(3);
+    cy.get('[testid="price"]').click({ force: true }).type(300);
     cy.get('[testid="save"]').click();
     cy.get(".UserPost").contains("SAVED!");
     cy.get(".nav.home").click();
