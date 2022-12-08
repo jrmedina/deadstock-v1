@@ -28,29 +28,3 @@ body {
   background-color: green;
   color: #fff;
 }
-
-/* @media (max-width: 424px) {
-  * {
-    border: 1px blue solid;
-  }
-}
-
-@media (min-width: 425px) {
-  * {
-    border: 1px green solid;
-  } 
-}
-
-@media (min-width: 768px) {
-  * {
-    border: 1px orange solid;
-  } 
-}
-
-@media (min-width: 
-1024px) {
-  * {
-    border: 1px aqua solid;
-  } 
-} */
-
