@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 const Enlarged = ({ pair }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
+ console.log(111111, formData);
     window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. I was interested in buying your ${title} for $${formData.message}. If that works, let's chat. (${formData.email})`;
   };
 
@@ -43,7 +44,7 @@ const Enlarged = ({ pair }) => {
           <p>Price: ${price}.00 USD</p>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="form-container">
         <div className="offer-form">
           <h4 className="copy-msg">
             Interested?<br></br> Let's send {user} an offer!
@@ -69,14 +70,14 @@ const Enlarged = ({ pair }) => {
           <input
             {...register("message")}
             className="offerInput amount"
-            placeholder="Offer"
+            placeholder="Dollar Amount"
             type="number"
           />
         </div>
+        <button className="general-button" type="submit">
+          Submit
+        </button>
       </form>
-      <button className="general-button" type="submit">
-        Submit
-      </button>
     </div>
   );
 };
