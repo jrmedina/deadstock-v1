@@ -3,7 +3,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-    /* border: 1px red solid; */
+    font-family: "Montserrat", sans-serif;
 }
 
 .general-button {

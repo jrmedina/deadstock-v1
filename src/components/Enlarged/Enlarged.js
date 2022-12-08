@@ -3,15 +3,7 @@ import PropTypes from "prop-types";
 import "./Enlarged.css";
 import { TemporaryDrawer } from "../Materials/Drawer"; 
 
-
-
 const Enlarged = ({ pair }) => {
-  // const { register, handleSubmit } = useForm();
-  // const onSubmit = (formData) => {
-
-  //   window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. I was interested in buying your ${title} for $${formData.message}. If that works, let's chat. (${formData.email})`;
-  // };
-
   const {
     title,
     release,
@@ -44,7 +36,7 @@ const Enlarged = ({ pair }) => {
           <p>Price: ${price}.00 USD</p>
         </div>
       </div>
-      <TemporaryDrawer contact={contact} title={title}/>
+      <TemporaryDrawer contact={contact} title={title} user={user}/>
     </div>
   );
 };

@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { MdLogin } from "react-icons/md";
+import { MdLogin} from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
 import { FaSearchengin } from "react-icons/fa";
 import "./NavBar.css";
 
-const NavBar = ({ user, handleInput, logout }) => {
+
+const NavBar = ({ user, handleInput, logout}) => {
+
   const toBeDisplayed = user ? (
     <>
       <Link to={`/${user}/closet`}>
@@ -47,6 +49,7 @@ const NavBar = ({ user, handleInput, logout }) => {
         </Link>
         {toBeDisplayed}
       </div>
+
       <Link to={"/"} className="search-container">
         <nav className="search-box">
           <input
@@ -58,7 +61,6 @@ const NavBar = ({ user, handleInput, logout }) => {
           />
           <FaSearchengin/>
         </nav>
-      
       </Link>
     </div>
   );

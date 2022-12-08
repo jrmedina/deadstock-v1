@@ -64,6 +64,7 @@ const UserPost = ({
 
   return (
     <div className="UserPost">
+      <p className="post-message">{msg}</p>
       <img src={url} className="lgimage" alt={title} />
       <h4 className="title">{title}</h4>
       <p>Release: {release}</p>
@@ -100,7 +101,6 @@ const UserPost = ({
           Delete
         </button>
       </div>
-      <p className="post-message">{msg}</p>
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./CreatePost.css";
+import Enlarged from "../../Enlarged/Enlarged";
+import {BasicModal} from "../../Materials/Modal";
+
 
 const CreatePost = ({ addPost }) => {
-  const [newPost, setPost] = useState({});
+  const [newPost, setPost] = useState({user: 'dsJosh', quantity: 1});
   const [msg, setMsg] = useState(false);
 
   const handleChange = (event) => {
@@ -21,7 +24,7 @@ const CreatePost = ({ addPost }) => {
 
   const save = () => {
     setMsg(true);
-    addPost({ ...newPost, id: Date.now(), quantity: 1 });
+    addPost({ ...newPost, id: Date.now()});
   };
 
   return (
@@ -90,7 +93,7 @@ const CreatePost = ({ addPost }) => {
           }}
           required
         />
-  
+
         <label>COLOR:</label>
         <input
           name="colors"
@@ -101,12 +104,14 @@ const CreatePost = ({ addPost }) => {
           }}
           required
         />
+        <BasicModal preview={<Enlarged pair={newPost} />} />
         <button className="save-btn" type="button" onClick={save}>
           SAVE
         </button>
         {msg && <h3 className="save-msg copied">SAVED!</h3>}
       </form>
 
+      {/* 
       <div className="newPost">
         <img src={newPost.url} width={"250px"} alt={newPost.title} />
         <p>TITLE: {newPost.title}</p>
@@ -116,7 +121,7 @@ const CreatePost = ({ addPost }) => {
         <p>SKU: {newPost.code}</p>
         <p>PRICE: {newPost.price}</p>
         <p>COLOR: {newPost.colors}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

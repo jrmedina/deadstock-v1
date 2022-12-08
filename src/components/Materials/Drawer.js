@@ -4,13 +4,15 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 
-export const TemporaryDrawer = ({ contact, title }) => {
+export const TemporaryDrawer = ({ contact, title, user }) => {
   const [state, setState] = React.useState({
     bottom: false,
   });
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
-    window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. I was interested in buying your ${title} for $${formData.message}. If that works, let's chat. (${formData.email})`;
+    window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. 
+    I was interested in buying your ${title} for $${formData.message}. 
+    If that works, let's chat. (${formData.email})`;
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -66,7 +68,7 @@ export const TemporaryDrawer = ({ contact, title }) => {
       <div>
         <Button onClick={toggleDrawer("bottom", true)}>
           <h4 className="copy-msg">
-            Interested?<br></br> Let's send user an offer!
+            Interested?<br></br> Let's send {user} an offer!
           </h4>
         </Button>
         <Drawer
