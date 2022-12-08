@@ -41,40 +41,42 @@ const Enlarged = ({ pair }) => {
           <p>SKU: {code}</p>
           <p>Seller: {user}</p>
           <p>Price: ${price}.00 USD</p>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="offer-form">
           <h4 className="copy-msg">
             Interested?<br></br> Let's send {user} an offer!
           </h4>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <input
-                {...register("subject")}
-                className="offerInput subject"
-                type="text"
-                placeholder="Subject"
-              />
-              <input
-                {...register("name")}
-                className="offerInput name"
-                type="text"
-                placeholder="Name"
-              />
-              <input
-                {...register("email")}
-                className="offerInput email"
-                type="email"
-                placeholder="Email"
-              />
-            </div>
-            <input
-              {...register("message")}
-              className="offerInput offer"
-              placeholder="Offer"
-              type="number"
-            />
-            <button type="submit">Submit</button>
-          </form>
+          <input
+            {...register("subject")}
+            className="offerInput subject"
+            type="text"
+            placeholder="Subject"
+          />
+          <input
+            {...register("name")}
+            className="offerInput name"
+            type="text"
+            placeholder="Name"
+          />
+          <input
+            {...register("email")}
+            className="offerInput email"
+            type="email"
+            placeholder="Email"
+          />
+          <input
+            {...register("message")}
+            className="offerInput ammount"
+            placeholder="Offer"
+            type="number"
+          />
         </div>
-      </div>
+      </form>
+      <button className="general-button" type="submit">
+        Submit
+      </button>
     </div>
   );
 };

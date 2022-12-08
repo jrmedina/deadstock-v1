@@ -21,7 +21,7 @@ const CreatePost = ({ addPost }) => {
 
   const save = () => {
     setMsg(true);
-    addPost({ ...newPost, id: Date.now() });
+    addPost({ ...newPost, id: Date.now(), quantity: 1 });
   };
 
   return (
@@ -90,16 +90,7 @@ const CreatePost = ({ addPost }) => {
           }}
           required
         />
-        <label>QUANTITY:</label>
-        <input
-          name="quantity"
-          type="number"
-          placeholder="Quantity"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          required
-        />
+  
         <label>COLOR:</label>
         <input
           name="colors"
@@ -124,7 +115,6 @@ const CreatePost = ({ addPost }) => {
         <p>BRAND: {newPost.brand}</p>
         <p>SKU: {newPost.code}</p>
         <p>PRICE: {newPost.price}</p>
-        <p>QUANTITY: {newPost.quantity}</p>
         <p>COLOR: {newPost.colors}</p>
       </div>
     </div>

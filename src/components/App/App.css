@@ -1,13 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
 
-main {
+.App {
   display: flex;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
-  height: 95vh;
-  text-align: center;
+  justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
   overflow: none;
   background-color: white;
   color: rgba(0, 0, 0, 0.7);
+}
+
+
+Link {
+  text-decoration: none;
 }

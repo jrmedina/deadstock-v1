@@ -7,7 +7,7 @@ import "./Login.css";
 const Login = ({ users, login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [msg, setMsg] = useState(false);
+  const [msg, setMsg] = useState("username: dsUser password: shoes");
 
   const checkLogin = () => {
     const user = users.find(
@@ -35,11 +35,11 @@ const Login = ({ users, login }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-        <button className="login-btn" type="button" onClick={checkLogin}>
+        <button className="general-button" type="button" onClick={checkLogin}>
           Log in
         </button>
-        {msg && <p>Invalid credentials. Please try again.</p>}
       </Link>
+      <p className="login-message">Visiting? <br/>{msg}</p>
     </div>
   );
 };

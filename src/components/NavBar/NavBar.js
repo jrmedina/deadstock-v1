@@ -45,21 +45,20 @@ const NavBar = ({ user, handleInput, logout }) => {
             all
           </button>
         </Link>
-
         {toBeDisplayed}
       </div>
-      <Link to={"/"}>
+      <Link to={"/"} className="search-container">
         <nav className="search-box">
           <input
-            className="input inputSearch"
+            className="input"
             name="input"
             type="text"
             placeholder="search"
             onChange={(e) => handleInput(e.target.value)}
           />
-
-          <FaSearchengin />
+          <FaSearchengin/>
         </nav>
+      
       </Link>
     </div>
   );
