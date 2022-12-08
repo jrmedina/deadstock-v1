@@ -119,7 +119,7 @@ const App = () => {
           }}
         />
         <Route exact path="/" render={() => home} />
-        {/* <Route path="*" render={() => <Error />} /> */}
+        <Route path="*" render={() => <Error />} />
       </Switch>
     </main>
   );
