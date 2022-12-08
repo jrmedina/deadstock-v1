@@ -7,6 +7,7 @@ import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 const RecentlyAdded = ({ inventory }) => {
   const recent = inventory.slice(-5).reverse();
   const [slide, setSlide] = useState(0);
+  
   const toBeDisplayed = recent.map((shoe, index) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>

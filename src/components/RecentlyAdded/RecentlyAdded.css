@@ -1,24 +1,31 @@
+/* @media (max-width: 424px) {
+
+}
+
+@media (min-width: 425px) {
+
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 
+1400px) {
+} */
+.recent {
+  width: 100%;
+}
+
 .added {
-  text-align: start;
-  margin-left: 10%;
   margin-bottom: 0%;
 }
 
-.recent {
-  width: 70%;
-}
-
-.right {
-  right: 5%;
-}
-
 .slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  align-items: center;
 }
 
 .slide.active {
@@ -34,7 +41,6 @@
 .slide-btn {
   position: absolute;
   top: 40%;
-  font-size: 3rem;
   z-index: 10;
   color: black;
   cursor: pointer;
@@ -47,6 +53,66 @@
   color: green;
 }
 
+.right {
+  right: -5px;
+}
 .left {
-  left: 5%;
+  left: -10px;
+}
+
+@media (max-width: 424px) {
+  .added {
+    text-align: center;
+  }
+  .slide-btn {
+    font-size: 2em;
+  }
+
+  .slider {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 425px) {
+  .added {
+    text-align: start;
+    margin-left: 10px;
+    font-size: 30px;
+  }
+  .slide-btn {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 768px) {
+  .added {
+    margin-left: 20px;
+  }
+  .right {
+    right: 10px;
+  }
+  .left {
+    left: 5px;
+  }
+  .slide-btn {
+    font-size: 4em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .added {
+    margin-left: 50px;
+    font-size: 35px;
+  }
+
+  .right {
+    right: 100px;
+  }
+  .left {
+    left: 50px;
+  }
+
+  .slide-btn {
+    font-size: 5em;
+  }
 }

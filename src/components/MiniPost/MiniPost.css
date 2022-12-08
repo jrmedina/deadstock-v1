@@ -1,16 +1,61 @@
 .MiniPost {
-  height: 25em;
-  width: 34em;
-  margin: 3%;
-}
-
-.image {
-  width: 90%;
-  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:5px;
+  height: auto;
 }
 
 .title,
 .miniSize {
   margin: 0%;
-  text-align: center;
+}
+
+@media (max-width: 424px) {
+  .image {
+    width: 270px;
+  }
+
+  .title,
+  .miniSize {
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 425px) {
+  .image {
+    width: 350px;
+  }
+
+  .title,
+  .miniSize {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 435px;
+  }
+
+  .title,
+  .miniSize {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image {
+    width: 550px;
+  }
+
+  .title,
+  .miniSize {
+    text-align: center;
+    font-size: 20px;
+  }
 }

@@ -36,7 +36,7 @@ describe("user", () => {
     cy.get('input[name="brand"]').type("Jordan");
     cy.get('input[name="code"]').type("123-abc");
     cy.get('input[name="price"]').type(250);
-    cy.get('input[name="quantity"]').type(1);
+
     cy.get('input[name="colors"]').type("Pink, Blue");
     cy.get(".save-btn").click();
     cy.get(".save-msg").should("contain", "SAVED!");

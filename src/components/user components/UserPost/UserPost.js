@@ -91,7 +91,6 @@ const UserPost = ({
       </div>
       <div className="btn-container">
         {button}
-
         <button
           testid="delete"
           className="delete-btn"
@@ -101,7 +100,7 @@ const UserPost = ({
           Delete
         </button>
       </div>
-      <p>{msg}</p>
+      <p className="post-message">{msg}</p>
     </div>
   );
 };

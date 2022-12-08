@@ -3,65 +3,127 @@
   src: url(../../assets/HKechibi.otf);
 }
 
+.NavBar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.constant {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .header {
-  font-size: 4em;
+  width: 100%;
+  text-align: center;
   margin: 0.5%;
   font-family: Imported;
   letter-spacing: 0.09em;
-  font-size: 7em;
-  color: black;
-}
-.input {
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: black;
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 40px;
-  width: 0px;
-}
-
-.input::placeholder {
   color: black;
 }
 
 .nav {
-  margin-left: 3%;
-  margin-right: 3%;
-  padding: 0.6em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-  outline: none;
   color: black;
   background: none;
   cursor: pointer;
   position: relative;
   font-size: x-large;
 }
+
 .nav:hover {
   color: green;
 }
-.NavBar {
-  width: 100%;
+
+.search-container {
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .search-box {
   display: flex;
-  margin-top: 1em;
-  margin-left: 40%;
-  height: 1em;
+  justify-content: space-between;
   padding: 0.5em;
-  width: 20%;
   border: dashed 2px black;
 }
 
-.search-box:hover > .input {
-  width: 230px;
-  padding: 0 6px;
+.input {
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 16px;
 }
 
-.search-box:hover > .magnify {
-  display: none;
+.input::placeholder {
+  color: black;
+}
+
+@media (max-width: 424px) {
+  .header {
+    margin-top: 10px;
+    letter-spacing: 0.09em;
+    font-size: 5em;
+    color: black;
+    margin-bottom: 5px;
+  }
+
+  .nav {
+    font-size: large;
+    margin-bottom: 10px;
+  }
+
+  .search-box {
+    height: 0.75em;
+  }
+}
+
+@media (min-width: 425px) {
+  .header {
+    font-size: 6em;
+  }
+
+  .nav {
+    font-size: x-large;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    font-size: 7em;
+  }
+
+  .nav {
+    font-size: 30px;
+  }
+
+  .search-box {
+    width: 300px;
+  }
+  .NavBar {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    font-size: 7.5em;
+  }
+
+  .NavBar {
+    width: 75%;
+  }
+  .search-box {
+    width: 350px;
+  }
 }

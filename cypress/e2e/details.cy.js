@@ -10,7 +10,7 @@ describe("App", () => {
     cy.get(".slide.active").click();
   });
 
-  it("should contain details fo the shoe and seller", () => {
+  it("should contain details for the shoe and seller", () => {
     cy.get(".details").should("contain", `Colors: WhiteMetallic GoldBlack`);
     cy.get(".details").should("contain", `Size: 6.5`);
     cy.get(".details").should("contain", `Brand: Nike`);
@@ -26,7 +26,7 @@ describe("App", () => {
     cy.get(".subject").type("Deadstock shoes");
     cy.get(".name").type("Bob");
     cy.get(".email").type("codedbyjosh@gmail.com");
-    cy.get(".offer").type("123");
+    cy.get(".amount").type("123");
     // cy.get("button").last().click();
   });
 });

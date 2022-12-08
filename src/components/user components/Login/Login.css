@@ -8,37 +8,56 @@ h1 {
   flex-direction: column;
   align-items: center;
   border: black dashed 4px;
-  width: 25%;
-  height: 30%;
-}
-
-.login-btn {
-  display: inline-block;
-  outline: 0;
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  font-size: 1em;
-  border: 2px solid transparent;
-  border-color: green;
-  color: #000;
-  background: transparent;
-  font-weight: 800;
-  line-height: 1.5em;
-  transition: background, color 0.2s ease-in-out;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-}
-
-.login-btn:hover {
-  background-color: green;
-  color: #fff;
+  height: auto;
 }
 
 .username,
 .password {
-  width: 70%;
-  height: 15%;
-  margin: 3%;
-  background-color: white;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  color: black;
+  font-size: 18px;
+  width: 250px;
+  height: 30px;
+  margin: 0.5em;
 }
+
+.login-message {
+  text-align: center;
+  margin:10px;
+}
+
+@media (max-width: 424px) {
+  .Login {
+    width: 18em;
+  }
+
+  .general-button {
+    margin-top: 1em;
+  }
+  .login-message {
+ font-size: 14px;
+}
+}
+
+@media (min-width: 425px) {
+  .Login {
+    width: 20em;
+  }
+}
+
+@media (min-width: 768px) {
+  .Login {
+    width: 22em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Login {
+    width: 24em;
+    height:20em;
+  }
+}
+
+

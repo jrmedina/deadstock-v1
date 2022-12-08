@@ -28,7 +28,6 @@ const App = () => {
     let res = [];
     let final;
     inventory.forEach((s) => s.title.toLowerCase().includes(lc) && res.push(s));
-    inventory.forEach((s) => s.code.toLowerCase().includes(lc) && res.push(s));
     inventory.forEach((s) => s.brand.toLowerCase().includes(lc) && res.push(s));
     inventory.forEach((s) =>
       s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
@@ -70,7 +69,7 @@ const App = () => {
   };
 
   const logout = () => {
-    setCloset([]);
+    setCloset({});
   };
 
   const home = search ? (
@@ -80,7 +79,7 @@ const App = () => {
   );
 
   return (
-    <main>
+    <main className="App">
       <NavBar
         user={closet.username}
         handleInput={handleSearch}

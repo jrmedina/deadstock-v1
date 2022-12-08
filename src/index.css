@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+    /* border: 1px red solid; */
+}
+
+.general-button {
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.general-button:hover {
+  background-color: green;
+  color: #fff;
+}
+
+/* @media (max-width: 424px) {
+  * {
+    border: 1px blue solid;
+  }
+}
+
+@media (min-width: 425px) {
+  * {
+    border: 1px green solid;
+  } 
+}
+
+@media (min-width: 768px) {
+  * {
+    border: 1px orange solid;
+  } 
+}
+
+@media (min-width: 
+1024px) {
+  * {
+    border: 1px aqua solid;
+  } 
+} */
+
