@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { MdLogin} from "react-icons/md";
+import { MdLogin } from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
 import { FaSearchengin } from "react-icons/fa";
 import "./NavBar.css";
 
-
-const NavBar = ({ user, handleInput, logout}) => {
+const NavBar = ({ user, handleInput, logout }) => {
+  const [input, setInput] = useState("");
 
   const toBeDisplayed = user ? (
     <>
@@ -31,6 +31,16 @@ const NavBar = ({ user, handleInput, logout}) => {
       </button>
     </Link>
   );
+
+  const handleChange = (input) => {
+    setInput(input);
+    handleInput(input);
+  };
+
+  const removeInput = () => {
+    setInput("");
+    handleInput("");
+  };
 
   return (
     <div className="NavBar">
@@ -55,11 +65,12 @@ const NavBar = ({ user, handleInput, logout}) => {
           <input
             className="input"
             name="input"
+            value={input}
             type="text"
             placeholder="search"
-            onChange={(e) => handleInput(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
-          <FaSearchengin/>
+          {input && <button onClick={removeInput}>x</button>}
         </nav>
       </Link>
     </div>
