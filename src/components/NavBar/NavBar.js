@@ -5,7 +5,6 @@ import { MdLogin } from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
-import { FaSearchengin } from "react-icons/fa";
 import "./NavBar.css";
 
 const NavBar = ({ user, handleInput, logout }) => {
