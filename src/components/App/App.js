@@ -19,25 +19,29 @@ const App = () => {
   const [search, setSearch] = useState();
   const [closet, setCloset] = useState({});
 
-
   useEffect(() => {
     fetchData("inventory").then((res) => setInventory(res.data));
     fetchData("users").then((res) => setUsers(res.data));
   }, []);
 
   const handleSearch = (input) => {
-
-    let lc = input.toLowerCase();
-    let res = [];
-    let final;
-    inventory.forEach((s) => s.title.toLowerCase().includes(lc) && res.push(s));
-    inventory.forEach((s) => s.brand.toLowerCase().includes(lc) && res.push(s));
-    inventory.forEach((s) =>
-      s.colors.forEach((c) => c.toLowerCase().includes(lc) && res.push(s))
-    );
-    inventory.forEach((s) => s.size === parseInt(input) && res.push(s));
-    input ? (final = [...new Set(res)]) : (final = "");
-    setSearch(final);
+    const normalizedInput = input.toLowerCase();
+    const matchingResults = inventory.reduce((acc, shoe) => {
+      const { title, brand, colors, size } = shoe;
+      const matchesTitle = title.toLowerCase().includes(normalizedInput);
+      const matchesBrand = brand.toLowerCase().includes(normalizedInput);
+      const matchesSize = size.toString() === normalizedInput;
+      const matchesColor = colors
+        .join()
+        .toLowerCase()
+        .includes(normalizedInput);
+      const doesShoeMatchInput =
+        matchesTitle || matchesBrand || matchesColor || matchesSize;
+      if (doesShoeMatchInput) return [...acc, shoe];
+      return acc;
+    }, []);
+    const resultsWithoutDuplicates = [...new Set(matchingResults)];
+    input ? setSearch(resultsWithoutDuplicates) : setSearch();
   };
 
   // ------------USER--------------------------
@@ -82,7 +86,6 @@ const App = () => {
   );
 
   return (
-    
     <main className="App">
       <NavBar
         user={closet.username}
