@@ -1,4 +1,4 @@
-describe("error", () => {
+describe("Error Page", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",

@@ -10,6 +10,7 @@ import ListView from "../ListView/ListView";
 import { fetchData } from "../../apiCalls";
 import NavBar from "../NavBar/NavBar";
 import Error from "../Error/Error";
+
 import "./App.css";
 
 const App = () => {
@@ -18,12 +19,14 @@ const App = () => {
   const [search, setSearch] = useState();
   const [closet, setCloset] = useState({});
 
+
   useEffect(() => {
     fetchData("inventory").then((res) => setInventory(res.data));
     fetchData("users").then((res) => setUsers(res.data));
   }, []);
 
   const handleSearch = (input) => {
+
     let lc = input.toLowerCase();
     let res = [];
     let final;
@@ -79,11 +82,13 @@ const App = () => {
   );
 
   return (
+    
     <main className="App">
       <NavBar
         user={closet.username}
         handleInput={handleSearch}
         logout={logout}
+        inventory={inventory}
       />
       <Switch>
         <Route

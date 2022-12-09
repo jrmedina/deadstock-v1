@@ -1,4 +1,4 @@
-describe("search", () => {
+describe("Search Options", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",

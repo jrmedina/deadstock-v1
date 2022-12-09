@@ -1,4 +1,4 @@
-describe("App", () => {
+describe("Details View", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",
@@ -10,7 +10,7 @@ describe("App", () => {
     cy.get(".slide.active").click();
   });
 
-  it("should contain details for the shoe and seller", () => {
+  it("Should contain details for the shoe and seller", () => {
     cy.get(".details").should("contain", `Colors: WhiteMetallic GoldBlack`);
     cy.get(".details").should("contain", `Size: 6.5`);
     cy.get(".details").should("contain", `Brand: Nike`);
@@ -21,12 +21,11 @@ describe("App", () => {
     cy.get(".details").should("contain", `Price: $123.00 USD`);
   });
 
-  it("should have a way to send offer", () => {
-    cy.get("h4").should("contain", "Interested? Let's send dsJosh an offer");
+  it("Should have a way to send offer", () => {
+    cy.get("h4").should("contain", "Interested? Let's send dsJosh an offer").click();
     cy.get(".subject").type("Deadstock shoes");
     cy.get(".name").type("Bob");
     cy.get(".email").type("codedbyjosh@gmail.com");
     cy.get(".amount").type("123");
-    // cy.get("button").last().click();
   });
 });

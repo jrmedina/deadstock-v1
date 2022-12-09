@@ -1,10 +1,11 @@
 .UserPost {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   border: black solid 3px;
   height: 27em;
-  width: 100%;
+  width: 30%;
   margin: 1em;
   position: relative;
 }
@@ -20,6 +21,7 @@
   width: 90%;
   justify-content: space-between;
   margin-top: 1em;
+   margin-bottom: 2em;
 }
 
 .edit {
@@ -39,7 +41,8 @@
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-top: 22em;
+  margin-top: 25em;
+  width: 7em;
 }
 .delete-btn {
   border-color: crimson;
@@ -60,35 +63,30 @@
   height: auto;
   margin-top: 0.5em;
   margin-bottom: 1em;
-     width: 300px;
+  width: 300px;
 }
 
 p {
-  margin: 1px;
+  margin: .2px;
 }
 
-.post-message {
-  position: absolute;
-  margin-top: 25.5em;
-}
 @media (max-width: 424px) {
-
-  .btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+  .UserPost {
+    width: 20em;
   }
 }
 
 @media (min-width: 425px) {
-
+  .UserPost {
+    width: 20em;
+  }
 }
 
 @media (min-width: 768px) {
-
+  .UserPost {
+    width: 20em;
+  }
 }
 
 @media (min-width: 1024px) {
-
 }

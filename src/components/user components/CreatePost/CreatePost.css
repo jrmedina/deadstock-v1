@@ -4,6 +4,7 @@
   height: 100%;
   width: 100%;
   justify-content: space-around;
+  margin-top: 1em;
 }
 
 .save-btn {
@@ -20,7 +21,8 @@
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-top: 10%;
+  margin-top: 5px;
+  margin-bottom: 1em;
 }
 
 .save-btn:hover {
