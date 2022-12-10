@@ -7,6 +7,17 @@
   margin-top: 1em;
 }
 
+.back{
+  /* margin-top: 5px; */
+  font-size: 2em;
+
+}
+.back-container {
+  display: flex;
+  width: 85%;
+  justify-content: flex-end;
+  padding: .5em;
+}
 .save-btn {
   display: inline-block;
   outline: 0;

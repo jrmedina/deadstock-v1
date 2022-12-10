@@ -17,7 +17,8 @@
 }
 
 .added {
-  margin-bottom: 0%;
+  margin: .2em;
+
 }
 
 .slider {
@@ -29,6 +30,7 @@
 }
 
 .slide.active {
+  margin-top: 6em;
   opacity: 1;
   transition: transform 0.2s ease-in-out;
   transform: (2);

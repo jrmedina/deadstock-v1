@@ -1,6 +1,6 @@
 @font-face {
   font-family: Imported;
-  src: url(../../assets/HKechibi.otf);
+  src: url(../../assets/JC.otf)
 }
 
 .NavBar {
@@ -15,14 +15,24 @@
   align-items: center;
 }
 
+  .header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    
+  }
+
 .header {
-  width: 100%;
   text-align: center;
   margin: 0.5%;
   font-family: Imported;
-  letter-spacing: 0.09em;
+  letter-spacing: -.1em;
   color: black;
+  margin-top: .2em;
 }
+
 
 .nav {
   display: flex;
@@ -68,8 +78,8 @@
 @media (max-width: 424px) {
   .header {
     margin-top: 10px;
-    letter-spacing: 0.09em;
-    font-size: 5em;
+    /* letter-spacing: 0.09em; */
+    font-size: 2.5em;
     color: black;
     margin-bottom: 5px;
   }
@@ -86,7 +96,7 @@
 
 @media (min-width: 425px) {
   .header {
-    font-size: 6em;
+    font-size: 3.5em;
   }
 
   .nav {
@@ -100,8 +110,10 @@
 
 @media (min-width: 768px) {
   .header {
-    font-size: 7em;
+    font-size: 6em;
+
   }
+
 
   .nav {
     font-size: 30px;
@@ -117,7 +129,7 @@
 
 @media (min-width: 1024px) {
   .header {
-    font-size: 7.5em;
+    font-size: 7em;
   }
 
   .NavBar {

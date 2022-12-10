@@ -43,7 +43,9 @@ const NavBar = ({ user, handleInput, logout }) => {
 
   return (
     <div className="NavBar">
-      <h1 className="header">DEADSTOCK</h1>
+      <div className="header-container">
+        <h1 className="header">DEADSTOCK</h1>
+      </div>
       <div className="constant">
         <Link to={`/`}>
           <button aria-label="home" className="nav home">

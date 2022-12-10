@@ -19,6 +19,8 @@ const Enlarged = ({ pair }) => {
   } = pair;
 
 
+console.log(colors.join(", "));
+
 
   return (
     <div className="Enlarged">
@@ -26,7 +28,7 @@ const Enlarged = ({ pair }) => {
       <div className="el-container">
         <img src={url} alt={title} className="el-image" />
         <div className="details">
-          <p>Colors: {colors}</p>
+          <p>Colors: {colors.join(", ")}</p>
           <p>Size: {size}</p>
           <p>Release Date: {release}</p>
           <p>Quantity: {quantity}</p>
@@ -36,7 +38,7 @@ const Enlarged = ({ pair }) => {
           <p>Price: ${price}.00 USD</p>
         </div>
       </div>
-      <TemporaryDrawer contact={contact} title={title} user={user}/>
+      <TemporaryDrawer contact={contact} title={title} user={user} />
     </div>
   );
 };

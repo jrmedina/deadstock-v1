@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./CreatePost.css";
 import Enlarged from "../../Enlarged/Enlarged";
-import {BasicModal} from "../../Materials/Modal";
+import { BasicModal } from "../../Materials/Modal";
+import { Link } from "react-router-dom";
+import { AiOutlineRollback } from "react-icons/ai";
 
-
-const CreatePost = ({ addPost }) => {
-  const [newPost, setPost] = useState({user: 'dsJosh', quantity: 1});
+const CreatePost = ({ addPost, user }) => {
+  const [newPost, setPost] = useState({ user: "dsJosh", quantity: 1 });
   const [msg, setMsg] = useState(false);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...newPost, [name]: value });
@@ -24,12 +24,17 @@ const CreatePost = ({ addPost }) => {
 
   const save = () => {
     setMsg(true);
-    addPost({ ...newPost, id: Date.now()});
+    addPost({ ...newPost, id: Date.now() });
   };
 
   return (
     <div className="CreatePost">
       <form className="postForm">
+        <div className="back-container">
+          <Link to={`/${user}/closet`}>
+            <AiOutlineRollback className="back" />
+          </Link>
+        </div>
         <h2>CREATE A POST</h2>
         <input type="file" name="url" onChange={onImageChange} />
         <label>NAME:</label>

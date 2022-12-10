@@ -7,13 +7,13 @@
   height: 27em;
   width: 30%;
   margin: 1em;
-  position: relative;
+  padding: 1em;
 }
 
 .btn-container {
   display: flex;
-  position: absolute;
-  z-index: 1;
+  align-items: center;
+ 
 }
 
 .edit-container {
@@ -41,8 +41,8 @@
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-top: 25em;
   width: 7em;
+  
 }
 .delete-btn {
   border-color: crimson;

@@ -48,6 +48,7 @@ const App = () => {
   const login = (user) => {
     const closet = inventory.filter((shoe) => shoe.user === user.username);
     setCloset({ username: user.username, closet: closet });
+    
   };
 
   const addPost = (newPost) => {
@@ -113,9 +114,9 @@ const App = () => {
         <Route
           exact
           path="/createpost"
-          render={() => <CreatePost addPost={addPost} />}
+          render={() => <CreatePost addPost={addPost} user={closet.username}/>}
         />
-        <Route exact path="/all" render={() => <ListView all={inventory} />} />
+        <Route exact path="/all" render={() => <ListView all={inventory}/>} />
         <Route
           exact
           path="/inventory/:id"
