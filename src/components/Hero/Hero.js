@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
-import "./RecentlyAdded.css";
+import "./Hero.css";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
-const RecentlyAdded = ({ inventory }) => {
+const Hero = ({ inventory }) => {
   const recent = inventory.slice(-5).reverse();
   const [slide, setSlide] = useState(0);
   
@@ -55,9 +55,9 @@ const RecentlyAdded = ({ inventory }) => {
   );
 };
 
-export default RecentlyAdded;
+export default Hero;
 
-RecentlyAdded.propTypes = {
+Hero.propTypes = {
   inventory: PropTypes.arrayOf(
     PropTypes.shape({
       brand: PropTypes.string,

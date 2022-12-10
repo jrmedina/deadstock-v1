@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Enlarged.css";
-import { TemporaryDrawer } from "../Materials/Drawer";
+import "./DetailedView.css";
+import { TemporaryDrawer } from "../MUI/Drawer";
+import { formatData } from "../../utils/formatData";
 
-const Enlarged = ({ pair }) => {
+const DetailedView = ({ pair }) => {
   const {
     title,
     release,
@@ -16,7 +17,7 @@ const Enlarged = ({ pair }) => {
     code,
     contact,
     price,
-  } = pair;
+  } = formatData(pair);
 
   return (
     <div className="Enlarged">
@@ -24,14 +25,14 @@ const Enlarged = ({ pair }) => {
       <div className="el-container">
         <img src={url} alt={title} className="el-image" />
         <div className="details">
-          <p>Colors: {colors?.join(", ")}</p>
+          <p>Colors: {colors}</p>
           <p>Size: {size}</p>
           <p>Release Date: {release}</p>
           <p>Quantity: {quantity}</p>
           <p>Brand: {brand}</p>
           <p>SKU: {code}</p>
           <p>Seller: {user}</p>
-          <p>Price: ${price}.00 USD</p>
+          <p>Price: ${price} USD</p>
         </div>
       </div>
       <TemporaryDrawer contact={contact} title={title} user={user} />
@@ -39,9 +40,9 @@ const Enlarged = ({ pair }) => {
   );
 };
 
-export default Enlarged;
+export default DetailedView;
 
-Enlarged.propTypes = {
+DetailedView.propTypes = {
   pair: PropTypes.shape({
     brand: PropTypes.string,
     code: PropTypes.string,

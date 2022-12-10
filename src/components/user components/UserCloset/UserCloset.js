@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import UserPost from "../UserPost/UserPost";
-import "./Closet.css";
+import "./UserCloset.css";
 import { Link } from "react-router-dom";
 
-const Closet = ({ closet, update, deletePost }) => {
+const UserCloset = ({ closet, update, deletePost }) => {
   const toBeDisplayed = closet.length ? (
     closet
       .map((shoe) => (
@@ -39,9 +39,9 @@ const Closet = ({ closet, update, deletePost }) => {
   );
 };
 
-export default Closet;
+export default UserCloset;
 
-Closet.propTypes = {
+UserCloset.propTypes = {
   closet: PropTypes.arrayOf(
     PropTypes.shape({
       brand: PropTypes.string,
