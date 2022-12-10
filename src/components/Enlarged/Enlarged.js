@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Enlarged.css";
-import { TemporaryDrawer } from "../Materials/Drawer"; 
+import { TemporaryDrawer } from "../Materials/Drawer";
 
 const Enlarged = ({ pair }) => {
   const {
@@ -18,17 +18,13 @@ const Enlarged = ({ pair }) => {
     price,
   } = pair;
 
-
-console.log(colors.join(", "));
-
-
   return (
     <div className="Enlarged">
       <h1 className="el-title">{title}</h1>
       <div className="el-container">
         <img src={url} alt={title} className="el-image" />
         <div className="details">
-          <p>Colors: {colors.join(", ")}</p>
+          <p>Colors: {colors?.join(", ")}</p>
           <p>Size: {size}</p>
           <p>Release Date: {release}</p>
           <p>Quantity: {quantity}</p>
