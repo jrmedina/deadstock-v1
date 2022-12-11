@@ -57,13 +57,13 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
       </div>
       <div className="constant">
         <Link to={`/`}>
-          <button aria-label="home" className="nav home">
+          <button aria-label="home" className="nav home" onClick={refetchData}>
             <ImHome3 />
           </button>
         </Link>
 
         <Link to={`/all`}>
-          <button aria-label="all" className="nav all">
+          <button aria-label="all" className="nav all" onClick={refetchData}>
             all
           </button>
         </Link>
