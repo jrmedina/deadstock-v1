@@ -3,8 +3,8 @@ import { formatData } from "../utils/formatData";
 const fetchData = async (type) => {
   try {
     // ` http://localhost:3001/api/${type}`
-    // `https://deadstock-api.vercel.app//api/${type}`
-    const response = await fetch(`http://localhost:3001/api/${type}`);
+    // `https://deadstock-api.vercel.app/api/${type}`
+    const response = await fetch(`https://deadstock-api.vercel.app/api/${type}`);
     const json = await response.json();
     const data =
       type === "inventory" ? json.data.map((data) => formatData(data)) : json;
@@ -16,7 +16,7 @@ const fetchData = async (type) => {
 };
 
 const postData = async (newPost) => {
-  return fetch("http://localhost:3001/api/inventory", {
+  return fetch("https://deadstock-api.vercel.app/api/inventory", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newPost),
