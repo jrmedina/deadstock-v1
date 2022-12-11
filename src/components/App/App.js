@@ -33,7 +33,6 @@ const App = () => {
       const matchesBrand = brand.toLowerCase().includes(normalizedInput);
       const matchesSize = size.toString() === normalizedInput;
       const matchesColor = colors
-        .join()
         .toLowerCase()
         .includes(normalizedInput);
       const doesShoeMatchInput =

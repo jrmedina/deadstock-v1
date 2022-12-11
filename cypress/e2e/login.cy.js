@@ -13,7 +13,13 @@ describe("Login User Flow", () => {
     cy.get(".login").should("exist");
     cy.get('input[type="username"]').should("exist");
     cy.get('input[type="password"]').should("exist");
+  });
 
+  it("Should have log in details for a visitor", () => {
+    cy.get("p.login-message").should(
+      "contain",
+      "username: dsUser password: shoes"
+    );
   });
 
   it("Should be able to login", () => {
@@ -31,5 +37,13 @@ describe("Login User Flow", () => {
     cy.url().should("be.equal", "http://localhost:3000/dsJosh/closet");
     cy.get(".nav.logout").click();
     cy.url().should("be.equal", "http://localhost:3000/");
+  });
+
+  it("Should not allow a user to login if username or password input is empty", () => {
+    cy.get(".general-button").should("be.disabled");
+    cy.get('input[type="username"]').type("dsJosh");
+    cy.get(".general-button").should("be.disabled");
+    cy.get('input[type="password"]').type("dogs");
+    cy.get(".general-button").should("not.be.disabled");
   });
 });

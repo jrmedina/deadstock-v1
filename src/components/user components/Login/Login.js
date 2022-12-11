@@ -7,17 +7,17 @@ import "./Login.css";
 const Login = ({ users, login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [msg, setMsg] = useState("username: dsUser password: shoes");
 
   const checkLogin = () => {
     const user = users.find(
       (user) => username === user.username && user.password === password
     );
-    user ? login(user) : setMsg(true);
+    user && login(user) 
   };
 
+
   return (
-    <div className="Login">
+    <form className="Login">
       <h1>Log in</h1>
       <input
         className="username"
@@ -28,19 +28,29 @@ const Login = ({ users, login }) => {
       />
 
       <input
+        autoComplete="current-password"
         className="password"
         type="password"
+     
         placeholder="Password"
         required
         onChange={(e) => setPassword(e.target.value)}
       />
       <Link to={`/${username}/closet`}>
-        <button className="general-button" type="button" onClick={checkLogin}>
+        <button
+          className="general-button"
+          type="button"
+          onClick={checkLogin}
+          disabled={!username || !password}
+        >
           Log in
         </button>
       </Link>
-      <p className="login-message">Visiting? <br/>{msg}</p>
-    </div>
+      <p className="login-message">
+        Visiting? <br />
+        "username: dsUser password: shoes"
+      </p>
+    </form>
   );
 };
 

@@ -12,10 +12,10 @@ describe("User Dashboard", () => {
     cy.get('button[type="button"]').click();
   });
 
-  it.only("Should be able to EDIT an existing post", () => {
+  it("Should be able to EDIT an existing post", () => {
     cy.get('[testid="edit"]').click();
-    cy.get('[testid="quantity"]').click({ force: true }).type(3);
-    cy.get('[testid="price"]').click({ force: true }).type(300);
+    cy.get('[testid="quantity"]').click().type(3);
+    cy.get('[testid="price"]').click().type(300);
     cy.get('[testid="save"]').click();
     cy.get(".UserPost").contains("SAVED!");
     cy.get(".nav.home").click();
@@ -26,7 +26,7 @@ describe("User Dashboard", () => {
   it("Should be able to DELETE an existing post", () => {
     cy.get(".UserPost").contains("Nike Dunk Low World Champ");
     cy.get(".delete-btn").click();
-    cy.get("h2").should("contain", "Looks like we need to add some shoes...");
+
   });
 
   it("Should be able to ADD a new post", () => {
@@ -36,12 +36,18 @@ describe("User Dashboard", () => {
     cy.get('input[name="brand"]').type("Jordan");
     cy.get('input[name="code"]').type("123-abc");
     cy.get('input[name="price"]').type(250);
-
     cy.get('input[name="colors"]').type("Pink, Blue");
     cy.get(".save-btn").click();
-    cy.get(".save-msg").should("contain", "SAVED!");
+    cy.get(".status").should("contain", "SAVED!");
     cy.get(".nav.closet").click();
     cy.get(".UserPost").first().should("contain", "Crimson Tint Air Jordan 1");
     cy.get(".UserPost").first().should("contain", "9.5");
   });
+
+  it.only("Should let the user know if they do not have any shoes in their inventory", () => {
+    cy.get(".UserPost").contains("Nike Dunk Low World Champ");
+    cy.get(".delete-btn").click();
+    cy.get("h2").should("contain", "Looks like we need to add some shoes...");
+  })
+
 });

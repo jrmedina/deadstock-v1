@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
 import "./Hero.css";
+import { formatData } from "../../utils/formatData";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 const Hero = ({ inventory }) => {
-  const recent = inventory.slice(-5).reverse();
+  const recent = inventory
+    .slice(-5)
+    .reverse()
+    .map((shoe) => formatData(shoe));
   const [slide, setSlide] = useState(0);
   
   const toBeDisplayed = recent.map((shoe, index) => {

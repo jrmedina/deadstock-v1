@@ -28,7 +28,7 @@ ListView.propTypes = {
       contact: PropTypes.string,
       id: PropTypes.number,
       release: PropTypes.string,
-      size: PropTypes.number,
+      size: PropTypes.number || PropTypes.string,
       title: PropTypes.string,
       url: PropTypes.string,
       user: PropTypes.string,

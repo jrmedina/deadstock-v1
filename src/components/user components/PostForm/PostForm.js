@@ -116,7 +116,8 @@ const PostForm = ({ addPost, user, contact }) => {
           required
         />
         <BasicModal preview={<Enlarged pair={newPost} />} />
-        {status}
+        <p className="status">{status}</p>
+
         <button className="save-btn" type="button" onClick={handleClick}>
           SAVE
         </button>
