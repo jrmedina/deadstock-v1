@@ -57,6 +57,8 @@
 
 .search-box {
   display: flex;
+  align-items: center;
+
   justify-content: space-between;
   padding: 0.5em;
   border: dashed 2px black;
@@ -73,12 +75,36 @@
   color: black;
 }
 
+.clear-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: crimson;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  transition: background, color 0.2s ease-in-out;
+
+}
+
+.clear-button:hover{
+  color:white;
+  background-color: crimson;
+}
+
 @media (max-width: 424px) {
   .header {
     margin-top: 10px;
     font-size: 2.5em;
     color: black;
     margin-bottom: 5px;
+  }
+
+  .clear-button{
+    height: 23px;
   }
 
   .nav {

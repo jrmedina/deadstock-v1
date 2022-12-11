@@ -13,7 +13,6 @@ import Error from "../Error/Error";
 import "./App.css";
 import Socials from "../Socials/Socials";
 
-
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState();
@@ -95,7 +94,6 @@ const App = () => {
         handleInput={handleSearch}
         logout={logout}
         inventory={inventory}
-        setInventory={setInventory}
       />
       <Switch>
         <Route

@@ -65,4 +65,14 @@ describe("Home View", () => {
     cy.url().should("be.equal", "http://localhost:3000/");
     cy.get(".recent").should("exist");
   });
+
+  it("Should have social links to the repository and contributor", () => {
+    cy.get(".linkedinAnchor")
+      .should("have.attr", "href")
+      .and("equal", "https://www.linkedin.com/in/joshua-medina/");
+
+    cy.get(".githubAnchor")
+      .should("have.attr", "href")
+      .and("equal", "https://github.com/jrmedina/deadstock");
+  });
 });

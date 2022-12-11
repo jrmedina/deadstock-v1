@@ -32,7 +32,7 @@ export const TemporaryDrawer = ({ contact, title, user }) => {
     <Box sx={{ width: "auto" }} role="presentation">
       <form onSubmit={handleSubmit(onSubmit)} className="form-container">
         <div className="offer-form">
-          <h4 className="copy-msg">Fill in the blanks for a drafted email!</h4>
+          <h4 className="offer-msg">Fill in the blanks for a drafted email!</h4>
           <input
             {...register("subject")}
             className="offerInput subject"
@@ -69,7 +69,7 @@ export const TemporaryDrawer = ({ contact, title, user }) => {
     <div>
       <div>
         <Button onClick={toggleDrawer("bottom", true)}>
-          <h4 className="copy-msg">
+          <h4 className="offer-msg">
             Interested?<br></br> Let's send {user} an offer!
           </h4>
         </Button>
