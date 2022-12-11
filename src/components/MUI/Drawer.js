@@ -58,7 +58,7 @@ export const TemporaryDrawer = ({ contact, title, user }) => {
             type="number"
           />
         </div>
-        <button className="general-button" type="submit">
+        <button className="drawer-button" type="submit">
           Submit
         </button>
       </form>

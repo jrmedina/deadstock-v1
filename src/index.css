@@ -32,3 +32,23 @@ body {
   background-color: green;
   color: #fff;
 }
+
+.form-container button {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
