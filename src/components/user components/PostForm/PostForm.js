@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
 
 const PostForm = ({ addPost, user, contact }) => {
-
-  const [newPost, setPost] = useState({ user: user, quantity: 1, contact: contact });
+  const [newPost, setPost] = useState({
+    user: user,
+    quantity: 1,
+    contact: contact,
+  });
   const [status, setStatus] = useState("");
 
   const handleChange = (event) => {

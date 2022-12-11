@@ -12,9 +12,8 @@ const Login = ({ users, login }) => {
     const user = users.find(
       (user) => username === user.username && user.password === password
     );
-    user && login(user) 
+    user && login(user);
   };
-
 
   return (
     <form className="Login">
@@ -31,7 +30,6 @@ const Login = ({ users, login }) => {
         autoComplete="current-password"
         className="password"
         type="password"
-     
         placeholder="Password"
         required
         onChange={(e) => setPassword(e.target.value)}

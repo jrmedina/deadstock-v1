@@ -1,24 +1,9 @@
-/* @media (max-width: 424px) {
-
-}
-
-@media (min-width: 425px) {
-
-}
-
-@media (min-width: 768px) {
-}
-
-@media (min-width: 
-1400px) {
-} */
 .recent {
   width: 100%;
 }
 
 .added {
-  margin: .2em;
-
+  margin: 0.2em;
 }
 
 .slider {

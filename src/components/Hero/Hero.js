@@ -11,7 +11,7 @@ const Hero = ({ inventory }) => {
     .reverse()
     .map((shoe) => formatData(shoe));
   const [slide, setSlide] = useState(0);
-  
+
   const toBeDisplayed = recent.map((shoe, index) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>

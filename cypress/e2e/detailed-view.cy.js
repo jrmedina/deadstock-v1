@@ -30,6 +30,4 @@ describe("Details View", () => {
     cy.get(".email").type("codedbyjosh@gmail.com");
     cy.get(".amount").type("123");
   });
-
-
 });

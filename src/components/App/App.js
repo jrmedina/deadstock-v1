@@ -12,8 +12,6 @@ import NavigationBar from "../NavigationBar/NavigationBar";
 import Error from "../Error/Error";
 import "./App.css";
 
-
-
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState();
@@ -32,9 +30,7 @@ const App = () => {
       const matchesTitle = title.toLowerCase().includes(normalizedInput);
       const matchesBrand = brand.toLowerCase().includes(normalizedInput);
       const matchesSize = size.toString() === normalizedInput;
-      const matchesColor = colors
-        .toLowerCase()
-        .includes(normalizedInput);
+      const matchesColor = colors.toLowerCase().includes(normalizedInput);
       const doesShoeMatchInput =
         matchesTitle || matchesBrand || matchesColor || matchesSize;
       if (doesShoeMatchInput) return [...acc, shoe];
@@ -47,7 +43,11 @@ const App = () => {
   // ------------USER--------------------------
   const login = (user) => {
     const closet = inventory.filter((shoe) => shoe.user === user.username);
-    setCloset({ username: user.username, contact: closet[0].contact, closet: closet });
+    setCloset({
+      username: user.username,
+      contact: closet[0].contact,
+      closet: closet,
+    });
   };
 
   const addPost = (newPost) => {
@@ -113,7 +113,13 @@ const App = () => {
         <Route
           exact
           path="/createpost"
-          render={() => <PostForm addPost={addPost} user={closet.username} contact={closet.contact}/>}
+          render={() => (
+            <PostForm
+              addPost={addPost}
+              user={closet.username}
+              contact={closet.contact}
+            />
+          )}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
         <Route

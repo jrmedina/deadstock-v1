@@ -1,6 +1,6 @@
 @font-face {
   font-family: Imported;
-  src: url(../../assets/NN.otf)
+  src: url(../../assets/NN.otf);
 }
 
 .NavBar {
@@ -15,24 +15,22 @@
   align-items: center;
 }
 
-  .header-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    
-  }
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
 
 .header {
   text-align: center;
   margin: 0.5%;
   font-family: Imported;
-  letter-spacing: -.1em;
+  letter-spacing: -0.1em;
   color: black;
-  margin-top: .2em;
+  margin-top: 0.2em;
 }
-
 
 .nav {
   display: flex;
@@ -78,7 +76,6 @@
 @media (max-width: 424px) {
   .header {
     margin-top: 10px;
-    /* letter-spacing: 0.09em; */
     font-size: 2.5em;
     color: black;
     margin-bottom: 5px;
@@ -111,9 +108,7 @@
 @media (min-width: 768px) {
   .header {
     font-size: 6em;
-
   }
-
 
   .nav {
     font-size: 30px;

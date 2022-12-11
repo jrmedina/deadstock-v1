@@ -26,7 +26,6 @@ describe("User Dashboard", () => {
   it("Should be able to DELETE an existing post", () => {
     cy.get(".UserPost").contains("Nike Dunk Low World Champ");
     cy.get(".delete-btn").click();
-
   });
 
   it("Should be able to ADD a new post", () => {
@@ -48,6 +47,5 @@ describe("User Dashboard", () => {
     cy.get(".UserPost").contains("Nike Dunk Low World Champ");
     cy.get(".delete-btn").click();
     cy.get("h2").should("contain", "Looks like we need to add some shoes...");
-  })
-
+  });
 });
