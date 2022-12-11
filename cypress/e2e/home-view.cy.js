@@ -1,4 +1,4 @@
-describe("Main View", () => {
+describe("Home View", () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",
@@ -9,9 +9,7 @@ describe("Main View", () => {
     cy.visit("http://localhost:3000");
   });
 
-
-  
-  it("Should render a navbar on load", () => {
+  it("Should render a navigation bar on load", () => {
     cy.get(".NavBar")
       .contains("DEADSTOCK")
       .get(".nav")
@@ -23,12 +21,11 @@ describe("Main View", () => {
   });
 
   it("Should render a search bar", () => {
-    cy.get(".search-box").trigger("mouseover").should("be.visible");
     cy.get('input[type="text"]').click({ force: true }).type("cheese");
     cy.get("main").find("h2").should("contain", "no matching results!");
   });
 
-  it("Should show recently added shoes", () => {
+  it("Should show recently added shoes in a Hero", () => {
     cy.get(".recent").contains("recently added:");
     cy.get(".slide").should("have.length", 5);
     cy.get(".slide")
@@ -37,13 +34,24 @@ describe("Main View", () => {
       .should("have.attr", "alt")
       .and("equal", "Nike Dunk Low World Champ");
   });
-  it("Should be able to swipe left or right", () => {
+
+  it("Should be able to swipe right", () => {
     cy.get(".slide");
     cy.get(".right").click();
     cy.get(".slide.active")
       .find("img")
       .should("have.attr", "alt")
-      .and("equal", "Union x Air Jordan 1 Black Toe");
+      .and("equal", "Union X Air Jordan 1 Black Toe");
+  });
+
+  it("Should be able to swipe left", () => {
+    cy.get(".slide");
+    cy.get(".left").click();
+    cy.get(".left").click();
+    cy.get(".slide.active")
+      .find("img")
+      .should("have.attr", "alt")
+      .and("equal", "NikeCraft General Purpose Shoe");
   });
 
   it("Should be able to change URL paths from NavBar", () => {

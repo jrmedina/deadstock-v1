@@ -5,9 +5,9 @@ import { MdLogin } from "react-icons/md";
 import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
-import "./NavBar.css";
+import "./NavigationBar.css";
 
-const NavBar = ({ user, handleInput, logout }) => {
+const NavigationBar = ({ user, handleInput, logout }) => {
   const [input, setInput] = useState("");
 
   const toBeDisplayed = user ? (
@@ -43,7 +43,9 @@ const NavBar = ({ user, handleInput, logout }) => {
 
   return (
     <div className="NavBar">
-      <h1 className="header">DEADSTOCK</h1>
+      <div className="header-container">
+        <h1 className="header">DEADSTOCK</h1>
+      </div>
       <div className="constant">
         <Link to={`/`}>
           <button aria-label="home" className="nav home">
@@ -76,9 +78,9 @@ const NavBar = ({ user, handleInput, logout }) => {
   );
 };
 
-export default NavBar;
+export default NavigationBar;
 
-NavBar.propTypes = {
+NavigationBar.propTypes = {
   user: PropTypes.string,
   handleInput: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,

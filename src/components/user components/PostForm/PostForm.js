@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./CreatePost.css";
-import Enlarged from "../../Enlarged/Enlarged";
-import {BasicModal} from "../../Materials/Modal";
+import "./PostForm.css";
+import Enlarged from "../../DetailedView/DetailedView";
+import { BasicModal } from "../../MUI/Modal";
+import { Link } from "react-router-dom";
+import { AiOutlineRollback } from "react-icons/ai";
 
-
-const CreatePost = ({ addPost }) => {
-  const [newPost, setPost] = useState({user: 'dsJosh', quantity: 1});
-  const [msg, setMsg] = useState(false);
+const PostForm = ({ addPost, user, contact }) => {
+  const [newPost, setPost] = useState({
+    user: user,
+    quantity: 1,
+    contact: contact,
+  });
+  const [status, setStatus] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,17 +27,26 @@ const CreatePost = ({ addPost }) => {
     }
   };
 
-  const save = () => {
-    setMsg(true);
-    addPost({ ...newPost, id: Date.now()});
+  const handleClick = () => {
+    if (Object.keys(newPost).length > 8) {
+      addPost({ ...newPost, id: Date.now() });
+      setStatus("SAVED!");
+    } else {
+      setStatus("missing fields");
+    }
   };
 
   return (
     <div className="CreatePost">
       <form className="postForm">
+        <div className="back-container">
+          <Link to={`/${user}/closet`}>
+            <AiOutlineRollback className="back" />
+          </Link>
+        </div>
         <h2>CREATE A POST</h2>
         <input type="file" name="url" onChange={onImageChange} />
-        <label>NAME:</label>
+        <label>NAME of SHOE:</label>
         <input
           name="title"
           type="text"
@@ -94,7 +108,7 @@ const CreatePost = ({ addPost }) => {
           required
         />
 
-        <label>COLOR:</label>
+        <label>COLOR(S):</label>
         <input
           name="colors"
           type="text"
@@ -105,29 +119,18 @@ const CreatePost = ({ addPost }) => {
           required
         />
         <BasicModal preview={<Enlarged pair={newPost} />} />
-        <button className="save-btn" type="button" onClick={save}>
+        <p className="status">{status}</p>
+
+        <button className="save-btn" type="button" onClick={handleClick}>
           SAVE
         </button>
-        {msg && <h3 className="save-msg copied">SAVED!</h3>}
       </form>
-
-      {/* 
-      <div className="newPost">
-        <img src={newPost.url} width={"250px"} alt={newPost.title} />
-        <p>TITLE: {newPost.title}</p>
-        <p>SIZE: {newPost.size}</p>
-        <p>RELEASE: {newPost.release}</p>
-        <p>BRAND: {newPost.brand}</p>
-        <p>SKU: {newPost.code}</p>
-        <p>PRICE: {newPost.price}</p>
-        <p>COLOR: {newPost.colors}</p>
-      </div> */}
     </div>
   );
 };
 
-export default CreatePost;
+export default PostForm;
 
-CreatePost.propTypes = {
+PostForm.propTypes = {
   addPost: PropTypes.func.isRequired,
 };

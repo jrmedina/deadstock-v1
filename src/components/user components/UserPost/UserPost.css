@@ -7,13 +7,12 @@
   height: 27em;
   width: 30%;
   margin: 1em;
-  position: relative;
+  padding: 1em;
 }
 
 .btn-container {
   display: flex;
-  position: absolute;
-  z-index: 1;
+  align-items: center;
 }
 
 .edit-container {
@@ -21,7 +20,7 @@
   width: 90%;
   justify-content: space-between;
   margin-top: 1em;
-   margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .edit {
@@ -41,7 +40,6 @@
   font-weight: 800;
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
-  margin-top: 25em;
   width: 7em;
 }
 .delete-btn {
@@ -67,7 +65,7 @@
 }
 
 p {
-  margin: .2px;
+  margin: 0.2px;
 }
 
 @media (max-width: 424px) {

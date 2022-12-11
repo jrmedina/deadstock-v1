@@ -22,7 +22,7 @@ export const BasicModal = ({ preview }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div >
+    <div>
       <Button onClick={handleOpen}>Preview</Button>
       <Modal
         open={open}

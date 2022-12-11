@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
-import "./RecentlyAdded.css";
+import "./Hero.css";
+import { formatData } from "../../utils/formatData";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
-const RecentlyAdded = ({ inventory }) => {
-  const recent = inventory.slice(-5).reverse();
+const Hero = ({ inventory }) => {
+  const recent = inventory
+    .slice(-5)
+    .reverse()
+    .map((shoe) => formatData(shoe));
   const [slide, setSlide] = useState(0);
-  
+
   const toBeDisplayed = recent.map((shoe, index) => {
     return (
       <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>
@@ -55,9 +59,9 @@ const RecentlyAdded = ({ inventory }) => {
   );
 };
 
-export default RecentlyAdded;
+export default Hero;
 
-RecentlyAdded.propTypes = {
+Hero.propTypes = {
   inventory: PropTypes.arrayOf(
     PropTypes.shape({
       brand: PropTypes.string,

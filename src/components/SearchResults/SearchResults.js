@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MiniPost from "../MiniPost/MiniPost";
-import "./SearchContainer.css";
+import "./SearchResults.css";
 
-const SearchContainer = ({ query }) => {
+const SearchResults = ({ query }) => {
   const toBeDisplayed = query.length ? (
     query.map((shoe) => (
       <MiniPost
@@ -25,8 +25,8 @@ const SearchContainer = ({ query }) => {
   return <div className="SearchContainer">{toBeDisplayed}</div>;
 };
 
-export default SearchContainer;
+export default SearchResults;
 
-SearchContainer.propTypes = {
+SearchResults.propTypes = {
   query: PropTypes.array.isRequired,
 };

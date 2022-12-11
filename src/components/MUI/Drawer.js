@@ -11,7 +11,9 @@ export const TemporaryDrawer = ({ contact, title, user }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
     window.location.href = `mailto:${contact}?subject=${formData.subject}&body=Hey! My name is ${formData.name}. 
+
     I was interested in buying your ${title} for $${formData.message}. 
+    
     If that works, let's chat. (${formData.email})`;
   };
 
