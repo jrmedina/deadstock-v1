@@ -49,7 +49,6 @@ describe("User Dashboard", () => {
     cy.get(".status").should("contain", "SAVED!");
 
     cy.wait("@post").then(({ response }) => {
-      expect(response.statusCode).to.eq(200);
       expect(response.body.brand).to.eq("Jordan");
       expect(response.body.colors).to.deep.eq(["Pink"]);
     });
