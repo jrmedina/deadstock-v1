@@ -5,8 +5,9 @@ import Enlarged from "../../DetailedView/DetailedView";
 import { BasicModal } from "../../MUI/Modal";
 import { Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
+import { fetchData, postData } from "../../../utils/apiCalls";
 
-const PostForm = ({ addPost, user, contact }) => {
+const PostForm = ({ addPost, user, contact, setInventory}) => {
   const [newPost, setPost] = useState({
     user: user,
     quantity: 1,
@@ -22,17 +23,21 @@ const PostForm = ({ addPost, user, contact }) => {
   const onImageChange = (event) => {
     const { name, files } = event.target;
     if (files && files[0]) {
-      let img = event.target.files[0];
-      setPost({ ...newPost, [name]: URL.createObjectURL(img) });
+      const img = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => setPost({ ...newPost, [name]: reader.result });
+      reader.readAsDataURL(img);
     }
   };
-
   const handleClick = () => {
     if (Object.keys(newPost).length > 8) {
-      addPost({ ...newPost, id: Date.now() });
+      postData({ ...newPost, id: Date.now() });
+      fetchData("inventory").then((data) => setInventory(data));
+      addPost(newPost)
+
       setStatus("SAVED!");
     } else {
-      setStatus("missing fields");
+      setStatus("missing fields...");
     }
   };
 
