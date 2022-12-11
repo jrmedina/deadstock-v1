@@ -1,0 +1,21 @@
+.Footer {
+  position: fixed;
+  bottom: 0px;
+  right: 5px;
+}
+
+.img {
+  color: black;
+  height: auto;
+  width: 30px;
+  margin-left: 0.2em;
+}
+@media (max-width: 424px) {
+.Footer {
+    display: flex;
+    flex-direction: column;
+  position: fixed;
+  bottom: 0px;
+  right: 2px;
+}
+}

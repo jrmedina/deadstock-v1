@@ -9,7 +9,7 @@ const UserCloset = ({ closet, update, deletePost }) => {
   const formattedCloset = closet.map((shoe) => formatData(shoe));
   const toBeDisplayed = formattedCloset.length ? (
     closet
-      .map((shoe) => (
+      .map((shoe, index) => (
         <UserPost
           title={shoe.title}
           url={shoe.url}
@@ -17,7 +17,7 @@ const UserCloset = ({ closet, update, deletePost }) => {
           code={shoe.code}
           release={shoe.release}
           quantity={shoe.quantity}
-          key={shoe.id}
+          key={index}
           id={shoe.id}
           brand={shoe.brand}
           update={update}

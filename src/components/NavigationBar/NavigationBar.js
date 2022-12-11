@@ -52,6 +52,7 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
 
   return (
     <div className="NavBar">
+
       <div className="header-container">
         <h1 className="header">DEADSTOCK</h1>
       </div>
