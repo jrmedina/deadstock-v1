@@ -8,18 +8,21 @@ import { BiRun } from "react-icons/bi";
 import "./NavigationBar.css";
 import { fetchData } from "../../utils/apiCalls";
 
-const NavigationBar = ({ user, handleInput, logout, setInventory}) => {
+const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
   const [input, setInput] = useState("");
-  
-const getCloset = () => {
-  fetchData("inventory").then((data) => setInventory(data));
 
-};
+  const refetchData = () => {
+    fetchData("inventory").then((data) => setInventory(data));
+  };
 
   const toBeDisplayed = user ? (
     <>
       <Link to={`/${user}/closet`}>
-        <button aria-label="closet" className="nav closet" onClick={getCloset}>
+        <button
+          aria-label="closet"
+          className="nav closet"
+          onClick={refetchData}
+        >
           <GiRunningShoe />
         </button>
       </Link>
@@ -36,7 +39,6 @@ const getCloset = () => {
       </button>
     </Link>
   );
-
 
   const handleChange = (input) => {
     setInput(input);

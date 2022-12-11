@@ -20,7 +20,7 @@ describe("User Dashboard", () => {
     cy.get(".UserPost").contains("SAVED!");
     cy.get(".nav.home").click();
     cy.get(".slide.active").click();
-    cy.get(".details").find("p").last().should("contain", "Price: $300.00 USD");
+    cy.get(".details").find("p").last().should("contain", "Price: $300 USD");
   });
 
   it("Should be able to DELETE an existing post", () => {
@@ -43,7 +43,7 @@ describe("User Dashboard", () => {
     cy.get(".UserPost").first().should("contain", "9.5");
   });
 
-  it.only("Should let the user know if they do not have any shoes in their inventory", () => {
+  it("Should let the user know if they do not have any shoes in their inventory", () => {
     cy.get(".UserPost").contains("Nike Dunk Low World Champ");
     cy.get(".delete-btn").click();
     cy.get("h2").should("contain", "Looks like we need to add some shoes...");
