@@ -7,10 +7,10 @@ const MiniPost = ({ title, image, size, id, enlarge }) => {
   return (
     <div className="MiniPost">
       <Link to={`/inventory/${id}`}>
-        <img src={image} className="image" alt={title} onClick={enlarge} />
+        <img src={image} className="mini-image" alt={title} onClick={enlarge} />
       </Link>
       <h3 className="title">{title}</h3>
-      <h4 className="miniSize">Size: {size}</h4>
+      <h4 className="mini-size">Size: {size}</h4>
     </div>
   );
 };

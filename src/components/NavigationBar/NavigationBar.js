@@ -6,14 +6,10 @@ import { GiRunningShoe } from "react-icons/gi";
 import { ImHome3 } from "react-icons/im";
 import { BiRun } from "react-icons/bi";
 import "./NavigationBar.css";
-import { fetchData } from "../../utils/apiCalls";
 
-const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
+
+const NavigationBar = ({ user, handleInput, logout}) => {
   const [input, setInput] = useState("");
-
-  const refetchData = () => {
-    fetchData("inventory").then((data) => setInventory(data));
-  };
 
   const toBeDisplayed = user ? (
     <>
@@ -21,7 +17,7 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
         <button
           aria-label="closet"
           className="nav closet"
-          onClick={refetchData}
+          onClick={() => removeInput()}
         >
           <GiRunningShoe />
         </button>
@@ -34,7 +30,11 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
     </>
   ) : (
     <Link to={`/login`}>
-      <button aria-label="login" className="nav login">
+      <button
+        aria-label="login"
+        className="nav login"
+        onClick={() => removeInput()}
+      >
         <MdLogin />
       </button>
     </Link>
@@ -57,13 +57,21 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
       </div>
       <div className="constant">
         <Link to={`/`}>
-          <button aria-label="home" className="nav home" onClick={refetchData}>
+          <button
+            aria-label="home"
+            className="nav home"
+            onClick={() => removeInput()}
+          >
             <ImHome3 />
           </button>
         </Link>
 
         <Link to={`/all`}>
-          <button aria-label="all" className="nav all" onClick={refetchData}>
+          <button
+            aria-label="all"
+            className="nav all"
+            onClick={() => removeInput()}
+          >
             all
           </button>
         </Link>
@@ -80,7 +88,11 @@ const NavigationBar = ({ user, handleInput, logout, setInventory }) => {
             placeholder="search"
             onChange={(e) => handleChange(e.target.value)}
           />
-          {input && <button onClick={removeInput}>x</button>}
+          {input && (
+            <button className="clear-button" onClick={() => removeInput()}>
+              x
+            </button>
+          )}
         </nav>
       </Link>
     </div>

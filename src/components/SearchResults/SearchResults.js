@@ -4,7 +4,7 @@ import MiniPost from "../MiniPost/MiniPost";
 import "./SearchResults.css";
 
 const SearchResults = ({ query }) => {
-  const toBeDisplayed = query.length ? (
+  const results = query.length ? (
     query.map((shoe) => (
       <MiniPost
         title={shoe.title}
@@ -22,7 +22,7 @@ const SearchResults = ({ query }) => {
     </div>
   );
 
-  return <div className="SearchContainer">{toBeDisplayed}</div>;
+  return <div className="SearchContainer">{results}</div>;
 };
 
 export default SearchResults;

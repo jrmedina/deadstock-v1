@@ -14,7 +14,7 @@ const Hero = ({ inventory }) => {
 
   const toBeDisplayed = recent.map((shoe, index) => {
     return (
-      <div key={shoe.id} className={index === slide ? "slide active" : "slide"}>
+      <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
           <MiniPost
             title={shoe.title}

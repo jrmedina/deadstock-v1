@@ -8,53 +8,53 @@
 }
 
 .title,
-.miniSize {
+.mini-size {
   margin: 0%;
 }
 
 @media (max-width: 424px) {
-  .image {
+  .mini-image {
     width: 270px;
   }
 
   .title,
-  .miniSize {
+  .mini-size {
     text-align: center;
     font-size: 15px;
   }
 }
 
 @media (min-width: 425px) {
-  .image {
+  .mini-image {
     width: 350px;
   }
 
   .title,
-  .miniSize {
+  .mini-size {
     text-align: center;
     font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
-  .image {
+  .mini-image {
     width: 435px;
   }
 
   .title,
-  .miniSize {
+  .mini-size {
     text-align: center;
     font-size: 20px;
   }
 }
 
 @media (min-width: 1024px) {
-  .image {
+  .mini-image {
     width: 550px;
   }
 
   .title,
-  .miniSize {
+  .mini-size {
     text-align: center;
     font-size: 20px;
   }

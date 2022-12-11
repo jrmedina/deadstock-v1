@@ -7,10 +7,11 @@ import Login from "../user components/Login/Login";
 import { Route, Switch } from "react-router-dom";
 import DetailedView from "../DetailedView/DetailedView";
 import ListView from "../ListView/ListView";
-import { fetchData } from "../../utils/apiCalls";
+import { fetchData, postData } from "../../utils/apiCalls";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import Error from "../Error/Error";
 import "./App.css";
+import Socials from "../Socials/Socials";
 
 const App = () => {
   const [inventory, setInventory] = useState([]);
@@ -52,6 +53,7 @@ const App = () => {
 
   const addPost = (newPost) => {
     setInventory([...inventory, newPost]);
+    postData({ ...newPost, id: Date.now() });
     setCloset({
       ...closet,
       closet: [...closet.closet, { ...newPost, user: closet.username }],
@@ -92,7 +94,6 @@ const App = () => {
         handleInput={handleSearch}
         logout={logout}
         inventory={inventory}
-        setInventory={setInventory}
       />
       <Switch>
         <Route
@@ -137,6 +138,7 @@ const App = () => {
         <Route exact path="/" render={() => homeView} />
         <Route path="*" render={() => <Error />} />
       </Switch>
+      <Socials />
     </main>
   );
 };
