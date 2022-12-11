@@ -27,8 +27,8 @@ export const formatData = (data) => {
         ? colors.toUpperCase()
         : colors.join(", ").toUpperCase(),
     contact: contact,
-    id: id || Date.now(),
-    price: Number(price)?.toFixed(2),
+    id: id,
+    price: price,
     quantity: quantity || 1,
     release: release || `Email ${user} for more information`,
     size: size,

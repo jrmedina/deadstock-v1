@@ -5,8 +5,9 @@ import Enlarged from "../../DetailedView/DetailedView";
 import { BasicModal } from "../../MUI/Modal";
 import { Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
+import { fetchData, postData } from "../../../utils/apiCalls";
 
-const PostForm = ({ addPost, user, contact }) => {
+const PostForm = ({ addPost, user, contact, setInventory}) => {
   const [newPost, setPost] = useState({
     user: user,
     quantity: 1,
@@ -22,55 +23,23 @@ const PostForm = ({ addPost, user, contact }) => {
   const onImageChange = (event) => {
     const { name, files } = event.target;
     if (files && files[0]) {
-      let img = event.target.files[0];
-      setPost({ ...newPost, [name]: URL.createObjectURL(img) });
+      const img = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => setPost({ ...newPost, [name]: reader.result });
+      reader.readAsDataURL(img);
     }
   };
+  const handleClick = () => {
+    if (Object.keys(newPost).length > 8) {
+      postData({ ...newPost, id: Date.now() });
+      fetchData("inventory").then((data) => setInventory(data));
+      addPost(newPost)
 
-  // ----------------------------------------------------------------
-  const postPost = () => {
-    let newPost1 =   {
-    title: "Union",
-    release: "11/17/2018",
-    colors: ["WHITE", "BLACK-VARSITY", "RED", "WOLF GREY"],
-    brand: "Jordan",
-    size: 9.5,
-    quantity: 1,
-    url: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/079/014/557/original/466842_01.jpg.jpeg?action=crop&width=2000",
-    code: "BV1300-106",
-    user: "dsJosh",
-    id: 1,
-    contact: "ndgns2@gmail.com",
-    price: "10.0",
-  }
-
-    return fetch("http://localhost:3001/api/inventory", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newPost1),
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-
-    // if (post.ok) {
-    //   return post.json();
-    // } else {
-    //   throw Error(post.status.Text);
-    // }
-    // })
-    // .catch((error) => console.log(error));
+      setStatus("SAVED!");
+    } else {
+      setStatus("missing fields...");
+    }
   };
-
-  // ----------------------------------------------------------------
-
-  // const handleClick = () => {
-  //   if (Object.keys(newPost).length > 8) {
-  //     addPost({ ...newPost, id: Date.now() });
-  //     setStatus("SAVED!");
-  //   } else {
-  //     setStatus("missing fields");
-  //   }
-  // };
 
   return (
     <div className="CreatePost">
@@ -157,7 +126,7 @@ const PostForm = ({ addPost, user, contact }) => {
         <BasicModal preview={<Enlarged pair={newPost} />} />
         <p className="status">{status}</p>
 
-        <button className="save-btn" type="button" onClick={postPost}>
+        <button className="save-btn" type="button" onClick={handleClick}>
           SAVE
         </button>
       </form>

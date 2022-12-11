@@ -92,6 +92,7 @@ const App = () => {
         handleInput={handleSearch}
         logout={logout}
         inventory={inventory}
+        setInventory={setInventory}
       />
       <Switch>
         <Route
@@ -118,6 +119,7 @@ const App = () => {
               addPost={addPost}
               user={closet.username}
               contact={closet.contact}
+              setInventory={setInventory}
             />
           )}
         />
