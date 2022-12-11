@@ -45,8 +45,8 @@ describe("User Dashboard", () => {
     cy.get('input[name="code"]').type("123-abc");
     cy.get('input[name="price"]').type(250);
     cy.get('input[name="colors"]').type("Pink");
-    cy.get(".save-btn").click();
-    cy.get(".status").should("contain", "SAVED!");
+    // cy.get(".save-btn").click();
+    // cy.get(".status").should("contain", "SAVED!");
 
   //   cy.wait("@post").then(({ response }) => {
   //     console.log(response);
