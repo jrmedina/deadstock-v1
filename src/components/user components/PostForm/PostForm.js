@@ -27,14 +27,50 @@ const PostForm = ({ addPost, user, contact }) => {
     }
   };
 
-  const handleClick = () => {
-    if (Object.keys(newPost).length > 8) {
-      addPost({ ...newPost, id: Date.now() });
-      setStatus("SAVED!");
-    } else {
-      setStatus("missing fields");
-    }
+  // ----------------------------------------------------------------
+  const postPost = () => {
+    let newPost1 =   {
+    title: "Union",
+    release: "11/17/2018",
+    colors: ["WHITE", "BLACK-VARSITY", "RED", "WOLF GREY"],
+    brand: "Jordan",
+    size: 9.5,
+    quantity: 1,
+    url: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/079/014/557/original/466842_01.jpg.jpeg?action=crop&width=2000",
+    code: "BV1300-106",
+    user: "dsJosh",
+    id: 1,
+    contact: "ndgns2@gmail.com",
+    price: "10.0",
+  }
+
+    return fetch("http://localhost:3001/api/inventory", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPost1),
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
+    // if (post.ok) {
+    //   return post.json();
+    // } else {
+    //   throw Error(post.status.Text);
+    // }
+    // })
+    // .catch((error) => console.log(error));
   };
+
+  // ----------------------------------------------------------------
+
+  // const handleClick = () => {
+  //   if (Object.keys(newPost).length > 8) {
+  //     addPost({ ...newPost, id: Date.now() });
+  //     setStatus("SAVED!");
+  //   } else {
+  //     setStatus("missing fields");
+  //   }
+  // };
 
   return (
     <div className="CreatePost">
@@ -121,7 +157,7 @@ const PostForm = ({ addPost, user, contact }) => {
         <BasicModal preview={<Enlarged pair={newPost} />} />
         <p className="status">{status}</p>
 
-        <button className="save-btn" type="button" onClick={handleClick}>
+        <button className="save-btn" type="button" onClick={postPost}>
           SAVE
         </button>
       </form>
