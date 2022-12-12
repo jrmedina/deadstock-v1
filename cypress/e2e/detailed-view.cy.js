@@ -1,17 +1,15 @@
 describe("Details View", () => {
   beforeEach(() => {
-    cy.intercept("GET", "http://localhost:3001/api/inventory", {
-      fixture: "/sampleInventory.json",
-    }).as("inventory");
-    cy.intercept("GET", "http://localhost:3001/api/users", {
-      fixture: "/sampleUsers.json",
-    }).as("users");
-    cy.visit("http://localhost:3000");
-    cy.get(".slide.active").click();
+    cy.intercept("GET", "http://localhost:3001/api/inventory/5", {
+      fixture: "/samplePair.json",
+    }).as("pair");
+
+    cy.visit("http://localhost:3000/inventory/5");
   });
 
   it("Should contain details for the shoe and seller", () => {
-    cy.get(".details").should("contain", `Colors: WHITE, METALLIC GOLD, BLACK`);
+
+    cy.get(".details").should("contain", `Color(s): WHITE, METALLIC GOLD, BLACK`);
     cy.get(".details").should("contain", `Size: 6.5`);
     cy.get(".details").should("contain", `Brand: Nike`);
     cy.get(".details").should("contain", `Release Date: 09/02/2022`);

@@ -3,9 +3,11 @@ describe("Search Options", () => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",
     }).as("inventory");
-    cy.intercept("GET", "http://localhost:3001/api/users", {
-      fixture: "/sampleUsers.json",
-    }).as("users");
+
+        cy.intercept("GET", "http://localhost:3001/api/inventory/5", {
+          fixture: "/samplePair.json",
+        }).as("pair");
+
     cy.visit("http://localhost:3000/");
   });
 
@@ -18,15 +20,15 @@ describe("Search Options", () => {
   });
 
   it("Should be able to filter/search inventory by color no matter text case", () => {
-    cy.get('input[type="text"]').click().type("arGoN");
+    cy.get('input[type="text"]').click().type("gOlD");
     cy.get(".MiniPost").click();
-    cy.get(".details").should("contain", "Colors: LIGHT BLUE, ARGON, WHITE");
+    cy.get(".details").should("contain",'Color(s): WHITE, METALLIC GOLD, BLACK');
   });
 
   it("Should be able to filter/search inventory by name no matter text case", () => {
     cy.get('input[type="text"]').click().type("Champ");
     cy.get(".MiniPost").click();
-    cy.get("h1.el-title").should("contain", "Nike Dunk Low World Champ");
+    cy.get("h1.el-title").should("contain", `Nike Dunk Low World Champ`);
   });
 
   it("Should inform the user if there are no matching results", () => {

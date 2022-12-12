@@ -7,7 +7,13 @@ import Login from "../user components/Login/Login";
 import { Route, Switch } from "react-router-dom";
 import DetailedView from "../DetailedView/DetailedView";
 import ListView from "../ListView/ListView";
-import { fetchData, postData } from "../../utils/apiCalls";
+import {
+  fetchData,
+  postData,
+  deleteData,
+  putData,
+  fetchUser,
+} from "../../utils/apiCalls";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import Error from "../Error/Error";
 import "./App.css";
@@ -16,12 +22,10 @@ import Socials from "../Socials/Socials";
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState();
-  const [users, setUsers] = useState([]);
   const [closet, setCloset] = useState({});
 
   useEffect(() => {
     fetchData("inventory").then((data) => setInventory(data));
-    fetchData("users").then((response) => setUsers(response.data));
   }, []);
 
   const handleSearch = (input) => {
@@ -42,43 +46,29 @@ const App = () => {
   };
 
   // ------------USER--------------------------
-  const login = (user) => {
-    const closet = inventory.filter((shoe) => shoe.user === user.username);
-    setCloset({
-      username: user.username,
-      contact: closet[0].contact,
-      closet: closet,
-    });
+  const login = (username, password) => {
+    fetchUser(username, password).then((data) => setCloset(data));
   };
 
   const addPost = (newPost) => {
-    setInventory([...inventory, newPost]);
-    postData({ ...newPost, id: Date.now() });
+    postData(newPost).then((data) => setInventory(data));
     setCloset({
       ...closet,
-      closet: [...closet.closet, { ...newPost, user: closet.username }],
+      closet: [...closet.closet, { ...newPost, user: newPost.user }],
     });
   };
 
   const updatePost = (post) => {
-    const filtered = inventory.filter((s) => s.id !== post.id);
-    setInventory([...filtered, post]);
+    putData(post).then((data) => setInventory(data));
   };
 
   const deletePost = (e) => {
-    const filteredInventory = inventory.filter(
-      (s) => s.id !== Number(e.target.id)
-    );
-    setInventory(filteredInventory);
+    deleteData(e.target.id).then((data) => setInventory(data));
     const updatedCloset = closet.closet.filter(
       // eslint-disable-next-line
       (s) => s.id != Number(e.target.id)
     );
     setCloset({ ...closet, closet: updatedCloset });
-  };
-
-  const logout = () => {
-    setCloset({});
   };
 
   const homeView = search ? (
@@ -91,8 +81,9 @@ const App = () => {
     <main className="App">
       <NavigationBar
         user={closet.username}
+        logout={setCloset}
         handleInput={handleSearch}
-        logout={logout}
+        setCloset={setCloset}
         inventory={inventory}
       />
       <Switch>
@@ -107,34 +98,14 @@ const App = () => {
             />
           )}
         />
-        <Route
-          exact
-          path="/login"
-          render={() => <Login users={users} login={login} />}
-        />
+        <Route exact path="/login" render={() => <Login login={login} />} />
         <Route
           exact
           path="/createpost"
-          render={() => (
-            <PostForm
-              addPost={addPost}
-              user={closet.username}
-              contact={closet.contact}
-              setInventory={setInventory}
-            />
-          )}
+          render={() => <PostForm addPost={addPost} user={closet} />}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
-        <Route
-          exact
-          path="/inventory/:id"
-          render={({ match }) => {
-            const pair = inventory.find(
-              (s) => s.id === Number(match.params.id)
-            );
-            return <DetailedView pair={pair} />;
-          }}
-        />
+        <Route exact path="/inventory/:id" render={() => <DetailedView />} />
         <Route exact path="/" render={() => homeView} />
         <Route path="*" render={() => <Error />} />
       </Switch>

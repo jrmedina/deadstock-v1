@@ -1,3 +1,29 @@
-{
-  "data": [{ "username": "dsJosh", "password": "dogs" }]
-}
+{ "username": "dsJosh", "password": "dogs" , "closet": [
+    {
+      "title": "Union x Air Jordan 1 Black Toe",
+      "release": "11/17/2018",
+      "colors": ["WHITE", "BLACK-VARSITY", "RED", "WOLF GREY"],
+      "brand": "Jordan",
+      "size": 9.5,
+      "quantity": 1,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/079/014/557/original/466842_01.jpg.jpeg?action=crop&width=2000",
+      "code": "BV1300-106",
+      "user": "dsJosh",
+      "price": "123",
+      "id": 1
+    },
+
+    {
+      "title": "NikeCraft General Purpose Shoe",
+      "release": "09/02/2022",
+      "colors": ["DARK SULFUR", "WHITE-LIGHT", "CREAM"],
+      "brand": "Nike",
+      "size": 7,
+      "quantity": 2,
+      "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/077/642/737/original/981386_01.jpg.jpeg?action=crop&width=950",
+      "code": "DA6672-700",
+      "user": "dsJosh",
+      "price": "123",
+      "id": 2
+    }
+  ]}

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -84,3 +85,9 @@ export const TemporaryDrawer = ({ contact, title, user }) => {
     </div>
   );
 };
+
+TemporaryDrawer.propTypes = {
+  contact: PropTypes.string,
+  title: PropTypes.string,
+  user: PropTypes.string,
+}.isRequired;

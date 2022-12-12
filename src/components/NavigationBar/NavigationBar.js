@@ -8,7 +8,7 @@ import { BiRun } from "react-icons/bi";
 import "./NavigationBar.css";
 
 
-const NavigationBar = ({ user, handleInput, logout}) => {
+const NavigationBar = ({ user, handleInput, setCloset}) => {
   const [input, setInput] = useState("");
 
   const toBeDisplayed = user ? (
@@ -24,7 +24,7 @@ const NavigationBar = ({ user, handleInput, logout}) => {
       </Link>
       <Link to={`/`}>
         <button aria-label="logout" className="nav logout">
-          <BiRun onClick={logout} />
+          <BiRun onClick={() => setCloset({})} />
         </button>
       </Link>
     </>
@@ -104,5 +104,5 @@ export default NavigationBar;
 NavigationBar.propTypes = {
   user: PropTypes.string,
   handleInput: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
+  setCloset: PropTypes.func.isRequired,
 };
