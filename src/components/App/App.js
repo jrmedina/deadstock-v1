@@ -12,7 +12,7 @@ import {
   postData,
   deleteData,
   putData,
-  fetchPair,
+  fetchUser,
 } from "../../utils/apiCalls";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import Error from "../Error/Error";
@@ -48,13 +48,8 @@ const App = () => {
   };
 
   // ------------USER--------------------------
-  const login = (user) => {
-    const closet = inventory.filter((shoe) => shoe.user === user.username);
-    setCloset({
-      username: user.username,
-      contact: closet[0].contact,
-      closet: closet,
-    });
+  const login = (username, password) => {
+    fetchUser(username, password).then((data) => setCloset(data));
   };
 
   const addPost = (newPost) => {
@@ -126,23 +121,7 @@ const App = () => {
           )}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
-        {/* <Route
-          exact
-          path="/inventory/:id"
-          render={({ match }) => {
-            const pair = inventory.find(
-              (s) => s.id === Number(match.params.id)
-            );
-
-            return <DetailedView pair={pair} />;
-          }}
-        /> */}
-        <Route
-          exact
-          path="/inventory/:id"
-          render={() =>
-         <DetailedView />}
-        />
+        <Route exact path="/inventory/:id" render={() => <DetailedView />} />
         <Route exact path="/" render={() => homeView} />
         <Route path="*" render={() => <Error />} />
       </Switch>

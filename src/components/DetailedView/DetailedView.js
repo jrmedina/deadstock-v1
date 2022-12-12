@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import "./DetailedView.css";
 import { TemporaryDrawer } from "../MUI/Drawer";
-import { formatData } from "../../utils/formatData";
 import { useParams } from "react-router-dom";
 import { fetchPair } from "../../utils/apiCalls";
 const DetailedView = () => {
@@ -11,10 +9,10 @@ const DetailedView = () => {
 
   useEffect(() => {
     fetchPair(id).then((data) => setPair(data));
-  }, []);
-
-
-    return pair && (
+  });
+ 
+  return (
+    pair && (
       <div className="Enlarged">
         <h1 className="el-title">{pair.title}</h1>
         <div className="el-container">
@@ -30,9 +28,14 @@ const DetailedView = () => {
             <p>Price: ${pair.price} USD</p>
           </div>
         </div>
-        <TemporaryDrawer contact={pair.contact} title={pair.title} user={pair.user} />
+        <TemporaryDrawer
+          contact={pair.contact}
+          title={pair.title}
+          user={pair.user}
+        />
       </div>
-    );
+    )
+  );
 };
 
 export default DetailedView;

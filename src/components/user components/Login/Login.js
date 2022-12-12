@@ -3,17 +3,22 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import "./Login.css";
+import { fetchUser } from "../../../utils/apiCalls";
 
 const Login = ({ users, login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const checkLogin = () => {
-    const user = users.find(
-      (user) => username === user.username && user.password === password
-    );
-    user && login(user);
-  };
+  // const checkLogin = () => {
+  //   const user = users.find(
+  //     (user) => username === user.username && user.password === password
+  //   );
+  //   user && login(user);
+  // };
+
+  const test = () =>{
+    fetchUser("dsJosh","dogs")
+  }
 
   return (
     <form className="Login">
@@ -38,7 +43,7 @@ const Login = ({ users, login }) => {
         <button
           className="general-button"
           type="button"
-          onClick={checkLogin}
+          onClick={() => login(username, password)}
           disabled={!username || !password}
         >
           Log in

@@ -16,18 +16,37 @@ const fetchData = async (type) => {
 
 const fetchPair = async (id) => {
   try {
-    // ` http://localhost:3001/api/${type}`
-    // `https://deadstock-api.vercel.app/api/${type}`
     const response = await fetch(`http://localhost:3001/api/inventory/${id}`);
     const json = await response.json();
      const data = formatData(json);
-     console.log(data);
-     
     return data;
   } catch (error) {
     console.log(error);
   }
 };
+
+
+
+const fetchUser = async (username, password) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3001/api/${username}/closet`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username, password: password }),
+      }
+    );
+    const json = await response.json();
+  return json
+    // const data = json.updated.map((data) => formatData(data));
+    // console.log(data);
+
+    // return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const postData = async (newPost) => {
   try {
@@ -78,4 +97,4 @@ const deleteData = async (id) => {
   }
 };
 
-export { fetchData, postData, deleteData, putData, fetchPair };
+export { fetchData, postData, deleteData, putData, fetchPair, fetchUser };
