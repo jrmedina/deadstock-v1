@@ -24,7 +24,7 @@ ListView.propTypes = {
     PropTypes.shape({
       brand: PropTypes.string,
       code: PropTypes.string,
-      colors: PropTypes.string || PropTypes.array,
+      colors: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
       contact: PropTypes.string,
       id: PropTypes.number,
       release: PropTypes.string,

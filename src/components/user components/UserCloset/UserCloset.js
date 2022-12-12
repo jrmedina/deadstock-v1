@@ -3,6 +3,8 @@ import UserPost from "../UserPost/UserPost";
 import "./UserCloset.css";
 import { Link } from "react-router-dom";
 import Error from "../../Error/Error";
+import PropTypes from "prop-types";
+
 
 const UserCloset = ({ closet, update, deletePost }) => {
   const toBeDisplayed = closet
@@ -40,19 +42,19 @@ const UserCloset = ({ closet, update, deletePost }) => {
 
 export default UserCloset;
 
-// UserCloset.propTypes = {
-//   closet: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       brand: PropTypes.string,
-//       code: PropTypes.string,
-//       contact: PropTypes.string,
-//       id: PropTypes.number,
-//       release: PropTypes.string,
-//       title: PropTypes.string,
-//       url: PropTypes.string,
-//       user: PropTypes.string,
-//     })
-//   ).isRequired,
-//   update: PropTypes.func.isRequired,
-//   deletePost: PropTypes.func.isRequired,
-// };
+UserCloset.propTypes = {
+  closet: PropTypes.arrayOf(
+    PropTypes.shape({
+      brand: PropTypes.string,
+      code: PropTypes.string,
+      contact: PropTypes.string,
+      id: PropTypes.number,
+      release: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string,
+      user: PropTypes.string,
+    })
+  ),
+  update: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
+};

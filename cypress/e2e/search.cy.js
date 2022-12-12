@@ -4,9 +4,9 @@ describe("Search Options", () => {
       fixture: "/sampleInventory.json",
     }).as("inventory");
 
-        cy.intercept("GET", "http://localhost:3001/api/inventory/5", {
-          fixture: "/samplePair.json",
-        }).as("pair");
+    cy.intercept("GET", "http://localhost:3001/api/inventory/5", {
+      fixture: "/samplePair.json",
+    }).as("pair");
 
     cy.visit("http://localhost:3000/");
   });
@@ -22,7 +22,10 @@ describe("Search Options", () => {
   it("Should be able to filter/search inventory by color no matter text case", () => {
     cy.get('input[type="text"]').click().type("gOlD");
     cy.get(".MiniPost").click();
-    cy.get(".details").should("contain",'Color(s): WHITE, METALLIC GOLD, BLACK');
+    cy.get(".details").should(
+      "contain",
+      "Color(s): WHITE, METALLIC GOLD, BLACK"
+    );
   });
 
   it("Should be able to filter/search inventory by name no matter text case", () => {
