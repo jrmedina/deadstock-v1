@@ -16,7 +16,7 @@ describe("Details View", () => {
     cy.get(".details").should("contain", `Quantity: 1`);
     cy.get(".details").should("contain", `SKU: DR9511 100`);
     cy.get(".details").should("contain", `Seller: dsJosh`);
-    cy.get(".details").should("contain", `Price: $123 USD`);
+    cy.get(".details").should("contain", `Price: $123.00 USD`);
   });
 
   it("Should have a way to send offer", () => {

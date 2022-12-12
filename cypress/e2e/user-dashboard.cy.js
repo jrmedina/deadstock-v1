@@ -23,12 +23,14 @@ describe("User Dashboard", () => {
     cy.get('button[type="button"]').click();
   });
 
-  it("Should be able to EDIT an existing post", () => {
+  it.only("Should be able to EDIT an existing post", () => {
     cy.get('[testid="edit"]').first().click();
     cy.get('[testid="quantity"]').first().click().type(3);
     cy.get('[testid="price"]').first().click().type(300);
     cy.get('[testid="save"]').click();
     cy.get(".UserPost").contains("SAVED!");
+        cy.visit("http://localhost:3000/");
+
   });
 
   it("Should be able to DELETE an existing post", () => {
