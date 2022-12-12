@@ -24,7 +24,7 @@ const NavigationBar = ({ user, handleInput, setCloset}) => {
       </Link>
       <Link to={`/`}>
         <button aria-label="logout" className="nav logout">
-          <BiRun onClick={setCloset({})} />
+          <BiRun onClick={() => setCloset({})} />
         </button>
       </Link>
     </>
