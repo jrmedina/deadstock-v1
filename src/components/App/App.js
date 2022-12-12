@@ -22,12 +22,10 @@ import Socials from "../Socials/Socials";
 const App = () => {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState();
-  const [users, setUsers] = useState([]);
   const [closet, setCloset] = useState({});
 
   useEffect(() => {
     fetchData("inventory").then((data) => setInventory(data));
-    fetchData("users").then((response) => setUsers(response.data));
   }, []);
 
   const handleSearch = (input) => {
@@ -73,9 +71,9 @@ const App = () => {
     setCloset({ ...closet, closet: updatedCloset });
   };
 
-  const logout = () => {
-    setCloset({});
-  };
+  // const logout = () => {
+  //   setCloset({});
+  // };
 
   const homeView = search ? (
     <SearchResults query={search} />
@@ -87,8 +85,9 @@ const App = () => {
     <main className="App">
       <NavigationBar
         user={closet.username}
+        logout={setCloset}
         handleInput={handleSearch}
-        logout={logout}
+        setCloset={setCloset}
         inventory={inventory}
       />
       <Switch>
@@ -106,7 +105,7 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={() => <Login users={users} login={login} />}
+          render={() => <Login login={login} />}
         />
         <Route
           exact

@@ -69,6 +69,8 @@
   outline: none;
   color: black;
   font-size: 16px;
+  height: inherit;
+  width: inherit;
 }
 
 .input::placeholder {
