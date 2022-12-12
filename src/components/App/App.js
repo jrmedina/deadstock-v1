@@ -71,10 +71,6 @@ const App = () => {
     setCloset({ ...closet, closet: updatedCloset });
   };
 
-  // const logout = () => {
-  //   setCloset({});
-  // };
-
   const homeView = search ? (
     <SearchResults query={search} />
   ) : (
@@ -102,22 +98,11 @@ const App = () => {
             />
           )}
         />
-        <Route
-          exact
-          path="/login"
-          render={() => <Login login={login} />}
-        />
+        <Route exact path="/login" render={() => <Login login={login} />} />
         <Route
           exact
           path="/createpost"
-          render={() => (
-            <PostForm
-              addPost={addPost}
-              user={closet.username}
-              contact={closet.contact}
-              setInventory={setInventory}
-            />
-          )}
+          render={() => <PostForm addPost={addPost} user={closet} />}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
         <Route exact path="/inventory/:id" render={() => <DetailedView />} />

@@ -1,24 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
 import "./Login.css";
-import { fetchUser } from "../../../utils/apiCalls";
 
-const Login = ({ users, login }) => {
+const Login = ({ login }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
-  // const checkLogin = () => {
-  //   const user = users.find(
-  //     (user) => username === user.username && user.password === password
-  //   );
-  //   user && login(user);
-  // };
-
-  const test = () =>{
-    fetchUser("dsJosh","dogs")
-  }
 
   return (
     <form className="Login">
@@ -60,12 +47,5 @@ const Login = ({ users, login }) => {
 export default Login;
 
 Login.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      contact: PropTypes.string,
-      password: PropTypes.string,
-      username: PropTypes.string,
-    })
-  ),
   login: PropTypes.func.isRequired,
 };

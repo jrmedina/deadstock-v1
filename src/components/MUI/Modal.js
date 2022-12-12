@@ -18,6 +18,7 @@ const style = {
 };
 
 export const BasicModal = ({ preview }) => {
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

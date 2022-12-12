@@ -3,14 +3,16 @@ import "./DetailedView.css";
 import { TemporaryDrawer } from "../MUI/Drawer";
 import { useParams } from "react-router-dom";
 import { fetchPair } from "../../utils/apiCalls";
-const DetailedView = () => {
+
+const DetailedView = ({passed}) => {
+
   const { id } = useParams();
   const [pair, setPair] = useState();
 
   useEffect(() => {
-    fetchPair(id).then((data) => setPair(data));
-  });
- 
+    passed ? setPair(passed) : fetchPair(id).then((data) => setPair(data));
+  }, [passed, id]);
+
   return (
     pair && (
       <div className="Enlarged">

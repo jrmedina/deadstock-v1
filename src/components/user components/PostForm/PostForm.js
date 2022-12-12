@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./PostForm.css";
-import Enlarged from "../../DetailedView/DetailedView";
+import DetailedView from "../../DetailedView/DetailedView";
 import { BasicModal } from "../../MUI/Modal";
 import { Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
 
-const PostForm = ({ addPost, user, contact }) => {
+const PostForm = ({ addPost, user}) => {
   const [newPost, setPost] = useState({
-    user: user,
+    user: user.username,
     quantity: 1,
-    contact: contact,
+    contact: user.contact,
     id: Date.now()
   });
   const [status, setStatus] = useState("");
@@ -120,7 +120,7 @@ const PostForm = ({ addPost, user, contact }) => {
           }}
           required
         />
-        <BasicModal preview={<Enlarged pair={newPost} />} />
+        <BasicModal preview={<DetailedView passed={newPost} />} />
         <p className="status">{status}</p>
 
         <button className="save-btn" type="button" onClick={handleClick}>

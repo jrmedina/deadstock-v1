@@ -104,5 +104,5 @@ export default NavigationBar;
 NavigationBar.propTypes = {
   user: PropTypes.string,
   handleInput: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
+  setCloset: PropTypes.func.isRequired,
 };
