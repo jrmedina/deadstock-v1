@@ -1,9 +1,9 @@
 import { formatData } from "../utils/formatData";
+    // ` http://localhost:3001/api/${type}`
+    // `https://deadstock-api.vercel.app/api/${type}`
 
 const fetchData = async (type) => {
   try {
-    // ` http://localhost:3001/api/${type}`
-    // `https://deadstock-api.vercel.app/api/${type}`
     const response = await fetch(`http://localhost:3001/api/${type}`);
     const json = await response.json();
     const data =
@@ -18,14 +18,12 @@ const fetchPair = async (id) => {
   try {
     const response = await fetch(`http://localhost:3001/api/inventory/${id}`);
     const json = await response.json();
-     const data = formatData(json);
+    const data = formatData(json);
     return data;
   } catch (error) {
     console.log(error);
   }
 };
-
-
 
 const fetchUser = async (username, password) => {
   try {
@@ -38,15 +36,11 @@ const fetchUser = async (username, password) => {
       }
     );
     const json = await response.json();
-  return json
-    // const data = json.updated.map((data) => formatData(data));
-    // console.log(data);
-
-    // return data;
+    return json;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const postData = async (newPost) => {
   try {
@@ -57,7 +51,6 @@ const postData = async (newPost) => {
     });
     const json = await response.json();
     const data = json.updated.map((data) => formatData(data));
-    console.log(data);
 
     return data;
   } catch (error) {

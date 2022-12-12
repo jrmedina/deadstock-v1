@@ -24,7 +24,7 @@ const UserCloset = ({ closet, update, deletePost }) => {
         colors={shoe.colors}
       />
     ))
-    .reverse() || <h2>Looks like we need to add some shoes...</h2>;
+    .reverse() 
   return !closet ? (
     <Error />
   ) : (
@@ -32,6 +32,7 @@ const UserCloset = ({ closet, update, deletePost }) => {
       <Link to={`/createpost`}>
         <button className="add-btn">Add To Closet</button>
       </Link>
+      {!closet.length && <h2>Looks like we need to add some shoes...</h2>}
       <div className="closet-container">{toBeDisplayed}</div>
     </div>
   );

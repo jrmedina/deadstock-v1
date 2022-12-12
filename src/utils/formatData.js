@@ -1,6 +1,8 @@
 import noImage from "../assets/noImage.png";
 
 export const formatData = (data) => {
+
+  
   const {
     brand,
     code,
@@ -15,7 +17,6 @@ export const formatData = (data) => {
     url,
     user,
   } = data;
-
   return {
     title: title?.replace(
       /(^\w{1})|(\s+\w{1})/g,
@@ -23,10 +24,10 @@ export const formatData = (data) => {
     ),
     brand: brand || "N/A",
     code: code || `Email ${user || "N/A"} for more information`,
-    colors: Array(colors).join(", ").toUpperCase(),
-    // typeof colors === "string"
-    //   ? colors.toUpperCase()
-    //   : colors?.join(", ").toUpperCase(),
+    colors:
+      typeof colors === "string"
+        ? colors.toUpperCase()
+        : colors?.join(", ").toUpperCase(),
     contact: contact,
     id: id,
     price: price,

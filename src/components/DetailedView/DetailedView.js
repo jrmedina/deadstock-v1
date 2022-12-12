@@ -4,8 +4,7 @@ import { TemporaryDrawer } from "../MUI/Drawer";
 import { useParams } from "react-router-dom";
 import { fetchPair } from "../../utils/apiCalls";
 
-const DetailedView = ({passed}) => {
-
+const DetailedView = ({ passed }) => {
   const { id } = useParams();
   const [pair, setPair] = useState();
 

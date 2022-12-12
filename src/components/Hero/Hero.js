@@ -74,5 +74,5 @@ Hero.propTypes = {
       url: PropTypes.string,
       user: PropTypes.string,
     })
-  ).isRequired,
+  )
 };

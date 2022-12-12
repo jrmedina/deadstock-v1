@@ -3,9 +3,11 @@ describe("Login User Flow", () => {
     cy.intercept("GET", "http://localhost:3001/api/inventory", {
       fixture: "/sampleInventory.json",
     }).as("inventory");
-    cy.intercept("GET", "http://localhost:3001/api/users", {
+
+    cy.intercept("POST", "http://localhost:3001/api/dsJosh/closet", {
       fixture: "/sampleUsers.json",
-    }).as("users");
+    }).as("login");
+
     cy.visit("http://localhost:3000/login");
   });
 
@@ -27,7 +29,7 @@ describe("Login User Flow", () => {
     cy.get('input[type="password"]').type("dogs");
     cy.get('button[type="button"]').click();
     cy.url().should("be.equal", "http://localhost:3000/dsJosh/closet");
-    cy.get(".UserPost").contains("Nike Dunk Low World Champ");
+    cy.get(".UserPost").contains("NikeCraft General Purpose Shoe");
   });
 
   it("Should be able to log out", () => {
