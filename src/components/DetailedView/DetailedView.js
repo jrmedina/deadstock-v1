@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import "./DetailedView.css";
 import { TemporaryDrawer } from "../MUI/Drawer";
@@ -37,6 +38,20 @@ const DetailedView = ({ passed }) => {
       </div>
     )
   );
+};
+
+DetailedView.propTypes = {
+  passed: PropTypes.shape({
+    brand: PropTypes.string,
+    code: PropTypes.string,
+    contact: PropTypes.string,
+    id: PropTypes.number,
+    release: PropTypes.string,
+    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    title: PropTypes.string,
+    url: PropTypes.string,
+    user: PropTypes.string,
+  }),
 };
 
 export default DetailedView;

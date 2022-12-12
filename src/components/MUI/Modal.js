@@ -1,8 +1,7 @@
-import PropTypes from "prop-types"
-import * as React from "react";
+import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-
+import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 
 const style = {
@@ -18,8 +17,7 @@ const style = {
 };
 
 export const BasicModal = ({ preview }) => {
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -39,5 +37,5 @@ export const BasicModal = ({ preview }) => {
 };
 
 BasicModal.propTypes = {
-  preview: PropTypes.object
-}
+  preview: PropTypes.object,
+};

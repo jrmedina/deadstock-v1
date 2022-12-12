@@ -1,8 +1,6 @@
 import noImage from "../assets/noImage.png";
 
 export const formatData = (data) => {
-
-  
   const {
     brand,
     code,
@@ -30,7 +28,7 @@ export const formatData = (data) => {
         : colors?.join(", ").toUpperCase(),
     contact: contact,
     id: id,
-    price: price,
+    price: `${price.toLocaleString()}.00`,
     quantity: quantity || 1,
     release: release || `Email ${user || "N/A"} for more information`,
     size: size,
