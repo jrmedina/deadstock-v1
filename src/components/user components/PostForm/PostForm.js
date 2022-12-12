@@ -6,11 +6,12 @@ import { BasicModal } from "../../MUI/Modal";
 import { Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
 
-const PostForm = ({ addPost, user, contact, setInventory }) => {
+const PostForm = ({ addPost, user, contact }) => {
   const [newPost, setPost] = useState({
     user: user,
     quantity: 1,
     contact: contact,
+    id: Date.now()
   });
   const [status, setStatus] = useState("");
 

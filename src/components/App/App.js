@@ -7,7 +7,13 @@ import Login from "../user components/Login/Login";
 import { Route, Switch } from "react-router-dom";
 import DetailedView from "../DetailedView/DetailedView";
 import ListView from "../ListView/ListView";
-import { fetchData, postData } from "../../utils/apiCalls";
+import {
+  fetchData,
+  postData,
+  deleteData,
+  putData,
+  fetchPair,
+} from "../../utils/apiCalls";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import Error from "../Error/Error";
 import "./App.css";
@@ -52,24 +58,19 @@ const App = () => {
   };
 
   const addPost = (newPost) => {
-    setInventory([...inventory, newPost]);
-    postData({ ...newPost, id: Date.now() });
+    postData(newPost).then((data) => setInventory(data));
     setCloset({
       ...closet,
-      closet: [...closet.closet, { ...newPost, user: closet.username }],
+      closet: [...closet.closet, { ...newPost, user: newPost.user }],
     });
   };
 
   const updatePost = (post) => {
-    const filtered = inventory.filter((s) => s.id !== post.id);
-    setInventory([...filtered, post]);
+    putData(post).then((data) => setInventory(data));
   };
 
   const deletePost = (e) => {
-    const filteredInventory = inventory.filter(
-      (s) => s.id !== Number(e.target.id)
-    );
-    setInventory(filteredInventory);
+    deleteData(e.target.id).then((data) => setInventory(data));
     const updatedCloset = closet.closet.filter(
       // eslint-disable-next-line
       (s) => s.id != Number(e.target.id)
@@ -125,15 +126,22 @@ const App = () => {
           )}
         />
         <Route exact path="/all" render={() => <ListView all={inventory} />} />
-        <Route
+        {/* <Route
           exact
           path="/inventory/:id"
           render={({ match }) => {
             const pair = inventory.find(
               (s) => s.id === Number(match.params.id)
             );
+
             return <DetailedView pair={pair} />;
           }}
+        /> */}
+        <Route
+          exact
+          path="/inventory/:id"
+          render={() =>
+         <DetailedView />}
         />
         <Route exact path="/" render={() => homeView} />
         <Route path="*" render={() => <Error />} />

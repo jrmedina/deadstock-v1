@@ -26,6 +26,7 @@ const UserPost = ({
     code: code,
     release: release,
     quantity: quantity,
+    price: price,
     id: id,
     brand: brand,
     user: user,
@@ -40,10 +41,12 @@ const UserPost = ({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setPost({
       ...post,
       [name]: value,
     });
+  
   };
   const save = (e) => {
     e.preventDefault();

@@ -1,58 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./DetailedView.css";
 import { TemporaryDrawer } from "../MUI/Drawer";
 import { formatData } from "../../utils/formatData";
+import { useParams } from "react-router-dom";
+import { fetchPair } from "../../utils/apiCalls";
+const DetailedView = () => {
+  const { id } = useParams();
+  const [pair, setPair] = useState();
 
-const DetailedView = ({ pair }) => {
-  const {
-    title,
-    release,
-    size,
-    colors,
-    quantity,
-    user,
-    url,
-    brand,
-    code,
-    contact,
-    price,
-  } = formatData(pair);
+  useEffect(() => {
+    fetchPair(id).then((data) => setPair(data));
+  }, []);
 
-  return (
-    <div className="Enlarged">
-      <h1 className="el-title">{title}</h1>
-      <div className="el-container">
-        <img src={url} alt={title} className="el-image" />
-        <div className="details">
-          <p>Colors: {colors}</p>
-          <p>Size: {size}</p>
-          <p>Release Date: {release}</p>
-          <p>Quantity: {quantity}</p>
-          <p>Brand: {brand}</p>
-          <p>SKU: {code}</p>
-          <p>Seller: {user}</p>
-          <p>Price: ${price} USD</p>
+
+    return pair && (
+      <div className="Enlarged">
+        <h1 className="el-title">{pair.title}</h1>
+        <div className="el-container">
+          <img src={pair.url} alt={pair.title} className="el-image" />
+          <div className="details">
+            <p>Color(s): {pair.colors}</p>
+            <p>Size: {pair.size}</p>
+            <p>Release Date: {pair.release}</p>
+            <p>Quantity: {pair.quantity}</p>
+            <p>Brand: {pair.brand}</p>
+            <p>SKU: {pair.code}</p>
+            <p>Seller: {pair.user}</p>
+            <p>Price: ${pair.price} USD</p>
+          </div>
         </div>
+        <TemporaryDrawer contact={pair.contact} title={pair.title} user={pair.user} />
       </div>
-      <TemporaryDrawer contact={contact} title={title} user={user} />
-    </div>
-  );
+    );
 };
 
 export default DetailedView;
-
-DetailedView.propTypes = {
-  pair: PropTypes.shape({
-    brand: PropTypes.string,
-    code: PropTypes.string,
-    colors: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    contact: PropTypes.string,
-    id: PropTypes.number,
-    release: PropTypes.string,
-    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    title: PropTypes.string,
-    url: PropTypes.string,
-    user: PropTypes.string,
-  }).isRequired,
-};
