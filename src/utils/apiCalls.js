@@ -4,7 +4,9 @@ import { formatData } from "../utils/formatData";
 
 const fetchData = async (type) => {
   try {
-    const response = await fetch(`http://localhost:3001/api/${type}`);
+    const response = await fetch(
+      `https://deadstock-api.vercel.app/api/${type}`
+    );
     const json = await response.json();
     const data =
       type === "inventory" ? json.data.map((data) => formatData(data)) : json;
@@ -16,7 +18,9 @@ const fetchData = async (type) => {
 
 const fetchPair = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3001/api/inventory/${id}`);
+    const response = await fetch(
+      `https://deadstock-api.vercel.app/api/inventory/${id}`
+    );
     const json = await response.json();
     const data = formatData(json);
     return data;
@@ -28,7 +32,7 @@ const fetchPair = async (id) => {
 const fetchUser = async (username, password) => {
   try {
     const response = await fetch(
-      `http://localhost:3001/api/${username}/closet`,
+      `https://deadstock-api.vercel.app/api/${username}/closet`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -44,11 +48,14 @@ const fetchUser = async (username, password) => {
 
 const postData = async (newPost) => {
   try {
-    const response = await fetch("http://localhost:3001/api/inventory", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newPost),
-    });
+    const response = await fetch(
+      "https://deadstock-api.vercel.app/api/inventory",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newPost),
+      }
+    );
     const json = await response.json();
     const data = json.updated.map((data) => formatData(data));
 
@@ -61,7 +68,7 @@ const postData = async (newPost) => {
 const putData = async (newPost) => {
   try {
     const response = await fetch(
-      `http://localhost:3001/api/inventory/${newPost.id}`,
+      `https://deadstock-api.vercel.app/api/inventory/${newPost.id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -78,10 +85,13 @@ const putData = async (newPost) => {
 
 const deleteData = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3001/api/inventory/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      `https://deadstock-api.vercel.app/api/inventory/${id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     const json = await response.json();
     const data = json.updated.map((data) => formatData(data));
     return data;
