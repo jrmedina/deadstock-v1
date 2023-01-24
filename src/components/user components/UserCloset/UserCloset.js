@@ -7,8 +7,7 @@ import PropTypes from "prop-types";
 
 
 const UserCloset = ({ closet, update, deletePost }) => {
-  const toBeDisplayed = closet
-    ?.map((shoe, index) => (
+  const toBeDisplayed = closet?.map((shoe, index) => (
       <UserPost
         title={shoe.title}
         url={shoe.url}
