@@ -27,6 +27,7 @@ const fetchPair = async (id) => {
   } catch (error) {
     console.log(error);
   }
+}
 
 const fetchUser = async (username, password) => {
   try {
